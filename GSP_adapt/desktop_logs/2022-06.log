@@ -1,0 +1,201 @@
+#Logger version=1
+#Product 'Платформа nanoCAD x64' version=22
+2022-06-23 15:59:02 <Inspector>'Show'</Inspector:Completed>
+2022-06-23 15:59:03 Document 'Без имени0' activated.
+2022-06-23 15:59:05 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-06-23 15:59:07 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-06-23 15:59:07 <TipOfDay></TipOfDay:Completed>
+2022-06-23 15:59:37 Document 'Без имени1' activated.
+2022-06-23 15:59:37 <NCGS_TOGGLE_VECTORIZER>'Без имени0'; 'Без имени1' to 'Без имени1'</NCGS_TOGGLE_VECTORIZER:Completed>
+2022-06-23 16:00:30 <Line>Первая точка:11203.1,44095.2,0.0; Следующая точка:49959.5,25587.1,0.0; Следующая точка:21722.7,19259.5,0.0; Следующая точка:11203.1,44095.2,0.0; Следующая точка:11203.1,44095.2,0.0</Line:Cancelled>
+2022-06-23 16:00:37 <Line>Первая точка:0.0,0.0,0.0</Line:Cancelled>
+CRC[31fe99a8]
+2022-06-23 16:00:52 <Line>Первая точка:-582.0,37688.5,0.0; Следующая точка:10016.7,15621.2,0.0; Следующая точка:8672.1,33812.9,0.0; Следующая точка:Замкнуть</Line:Completed>
+2022-06-23 16:01:00 Closing session.
+2022-06-23 16:01:01 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени1' ?':No; 'Без имени1'</Exit:Completed>
+CRC[ac97f0d2]
+2022-06-23 16:01:21 <Inspector>'Show'</Inspector:Completed>
+2022-06-23 16:01:23 Document 'Без имени0' activated.
+2022-06-23 16:01:24 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-06-23 16:01:31 <StartupVPerfTest>msgBox:'В результате автоматического тестирования были определены оптимальные параметры функционирования графической подсистемы.  Нажмите кнопку ОК, чтобы применить оптимальные параметры.  Обратите внимание: изменение оптимальных параметров в разделе "Графическая подсистема" диалога "Настройки" в отдельных случаях может привести к возникновению проблем с отображением графики на экране монитора.':Ok</StartupVPerfTest:Completed>
+2022-06-23 16:01:31 <TipOfDay>
+2022-06-23 16:01:35 Document 'Без имени1' activated.
+2022-06-23 16:01:35   <NCGS_TOGGLE_VECTORIZER>'Без имени0'; 'Без имени1' to 'Без имени1'</NCGS_TOGGLE_VECTORIZER:Completed>
+2022-06-23 16:01:42 </TipOfDay:Completed>
+2022-06-23 16:02:22 Closing session.
+CRC[7b947edc]
+2022-06-23 16:02:22 <Exit>'Без имени1'</Exit:Completed>
+CRC[8c25be8c]
+2022-06-23 16:02:40 <Inspector>'Show'</Inspector:Completed>
+2022-06-23 16:02:41 Document 'Без имени0' activated.
+2022-06-23 16:02:42 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-06-23 16:02:45 <StartupVPerfTest>msgBox:'В результате автоматического тестирования были определены оптимальные параметры функционирования графической подсистемы.  Нажмите кнопку ОК, чтобы применить оптимальные параметры.  Обратите внимание: изменение оптимальных параметров в разделе "Графическая подсистема" диалога "Настройки" в отдельных случаях может привести к возникновению проблем с отображением графики на экране монитора.':Ok</StartupVPerfTest:Completed>
+2022-06-23 16:02:46 <TipOfDay>
+2022-06-23 16:02:49 Document 'Без имени1' activated.
+2022-06-23 16:02:49   <NCGS_TOGGLE_VECTORIZER>'Без имени0'; 'Без имени1' to 'Без имени1'</NCGS_TOGGLE_VECTORIZER:Completed>
+2022-06-23 16:02:52 </TipOfDay:Completed>
+2022-06-23 16:03:01 Closing session.
+CRC[7b947edc]
+2022-06-23 16:03:01 <Exit>'Без имени1'</Exit:Completed>
+CRC[8c25be8c]
+2022-06-23 16:03:21 <Inspector>'Show'</Inspector:Completed>
+2022-06-23 16:03:24 Document 'Без имени0' activated.
+2022-06-23 16:03:26 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-06-23 16:03:26 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-06-23 16:03:30 <TipOfDay></TipOfDay:Completed>
+2022-06-23 16:03:38 Closing session.
+2022-06-23 16:03:38 <Exit>'Без имени0'</Exit:Completed>
+CRC[6051a82d]
+2022-06-23 16:03:53 <Inspector>'Show'</Inspector:Completed>
+2022-06-23 16:03:56 Document 'Без имени0' activated.
+2022-06-23 16:03:57 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-06-23 16:03:57 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-06-23 16:03:57 <TipOfDay></TipOfDay:Completed>
+2022-06-23 16:04:12 Closing session.
+2022-06-23 16:04:12 <Exit>'Без имени0'</Exit:Completed>
+CRC[6051a82d]
+2022-06-30 14:23:46 <Inspector>'Show'</Inspector:Completed>
+2022-06-30 14:23:49 Document 'Без имени0' activated.
+2022-06-30 14:23:50 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-06-30 14:23:50 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-06-30 14:23:50 <TipOfDay></TipOfDay:Completed>
+2022-06-30 14:29:12 Document 'Без имени0' activated.
+2022-06-30 14:29:14 <CloseDocument>'Без имени0'</CloseDocument:Completed>
+2022-06-30 14:29:15 Closing session.
+2022-06-30 14:29:15 <Exit></Exit:Completed>
+CRC[14746c64]
+2022-06-30 14:11:06 <Inspector>'Show'</Inspector:Completed>
+2022-06-30 14:11:08 Document 'Без имени0' activated.
+2022-06-30 14:11:10 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-06-30 14:11:10 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-06-30 14:11:10 <TipOfDay></TipOfDay:Completed>
+2022-06-30 14:29:13 Document 'Без имени0' activated.
+2022-06-30 14:29:16 Document 'Без имени0' activated.
+2022-06-30 14:46:19 <appload>Load 'C:\Users\arsen\Downloads\Hello_DotNET1236_NRX12\HelloDotNet.TODO\bin-x64\Debug ACAD\HelloDotNET.dll':True</appload:Completed>
+2022-06-30 14:47:24 Document 'Без имени0' activated.
+CRC[fef04f91]
+2022-06-30 14:47:15 <Inspector>'Show'</Inspector:Completed>
+2022-06-30 14:47:18 Document 'Без имени0' activated.
+2022-06-30 14:47:18 Document 'Без имени0' activated.
+2022-06-30 14:47:19 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-06-30 14:47:19 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-06-30 14:47:19 <TipOfDay></TipOfDay:Completed>
+2022-06-30 14:47:21 Document 'Без имени0' activated.
+2022-06-30 14:47:22 Document 'Без имени0' activated.
+2022-06-30 14:47:24 Document 'Без имени0' activated.
+CRC[5b2f631f]
+2022-06-30 14:47:29 <Circle>Центр окружности:21445.3,42196.3,0.0; Радиус окружности:32596.7</Circle:Completed>
+2022-06-30 14:53:17 <CloseDocument>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</CloseDocument:Completed>
+2022-06-30 14:53:27 Closing session.
+2022-06-30 14:53:27 <Exit></Exit:Completed>
+CRC[54f3b99c]
+2022-06-30 14:47:35 Document 'Без имени0' activated.
+2022-06-30 14:47:40 <Hello3DPOLY>Введите точку:25547.2,26647.5,0.0; Введите точку:50062.9,18157.6,0.0; Введите точку:30698.4,23594.9,0.0; Введите точку:17534.3,31512.4,0.0; Введите точку:18392.8,33420.3,0.0; Введите точку:27455.0,28841.5,0.0; Введите точку:0.0,0.0,0.0</Hello3DPOLY:Completed>
+2022-06-30 14:52:50 Document 'Без имени0' activated.
+2022-06-30 14:53:06 <appload>Unload:'C:\Users\arsen\Downloads\Hello_DotNET1236_NRX12\HelloDotNet.TODO\bin-x64\Debug ACAD\HelloDotNET.dll':False</appload:Completed>
+2022-06-30 14:53:21 <CloseDocument>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</CloseDocument:Completed>
+2022-06-30 14:53:28 Closing session.
+2022-06-30 14:53:28 <Exit></Exit:Completed>
+CRC[736d37da]
+2022-06-30 14:53:42 <Inspector>'Show'</Inspector:Completed>
+2022-06-30 14:53:44 Document 'Без имени0' activated.
+2022-06-30 14:53:45 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-06-30 14:53:45 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-06-30 14:53:45 <TipOfDay></TipOfDay:Completed>
+2022-06-30 14:53:54 Closing session.
+2022-06-30 14:53:54 <Exit>'Без имени0'</Exit:Completed>
+CRC[6051a82d]
+2022-06-30 14:55:09 <Inspector>'Show'</Inspector:Completed>
+2022-06-30 14:55:11 Document 'Без имени0' activated.
+2022-06-30 14:55:12 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-06-30 14:55:12 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-06-30 14:55:12 <TipOfDay></TipOfDay:Completed>
+2022-06-30 14:55:26 <appload>Load 'C:\Users\arsen\Downloads\Hello_DotNET1236_NRX12\HelloDotNet.TODO\bin-x64\Debug ACAD\HelloDotNET.dll':True</appload:Completed>
+2022-06-30 14:55:29 <Hello1></Hello1:Completed>
+2022-06-30 15:21:55 <Hello1></Hello1:Completed>
+2022-06-30 15:23:33 Closing session.
+CRC[4ffeb25e]
+2022-06-30 15:23:34 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[9a7485c0]
+2022-06-30 15:28:44 <Inspector>'Show'</Inspector:Completed>
+2022-06-30 15:28:47 Document 'Без имени0' activated.
+2022-06-30 15:28:48 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-06-30 15:28:48 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-06-30 15:28:48 <TipOfDay></TipOfDay:Completed>
+2022-06-30 15:28:58 Document 'Без имени0' activated.
+2022-06-30 15:29:53 <appload>Load 'C:\Users\arsen\Downloads\Hello_DotNET1236_NRX12\HelloDotNet.TODO\bin-x64\Debug ACAD\HelloDotNET.dll':True</appload:Completed>
+2022-06-30 15:29:58 <Hello>Введите строку:</Hello:Cancelled>
+2022-06-30 15:31:49 <appload>Unload:'C:\Users\arsen\Downloads\Hello_DotNET1236_NRX12\HelloDotNet.TODO\bin-x64\Debug ACAD\HelloDotNET.dll':False; Unload:'C:\Users\arsen\Downloads\Hello_DotNET1236_NRX12\HelloDotNet.TODO\bin-x64\Debug ACAD\HelloDotNET.dll':False; Unload:'C:\Users\arsen\Downloads\Hello_DotNET1236_NRX12\HelloDotNet.TODO\bin-x64\Debug ACAD\HelloDotNET.dll':False; Unload:'C:\Users\arsen\Downloads\Hello_DotNET1236_NRX12\HelloDotNet.TODO\bin-x64\Debug ACAD\HelloDotNET.dll':False; Unload:'C:\Users\arsen\Downloads\Hello_DotNET1236_NRX12\HelloDotNet.TODO\bin-x64\Debug ACAD\HelloDotNET.dll':False; Unload:'C:\Users\arsen\Downloads\Hello_DotNET1236_NRX12\HelloDotNet.TODO\bin-x64\Debug ACAD\HelloDotNET.dll':False; Unload:'C:\Users\arsen\Downloads\Hello_DotNET1236_NRX12\HelloDotNet.TODO\bin-x64\Debug ACAD\HelloDotNET.dll':False; Unload:'C:\Users\arsen\Downloads\Hello_DotNET1236_NRX12\HelloDotNet.TODO\bin-x64\Debug ACAD\HelloDotNET.dll':False; Unload:'C:\Users\arsen\Downloads\Hello_DotNET1236_NRX12\HelloDotNet.TODO\bin-x64\Debug ACAD\HelloDotNET.dll':False; Unload:'C:\Users\arsen\Downloads\Hello_DotNET1236_NRX12\HelloDotNet.TODO\bin-x64\Debug ACAD\HelloDotNET.dll':False; Unload:'C:\Users\arsen\Downloads\Hello_DotNET1236_NRX12\HelloDotNet.TODO\bin-x64\Debug ACAD\HelloDotNET.dll':False; Unload:'C:\Users\arsen\Downloads\Hello_DotNET1236_NRX12\HelloDotNet.TODO\bin-x64\Debug ACAD\HelloDotNET.dll':False; Load 'C:\Users\arsen\Downloads\Hello_DotNET1236_NRX12\HelloDotNet.TODO\bin-x64\Debug ACAD\HelloDotNET.dll':True</appload:Completed>
+CRC[39040159]
+2022-06-30 15:33:54 <Hello1></Hello1:Completed>
+2022-06-30 15:34:00 <Hello>Введите строку:</Hello:Cancelled>
+2022-06-30 15:34:13 <appload>Load 'C:\Users\arsen\Downloads\Hello_DotNET1236_NRX12\HelloDotNet.TODO\bin-x64\Debug ACAD\HelloDotNET.dll':True</appload:Completed>
+2022-06-30 15:34:17 <Hello>Введите строку:</Hello:Cancelled>
+2022-06-30 15:34:59 <appload>Unload:'C:\Users\arsen\Downloads\Hello_DotNET1236_NRX12\HelloDotNet.TODO\bin-x64\Debug ACAD\HelloDotNET.dll':False; Load 'C:\Users\arsen\Downloads\Hello_DotNET1236_NRX12\HelloDotNet.TODO\bin-x64\Debug ACAD\HelloDotNET.dll':True</appload:Completed>
+2022-06-30 15:35:15 <Hello>Введите строку:</Hello:Cancelled>
+2022-06-30 15:35:18 Closing session.
+2022-06-30 15:35:18 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[1bdcec92]
+2022-06-30 16:36:22 <Inspector>'Show'</Inspector:Completed>
+2022-06-30 16:36:24 Document 'Без имени0' activated.
+2022-06-30 16:36:26 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-06-30 16:36:26 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-06-30 16:36:26 <TipOfDay></TipOfDay:Completed>
+2022-06-30 16:36:39 <Hello>Введите строку:Введите целое число:Еще_одно</Hello:Completed>
+2022-06-30 16:37:13 Closing session.
+2022-06-30 16:37:13 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[f2c0a523]
+2022-06-30 22:55:19 <Inspector>'Show'</Inspector:Completed>
+2022-06-30 22:55:22 Document 'Без имени0' activated.
+2022-06-30 22:55:24 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-06-30 22:55:24 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-06-30 22:55:24 <TipOfDay></TipOfDay:Completed>
+2022-06-30 22:55:31 <SaveDocument>'Без имени0'</SaveDocument:Cancelled>
+2022-06-30 22:55:48 <appload></appload:Completed>
+2022-06-30 22:55:53 <Hello1></Hello1:Completed>
+2022-06-30 22:56:14 <Hello>Введите строку:Введите целое число:123</Hello:Completed>
+CRC[9d17eedf]
+2022-06-30 22:57:51 <Inspector>'Show'</Inspector:Completed>
+2022-06-30 22:57:54 Document 'Без имени0' activated.
+2022-06-30 22:57:56 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-06-30 22:57:56 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-06-30 22:57:56 <TipOfDay></TipOfDay:Completed>
+2022-06-30 22:58:40 <Hello>Введите строку:Введите целое число:Еще_одно</Hello:Completed>
+2022-06-30 23:04:06 Closing session.
+2022-06-30 23:04:06 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[f2c0a523]
+2022-06-30 23:07:44 <Inspector>'Show'</Inspector:Completed>
+2022-06-30 23:07:47 Document 'Без имени0' activated.
+2022-06-30 23:07:48 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-06-30 23:07:48 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-06-30 23:07:48 <TipOfDay></TipOfDay:Completed>
+2022-06-30 23:09:40 <appload></appload:Completed>
+2022-06-30 23:41:06 <appload>Load 'D:\NanoCadExample1\samples\bin-Win32\Debug NCAD\MenuRes.dll':False; Load 'D:\NanoCadExample1\samples\bin-Win32\Debug NCAD\MenuRes.dll':False; Load 'D:\NanoCadExample1\samples\bin-Win32\Release NCAD\MenuRes.dll':False; Load 'D:\NanoCadExample1\samples\bin-Win32\Release NCAD\MenuRes.dll':False</appload:Completed>
+2022-06-30 23:49:06 Closing session.
+2022-06-30 23:49:06 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[10be76ad]
+2022-06-30 23:52:18 <Inspector>'Show'</Inspector:Completed>
+2022-06-30 23:52:21 Document 'Без имени0' activated.
+2022-06-30 23:52:22 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-06-30 23:52:22 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-06-30 23:52:22 <TipOfDay></TipOfDay:Completed>
+2022-06-30 23:52:32 Document 'Без имени0' activated.
+2022-06-30 23:54:18 <appload>Load 'D:\NanoCadExample1\NC_SDK_22.0.5944.3726.6053\include-x64\nrxgatemgd.dll':True</appload:Completed>
+2022-06-30 23:57:33 <appload>Load 'D:\NanoCadExample1\NC_SDK_22.0.5944.3726.6053\include-x64\hostdbmgd.dll':True</appload:Completed>
+2022-06-30 23:57:42 <appload>Load 'D:\NanoCadExample1\NC_SDK_22.0.5944.3726.6053\include-x64\hostmgd.dll':True</appload:Completed>
+CRC[3032f514]
+2022-06-30 23:57:51 <appload>Load 'D:\NanoCadExample1\NC_SDK_22.0.5944.3726.6053\include-x64\imapimgd.dll':True</appload:Completed>
+2022-06-30 23:58:03 <appload>Load 'D:\NanoCadExample1\NC_SDK_22.0.5944.3726.6053\include-x64\mapibasetypes.dll':True; Load 'D:\NanoCadExample1\NC_SDK_22.0.5944.3726.6053\include-x64\mapimgd.dll':True</appload:Completed>
+2022-06-30 23:58:20 <appload>Load 'D:\NanoCadExample1\NC_SDK_22.0.5944.3726.6053\include-x64\mapimgd.dll':True; Load 'D:\NanoCadExample1\NC_SDK_22.0.5944.3726.6053\include-x64\nrxgatemgd.dll':True; Load 'D:\NanoCadExample1\NC_SDK_22.0.5944.3726.6053\include-x64\mapimgd.dll':True; Load 'D:\NanoCadExample1\NC_SDK_22.0.5944.3726.6053\include-x64\mapibasetypes.dll':True; Load 'D:\NanoCadExample1\NC_SDK_22.0.5944.3726.6053\include-x64\imapimgd.dll':True; Load 'D:\NanoCadExample1\NC_SDK_22.0.5944.3726.6053\include-x64\hostmgd.dll':True; Load 'D:\NanoCadExample1\NC_SDK_22.0.5944.3726.6053\include-x64\hostdbmgd.dll':True</appload:Completed>
+2022-06-30 23:58:31 <appload></appload:Completed>
+2022-06-30 23:59:53 <appload></appload:Completed>
+2022-07-01 00:01:37 <appload>Load 'D:\NanoCadExample1\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\HelloHost.dll':True</appload:Completed>
+2022-07-01 00:01:59 <HelloHost_Example1>Введите строку:Укажите ключевое слово:Еще_одно</HelloHost_Example1:Completed>
+2022-07-01 00:02:27 <HelloHost_Example2>Введите имя нового слоя:</HelloHost_Example2:Completed>
+2022-07-01 00:04:03 <appload>Load 'D:\NanoCadExample1\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\HelloHostVB.dll':True</appload:Completed>
+CRC[56380e91]
+2022-07-01 00:04:14 <appload>Load 'D:\NanoCadExample1\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\CrossCircleMg.dll':True</appload:Completed>
+2022-07-01 00:04:26 <appload></appload:Completed>
+2022-07-01 00:06:38 Closing session.
+2022-07-01 00:06:38 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[152e2d71]
