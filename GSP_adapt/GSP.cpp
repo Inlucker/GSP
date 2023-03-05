@@ -26,6 +26,7 @@ QList<Sequence> GSP::getFrequentSequences()
         break;
     }
   }
+  sortFrequentSequences();
   return this->freq_seqs;
 }
 
@@ -78,7 +79,8 @@ void GSP::printFrequentSequences()
     res += ">";
     while (res.size() < max_len)
       res += " ";
-    res+= "supp = " + QString::number(freq_seqs[i].support, 'g', 3);
+    res+= "supp = " + QString::number(freq_seqs[i].support, 'f', 3);
+    res+= " lift = " + (freq_seqs[i].lift < 0 ? "null ": QString::number(freq_seqs[i].lift, 'f', 3));
     qDebug() << res;
   }
 }
@@ -252,6 +254,29 @@ bool GSP::sessionSupportsSequence(const Session& session, const Sequence& seq)
   return res;
 }
 
+Sequence GSP::findFreqSequenceByCommand(int cmd)
+{
+  for (int i = 0; i < freq_seqs.size(); i++)
+  {
+    if (freq_seqs[i] == cmd)
+      return freq_seqs[i];
+  }
+  return Sequence();
+}
+
+double GSP::calcLift(Sequence seq)
+{
+  double res = seq.support;
+  for (int i = 0; i < seq.size(); i++)
+  {
+    Sequence subseq = findFreqSequenceByCommand(seq[i]);
+    if (subseq.size() < 1)
+      return -1;
+    res /= subseq.support;
+  }
+  return res;
+}
+
 int GSP::countSupport(QList<Sequence> &candidates, const QList<Session>& sessions)
 {
   //QList<Session> sessions;
@@ -268,7 +293,7 @@ int GSP::countSupport(QList<Sequence> &candidates, const QList<Session>& session
     }
     candidate.support = candidate.support / sessions_count;
     //candidate.confidence = calcConfidence(candidate);
-    //candidate.lift = calcLift(candidate);
+    candidate.lift = calcLift(candidate);
     if (candidate.support >= this->min_support)
     {
       freq_seqs.push_back(candidate);
@@ -371,3 +396,16 @@ int GSP::countSupport(QList<Sequence> &candidates, const QList<Session>& session
   }
   return res;
 }*/
+
+bool sequenceGreaterThan(const Sequence &s1, const Sequence &s2)
+{
+  if (s1.lift != s2.lift)
+    return s1.lift > s2.lift;
+  else
+    return s1.support > s2.support;
+}
+
+void GSP::sortFrequentSequences()
+{
+  sort(freq_seqs.begin(), freq_seqs.end(), sequenceGreaterThan);
+}

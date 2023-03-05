@@ -204,7 +204,7 @@ namespace GSPtest
           if (ClientSupportsSequence(client, candidate))
             supported_clients++;
         }
-        double candidate_support = (double)supported_clients / clients.Count;
+        double candidate_support = (double)supported_clients / (clients.Count-1);
         if (candidate_support >= this.support)
         {
           candidate.support = candidate_support;
@@ -264,9 +264,10 @@ namespace GSPtest
     }
     public void SortFrequentSequences()
     {
-      this.freq_seqs.Sort((x, y) => -x.support.CompareTo(y.support));
-      this.freq_seqs.Sort((x, y) => -x.confidence.CompareTo(y.confidence));
-      this.freq_seqs.Sort((x, y) => -x.lift.CompareTo(y.lift));
+      this.freq_seqs.Sort((x, y) => x.CompareTo(y));
+      //this.freq_seqs.Sort((x, y) => -x.support.CompareTo(y.support));
+      //this.freq_seqs.Sort((x, y) => -x.confidence.CompareTo(y.confidence));
+      //this.freq_seqs.Sort((x, y) => -x.lift.CompareTo(y.lift));
     }
     public int PrintFrequentSequences()
     {

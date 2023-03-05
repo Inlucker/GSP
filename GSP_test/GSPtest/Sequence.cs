@@ -48,6 +48,14 @@ namespace GSPtest
     {
       return !(seq1 == seq2);
     }
+    public int CompareTo(Sequence seq2)
+    {
+      if (this.lift != seq2.lift)
+        return -this.lift.CompareTo(seq2.lift);
+      else
+        return -this.support.CompareTo(seq2.support);
+    }
+
     public ItemGroup this[int i] //operator []
     {
       get { return list[i]; }

@@ -28,8 +28,11 @@ private:
   QList<Sequence> generateCandidates();
   bool findCommand(int cmd, const Session& session, int min_time, int &time) const;
   bool sessionSupportsSequence(const Session& session, const Sequence& seq);
+  Sequence findFreqSequenceByCommand(int cmd);
+  double calcLift(Sequence seq);
   int countSupport(QList<Sequence> &candidates, const QList<Session> &sessions);
   //int countSupport2(QList<Sequence> &candidates, const QList<Session> &sessions);
+  void sortFrequentSequences();
 
 private:
   QList<Sequence> freq_seqs;
