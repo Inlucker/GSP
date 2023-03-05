@@ -1,0 +1,94 @@
+#Logger version=1
+#Product 'Платформа nanoCAD x64' version=22
+2022-11-07 17:44:50 <Inspector>'Show'</Inspector:Completed>
+2022-11-07 17:44:55 Document 'Без имени0' activated.
+2022-11-07 17:44:58 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-11-07 17:44:58 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-11-07 17:44:58 <TipOfDay></TipOfDay:Completed>
+2022-11-07 17:46:39 <appload>Load 'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\HelloQt.nrx':True; Load 'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\HelloQt.nrx':True; Load 'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2022-11-07 17:46:42 <_HELLOQTPALETTE></_HELLOQTPALETTE:Completed>
+2022-11-07 17:46:44 <_HELLOQTPALETTE></_HELLOQTPALETTE:Completed>
+2022-11-07 17:47:15 <appload>Unload:'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+CRC[9a57a590]
+2022-11-07 17:47:26 <appload>Load 'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Release NCAD\HelloQt.nrx':True</appload:Completed>
+2022-11-07 17:47:28 <_HELLOQTPALETTE></_HELLOQTPALETTE:Completed>
+2022-11-07 17:47:32 <_HELLOQTPALETTE></_HELLOQTPALETTE:Completed>
+2022-11-07 17:53:59 <_HELLOQTPALETTE></_HELLOQTPALETTE:Completed>
+2022-11-07 17:54:01 <_HELLOQTPALETTE></_HELLOQTPALETTE:Completed>
+2022-11-07 18:24:40 Closing session.
+2022-11-07 18:24:40 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[22955d40]
+2022-11-15 17:14:46 <Inspector>'Show'</Inspector:Completed>
+2022-11-15 17:14:49 Document 'Без имени0' activated.
+2022-11-15 17:14:50 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-11-15 17:14:50 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-11-15 17:14:50 <TipOfDay></TipOfDay:Completed>
+2022-11-15 17:17:34 <appload>Load 'C:\Users\arsen\source\repos\QtFileExplorer7 (+Provider)\x64\Debug\QtFileExplorer.nrx':True</appload:Completed>
+2022-11-15 17:17:41 <FileExplorer>Show</FileExplorer:Completed>
+2022-11-15 17:18:15 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-11-15 17:19:14 Closing session.
+CRC[19663961]
+2022-11-15 17:19:14 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[9a7485c0]
+2022-11-15 17:19:28 <FileExplorer>Show</FileExplorer:Completed>
+2022-11-15 17:19:28 <Inspector>'Show'</Inspector:Completed>
+2022-11-15 17:19:30 Document 'Без имени0' activated.
+2022-11-15 17:19:31 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-11-15 17:19:31 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-11-15 17:19:31 <TipOfDay></TipOfDay:Completed>
+2022-11-15 17:19:52 Closing session.
+2022-11-15 17:19:52 <Exit>'Без имени0'</Exit:Completed>
+CRC[f5309c5f]
+2022-11-15 18:31:42 <Inspector>'Show'</Inspector:Completed>
+2022-11-15 18:31:44 Document 'Без имени0' activated.
+2022-11-15 18:31:46 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-11-15 18:31:46 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-11-15 18:31:46 <TipOfDay></TipOfDay:Completed>
+2022-11-15 19:46:38 Closing session.
+2022-11-15 19:46:39 <Exit>'Без имени0'</Exit:Completed>
+CRC[6051a82d]
+2022-11-16 15:10:16 <Inspector>'Show'</Inspector:Completed>
+2022-11-16 15:10:19 Document 'Без имени0' activated.
+2022-11-16 15:10:20 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-11-16 15:10:20 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-11-16 15:10:20 <TipOfDay></TipOfDay:Completed>
+2022-11-16 15:12:14 <Point>Укажите точку:1422.1,38356.1,0.0; Укажите точку:1422.1,38356.1,0.0</Point:Cancelled>
+2022-11-16 15:53:00 Closing session.
+2022-11-16 15:53:01 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[32937c7b]
+2022-11-16 18:44:30 <Inspector>'Show'</Inspector:Completed>
+2022-11-16 18:44:33 Document 'Без имени0' activated.
+2022-11-16 18:44:34 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-11-16 18:44:34 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-11-16 18:44:34 <TipOfDay></TipOfDay:Completed>
+2022-11-16 18:44:47 <AddRectangleViewport>Выберите режим видового экрана [Сохранить Восстановить Удалить 1 2 3 4 Объект Многоугольный Прямоугольный вПисать ВКЛ(выкл) Блок(разблок) Подрезка СЛой *S *R *D *SI *2 *3 *4 *O * P *RE *F *ON *L *C *LA]<3>:RE; Укажите первый угол видового экрана:0.0,0.0,0.0</AddRectangleViewport:Cancelled>
+2022-11-16 18:44:48 <VPorts></VPorts:Completed>
+2022-11-16 19:01:19 Closing session.
+2022-11-16 19:01:19 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[b057f302]
+2022-11-22 14:03:09 <Inspector>'Show'</Inspector:Completed>
+2022-11-22 14:03:12 Document 'Без имени0' activated.
+2022-11-22 14:03:13 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-11-22 14:03:13 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-11-22 14:03:13 <TipOfDay></TipOfDay:Completed>
+2022-11-22 14:03:45 <Circle>Центр окружности:29947.6,41075.4,0.0; Радиус окружности:19471.6</Circle:Completed>
+2022-11-22 14:03:52 <3dextrude>Укажите области 2D-эскиза для профиля выдавливания:0.0,0.0,0.0</3dextrude:Completed>
+2022-11-22 14:04:13 <3drevolve>Укажите области 2D-эскиза для профиля вращения:48916.2,36678.1,0.0; Укажите области 2D-эскиза для профиля вращения:CANCEL; Укажите ось вращения или [*CANCEL *ENTER "oX" "oY" "oZ" *"oX" *"oY" *"oZ"]:29520.0,41246.5,0.0; Укажите ось вращения или [*CANCEL *ENTER "oX" "oY" "oZ" *"oX" *"oY" *"oZ"]:CANCEL; Укажите тело, в которое вы хотите интегрировать 'Вращение':48614.3,35535.0,0.0; Укажите тело, в которое вы хотите интегрировать 'Вращение':10809.5,44663.8,0.0; Укажите тело, в которое вы хотите интегрировать 'Вращение':23711.1,22629.5,0.0; Укажите тело, в которое вы хотите интегрировать 'Вращение':45990.5,52110.2,0.0; Укажите тело, в которое вы хотите интегрировать 'Вращение':33454.3,45351.9,0.0; Укажите тело, в которое вы хотите интегрировать 'Вращение':0.0,0.0,0.0; Укажите ось вращения или [*CANCEL *ENTER "oX" "oY" "oZ" *"oX" *"oY" *"oZ"]:0.0,0.0,0.0</3drevolve:Completed>
+2022-11-22 14:05:08 <3drevolve>Укажите области 2D-эскиза для профиля вращения:CANCEL; Укажите ось вращения или [*CANCEL *ENTER "oX" "oY" "oZ" *"oX" *"oY" *"oZ"]:29947.6,41075.4,0.0; Укажите ось вращения или [*CANCEL *ENTER "oX" "oY" "oZ" *"oX" *"oY" *"oZ"]:CANCEL; Укажите тело, в которое вы хотите интегрировать 'Вращение':0.0,0.0,0.0; Укажите области 2D-эскиза для профиля вращения:10762.7,44404.3,0.0; Укажите области 2D-эскиза для профиля вращения:76219.0,41503.1,0.0; Укажите области 2D-эскиза для профиля вращения:CANCEL</3drevolve:Completed>
+CRC[3b5e0030]
+2022-11-22 14:06:01 <3drevolve>Укажите области 2D-эскиза для профиля вращения:35507.0,42957.0,0.0; Укажите области 2D-эскиза для профиля вращения:12245.3,49185.3,0.0; Укажите области 2D-эскиза для профиля вращения:CANCEL; Укажите ось вращения или [*CANCEL *ENTER "oX" "oY" "oZ" *"oX" *"oY" *"oZ"]:29947.6,41075.4,0.0; Укажите ось вращения или [*CANCEL *ENTER "oX" "oY" "oZ" *"oX" *"oY" *"oZ"]:Измерьте угол вращения или [*CANCEL *ENTER "Отмена" *"B"]:0.0,0.0,0.0; 0.0,0.0,0.0</3drevolve:Completed>
+2022-11-22 14:07:04 <3drevolve>Укажите области 2D-эскиза для профиля вращения:20726.4,58225.1,0.0; Укажите области 2D-эскиза для профиля вращения:CANCEL; Укажите ось вращения или [*CANCEL *ENTER "oX" "oY" "oZ" *"oX" *"oY" *"oZ"]:29947.6,41075.4,0.0; Укажите ось вращения или [*CANCEL *ENTER "oX" "oY" "oZ" *"oX" *"oY" *"oZ"]:CANCEL; Укажите области 2D-эскиза для профиля вращения:12480.3,49680.0,0.0; Укажите области 2D-эскиза для профиля вращения:CANCEL; Укажите тело, в которое вы хотите интегрировать 'Вращение':25329.0,42016.2,0.0; Укажите тело, в которое вы хотите интегрировать 'Вращение':11874.6,48321.7,0.0; Укажите тело, в которое вы хотите интегрировать 'Вращение':28910.6,60519.4,0.0; Укажите тело, в которое вы хотите интегрировать 'Вращение':48633.5,46550.8,0.0; Укажите тело, в которое вы хотите интегрировать 'Вращение':46098.1,30198.6,0.0; Укажите тело, в которое вы хотите интегрировать 'Вращение':22078.9,28930.2,0.0; Укажите тело, в которое вы хотите интегрировать 'Вращение':14648.9,29029.9,0.0; Укажите тело, в которое вы хотите интегрировать 'Вращение':13526.0,34404.1,0.0; Укажите тело, в которое вы хотите интегрировать 'Вращение':0.0,0.0,0.0; Укажите ось вращения или [*CANCEL *ENTER "oX" "oY" "oZ" *"oX" *"oY" *"oZ"]:CANCEL; Укажите области 2D-эскиза для профиля вращения:11641.0,47709.5,0.0; Укажите области 2D-эскиза для профиля вращения:12756.2,46891.4,0.0; Укажите области 2D-эскиза для профиля вращения:11348.4,46838.5,0.0; Укажите области 2D-эскиза для профиля вращения:11016.8,45632.8,0.0; Укажите области 2D-эскиза для профиля вращения:49390.6,40019.7,0.0; Укажите области 2D-эскиза для профиля вращения:27637.8,21741.3,0.0; Укажите области 2D-эскиза для профиля вращения:29592.0,60543.8,0.0; Укажите области 2D-эскиза для профиля вращения:12348.6,49407.3,0.0; Укажите области 2D-эскиза для профиля вращения:33283.2,41845.2,0.0; Укажите области 2D-эскиза для профиля вращения:CANCEL; Укажите ось вращения или [*CANCEL *ENTER "oX" "oY" "oZ" *"oX" *"oY" *"oZ"]:70403.0,39450.3,0.0; Укажите ось вращения или [*CANCEL *ENTER "oX" "oY" "oZ" *"oX" *"oY" *"oZ"]:29947.6,41075.4,0.0; Укажите ось вращения или [*CANCEL *ENTER "oX" "oY" "oZ" *"oX" *"oY" *"oZ"]:0.0,0.0,0.0</3drevolve:Completed>
+2022-11-22 14:07:06 <SimplePolyLine>Укажите точку:0.0,0.0,0.0</SimplePolyLine:Cancelled>
+2022-11-22 14:07:09 <Line>Первая точка:-8284.0,58437.9,0.0; Следующая точка:-8284.0,26022.2,0.0; Следующая точка:-8284.0,26022.2,0.0</Line:Cancelled>
+2022-11-22 14:07:23 <3drevolve>Укажите области 2D-эскиза для профиля вращения:13376.6,51300.1,0.0; Укажите области 2D-эскиза для профиля вращения:CANCEL; Укажите ось вращения или [*CANCEL *ENTER "oX" "oY" "oZ" *"oX" *"oY" *"oZ"]:-8284.0,58437.9,0.0; -8284.0,21660.2,0.0; CANCEL</3drevolve:Completed>
+2022-11-22 14:08:12 Closing session.
+2022-11-22 14:08:12 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[2b975217]
+2022-11-23 11:22:46 <Inspector>'Show'</Inspector:Completed>
+2022-11-23 11:22:49 Document 'Без имени0' activated.
+2022-11-23 11:22:51 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-11-23 11:22:51 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-11-23 11:22:51 <TipOfDay></TipOfDay:Completed>
+2022-11-23 11:23:50 Closing session.
+2022-11-23 11:23:51 <Exit>'Без имени0'</Exit:Completed>
+CRC[6051a82d]

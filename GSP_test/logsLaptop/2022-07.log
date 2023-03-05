@@ -1,0 +1,121 @@
+#Logger version=1
+#Product 'Платформа nanoCAD x64' version=22
+2022-07-04 19:39:05 <Inspector>'Show'</Inspector:Completed>
+2022-07-04 19:39:08 Document 'Без имени0' activated.
+2022-07-04 19:39:09 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-07-04 19:39:09 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-07-04 19:39:13 <TipOfDay></TipOfDay:Completed>
+2022-07-04 19:44:36 Closing session.
+2022-07-04 19:44:36 <Exit>'Без имени0'</Exit:Completed>
+CRC[6051a82d]
+2022-07-05 04:16:31 <Inspector>'Show'</Inspector:Completed>
+2022-07-05 04:16:34 Document 'Без имени0' activated.
+2022-07-05 04:16:35 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-07-05 04:16:35 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-07-05 04:16:35 <TipOfDay></TipOfDay:Completed>
+2022-07-05 04:16:57 <appload>Load 'C:\Users\arsen\Documents\QtDialogLib\debug\QtDialogLib.nrx':True</appload:Completed>
+2022-07-05 04:17:00 <HELLONRX></HELLONRX:Completed>
+2022-07-05 04:19:11 Document 'Без имени0' activated.
+2022-07-05 04:50:21 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':Cancel</Exit:Cancelled>
+CRC[9a076b71]
+2022-07-05 04:51:07 <appload>Unload:'C:\Users\arsen\Documents\QtDialogLib\debug\QtDialogLib.nrx':True</appload:Completed>
+2022-07-05 04:51:16 <appload>Load 'C:\Users\arsen\Documents\QtDialogLib\debug\QtDialogLib.nrx':True</appload:Completed>
+2022-07-05 04:51:18 <HELLONRX></HELLONRX:Completed>
+2022-07-05 04:52:06 <appload>Load 'C:\Users\arsen\Documents\QtDialogLib\debug\QtDialogLib.dll':True</appload:Completed>
+2022-07-05 04:52:11 <HELLOQTMODALDLG></HELLOQTMODALDLG:Completed>
+2022-07-05 04:52:33 <appload>Unload:'C:\Users\arsen\Documents\QtDialogLib\debug\QtDialogLib.nrx':True; Unload:'C:\Users\arsen\Documents\QtDialogLib\debug\QtDialogLib.dll':True</appload:Completed>
+2022-07-05 04:54:29 <appload>Load 'C:\Users\arsen\Documents\QtDialogLib\debug\QtDialogLib.dll':True</appload:Completed>
+2022-07-05 04:54:32 <HELLOQTMODALDLG></HELLOQTMODALDLG:Completed>
+2022-07-05 04:55:02 <appload>Unload:'C:\Users\arsen\Documents\QtDialogLib\debug\QtDialogLib.dll':True; Load 'C:\Users\arsen\Documents\QtDialogLib\debug\QtDialogLib.dll':True</appload:Completed>
+CRC[258dcb59]
+2022-07-05 04:55:05 <HELLOQTMODALDLG></HELLOQTMODALDLG:Completed>
+2022-07-05 05:02:54 <appload>Unload:'C:\Users\arsen\Documents\QtDialogLib\debug\QtDialogLib.dll':True</appload:Completed>
+2022-07-05 05:18:59 <appload>Load 'C:\Users\arsen\Documents\QtDialogLib\debug\QtDialogLib.dll':True</appload:Completed>
+2022-07-05 05:19:02 <HELLONRX></HELLONRX:Completed>
+2022-07-05 05:19:04 <HELLOQTMODALDLG></HELLOQTMODALDLG:Completed>
+2022-07-05 05:19:14 Closing session.
+2022-07-05 05:19:15 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[485d80f0]
+2022-07-25 23:14:33 <Inspector>'Show'</Inspector:Completed>
+2022-07-25 23:14:38 Document 'Без имени0' activated.
+2022-07-25 23:14:40 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-07-25 23:14:40 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-07-25 23:14:40 <TipOfDay></TipOfDay:Completed>
+2022-07-25 23:20:44 Document 'Без имени0' activated.
+2022-07-25 23:21:51 <appload>Load 'C:\Users\arsen\source\repos\QtFileExplorer7 (+Provider)\QtFileExplorer.nrx':True</appload:Completed>
+2022-07-25 23:21:56 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-07-25 23:22:21 Closing session.
+CRC[fac2863d]
+2022-07-25 23:22:21 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[9a7485c0]
+2022-07-27 06:34:00 <Inspector>'Show'</Inspector:Completed>
+2022-07-27 06:34:02 Document 'Без имени0' activated.
+2022-07-27 06:34:03 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-07-27 06:34:03 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-07-27 06:34:03 <TipOfDay></TipOfDay:Completed>
+2022-07-27 06:34:31 <appload>Load 'C:\Program Files\Nanosoft\nanoCAD x64 22.0\SDK\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2022-07-27 06:34:34 <_HELLOQTMODALDLG></_HELLOQTMODALDLG:Completed>
+2022-07-27 06:34:36 Closing session.
+2022-07-27 06:34:36 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[8aab3a13]
+2022-07-27 06:35:29 <Inspector>'Show'</Inspector:Completed>
+2022-07-27 06:35:32 Document 'Без имени0' activated.
+2022-07-27 06:35:33 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-07-27 06:35:33 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-07-27 06:35:33 <TipOfDay></TipOfDay:Completed>
+2022-07-27 06:35:46 Document 'Без имени0' activated.
+2022-07-27 06:36:09 <_HELLOQTPALETTE></_HELLOQTPALETTE:Completed>
+2022-07-27 06:36:12 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':Cancel</Exit:Cancelled>
+2022-07-27 06:36:16 Closing session.
+CRC[311e3ba0]
+2022-07-27 06:36:16 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[9a7485c0]
+2022-07-27 06:37:41 <Inspector>'Show'</Inspector:Completed>
+2022-07-27 06:37:44 Document 'Без имени0' activated.
+2022-07-27 06:37:47 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-07-27 06:37:47 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-07-27 06:37:47 <TipOfDay></TipOfDay:Completed>
+2022-07-27 06:38:03 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-07-27 06:38:29 Document 'Без имени0' activated.
+2022-07-27 06:38:45 Closing session.
+2022-07-27 06:38:45 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[5c4c7308]
+2022-07-28 23:02:42 <Inspector>'Show'</Inspector:Completed>
+2022-07-28 23:02:45 Document 'Без имени0' activated.
+2022-07-28 23:02:47 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-07-28 23:02:47 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-07-28 23:02:47 <TipOfDay></TipOfDay:Completed>
+2022-07-28 23:03:17 <appload>Load 'C:\Users\arsen\source\repos\QtFileExplorer7 (+Provider)\x64\Debug\QtFileExplorer.nrx':True</appload:Completed>
+2022-07-28 23:03:46 <appload></appload:Completed>
+2022-07-28 23:03:49 <HELLOQTMODALDLG></HELLOQTMODALDLG:Completed>
+2022-07-28 23:04:18 <appload>Load 'C:\NanoCAD практика\QtCopyDialogLib\QtCopyDialogLib.nrx':True</appload:Completed>
+CRC[1496aae8]
+2022-07-28 23:04:23 <HELLOQTMODALDLG></HELLOQTMODALDLG:Completed>
+2022-07-28 23:04:25 <HELLOQT></HELLOQT:Completed>
+2022-07-28 23:04:29 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-07-28 23:04:33 <HELLOQTCopyDialog></HELLOQTCopyDialog:Completed>
+2022-07-28 23:04:37 <Line>Первая точка:31760.1,33471.2,0.0; Следующая точка:39410.2,33471.2,0.0; Следующая точка:32945.3,14292.1,0.0; Следующая точка:21093.1,22480.9,0.0; Следующая точка:18938.1,40259.3,0.0; Следующая точка:18938.1,40259.3,0.0</Line:Cancelled>
+2022-07-28 23:04:52 <OpenDocument></OpenDocument:Cancelled>
+2022-07-28 23:06:57 <appload>Load 'C:\Users\arsen\Downloads\QtCSSHighlighter.nrx':True</appload:Completed>
+2022-07-28 23:07:00 <QTCSSHIGHLIGHTER></QTCSSHIGHLIGHTER:Completed>
+2022-07-28 23:07:40 <QTCSSHIGHLIGHTER></QTCSSHIGHLIGHTER:Completed>
+CRC[2a9b2844]
+2022-07-28 23:12:02 Document 'Без имени0' activated.
+2022-07-28 23:12:07 <HELLOQTCopyDialog></HELLOQTCopyDialog:Completed>
+2022-07-28 23:12:16 <HELLOQTCopyDialog></HELLOQTCopyDialog:Completed>
+2022-07-28 23:12:36 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-07-28 23:12:58 <QTCSSHIGHLIGHTER></QTCSSHIGHLIGHTER:Completed>
+2022-07-28 23:13:22 Document 'Без имени0' activated.
+2022-07-28 23:13:49 Closing session.
+2022-07-28 23:13:49 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[04cd6f16]
+2022-07-28 23:17:03 <Inspector>'Show'</Inspector:Completed>
+2022-07-28 23:17:05 Document 'Без имени0' activated.
+2022-07-28 23:17:07 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-07-28 23:17:07 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-07-28 23:17:07 <TipOfDay></TipOfDay:Completed>
+2022-07-28 23:18:17 <appload>Load 'C:\Users\arsen\Downloads\QtCSSHighlighter.nrx':True</appload:Completed>
+2022-07-28 23:18:19 <QTCSSHIGHLIGHTER></QTCSSHIGHLIGHTER:Completed>
+2022-07-28 23:18:30 Closing session.
+2022-07-28 23:18:30 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[b218a159]

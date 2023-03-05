@@ -1,0 +1,14 @@
+#Logger version=1
+#Product 'Платформа nanoCAD x64' version=22
+2023-01-31 17:40:18 <Inspector>'Show'</Inspector:Completed>
+2023-01-31 17:40:22 Document 'Без имени0' activated.
+2023-01-31 17:40:23 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2023-01-31 17:40:23 <StartupVPerfTest></StartupVPerfTest:Completed>
+2023-01-31 17:40:23 <TipOfDay></TipOfDay:Completed>
+2023-01-31 17:40:49 <appload>Load 'C:\Users\arsen\Downloads\NC_SDK_RU_23.0.6116.4106.6223\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2023-01-31 17:40:53 <_HELLOQTMODALDLG></_HELLOQTMODALDLG:Completed>
+2023-01-31 17:40:56 <_HELLOQTPALETTE></_HELLOQTPALETTE:Completed>
+2023-01-31 17:41:13 Closing session.
+CRC[ffeabbe0]
+2023-01-31 17:41:13 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[9a7485c0]

@@ -23,7 +23,9 @@ void Session::makeRepresintaion(int item_num)
     for (const Command& cmd : commands)
       if (item_num < cmd.command_id)
         item_num = cmd.command_id;
-  repr = QList<forward_list<int>>(item_num);
+  //repr = QList<forward_list<int>>(item_num);
+  for (int i = 0; i < item_num; i++)
+    repr.push_back(forward_list<int>());
   for (const Command& cmd : commands)
     repr[cmd.command_id].push_front(cmd.time);
 }

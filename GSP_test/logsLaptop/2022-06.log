@@ -1,0 +1,15 @@
+#Logger version=1
+#Product 'Платформа nanoCAD x64' version=22
+2022-06-30 20:00:19 <Inspector>'Show'</Inspector:Completed>
+2022-06-30 20:00:21 Document 'Без имени0' activated.
+2022-06-30 20:00:23 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-06-30 20:00:24 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-06-30 20:00:24 <TipOfDay></TipOfDay:Completed>
+2022-06-30 20:00:46 Document 'Без имени1' activated.
+2022-06-30 20:00:47 <NCGS_TOGGLE_VECTORIZER>'Без имени0'; 'Без имени1' to 'Без имени1'</NCGS_TOGGLE_VECTORIZER:Completed>
+2022-06-30 20:09:55 <appload>Load 'C:\Users\arsen\Downloads\Hello_DotNET1236_NRX12new\HelloDotNet.TODO\bin-x64\Debug ACAD\HelloDotNET.dll':True</appload:Completed>
+2022-06-30 20:10:03 <Hello>Введите строку:Введите целое число:2</Hello:Completed>
+CRC[1085067a]
+2022-06-30 20:10:10 Closing session.
+2022-06-30 20:10:10 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени1' ?':No; 'Без имени1'</Exit:Completed>
+CRC[1f484333]

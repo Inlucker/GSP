@@ -1,0 +1,33 @@
+#Logger version=1
+#Product 'Платформа nanoCAD x64' version=22
+2023-02-16 16:27:01 <Inspector>'Show'</Inspector:Completed>
+2023-02-16 16:27:06 Document 'Без имени0' activated.
+2023-02-16 16:27:08 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2023-02-16 16:27:08 <StartupVPerfTest></StartupVPerfTest:Completed>
+2023-02-16 16:27:08 <TipOfDay></TipOfDay:Completed>
+2023-02-16 16:29:39 <Point>Укажите точку:0.0,0.0,0.0</Point:Cancelled>
+2023-02-16 16:29:42 <Line>Первая точка:23460.2,31099.7,0.0; Следующая точка:10337.9,49733.3,0.0; Следующая точка:31595.9,47371.3,0.0; Следующая точка:39819.2,29000.1,0.0; Следующая точка:39819.2,29000.1,0.0</Line:Cancelled>
+2023-02-16 16:30:23 <Delete></Delete:Completed>
+2023-02-16 16:30:25 Closing session.
+CRC[eb5103e0]
+2023-02-16 16:30:26 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[9a7485c0]
+2023-02-16 16:31:21 <Inspector>'Show'</Inspector:Completed>
+2023-02-16 16:31:23 Document 'Без имени0' activated.
+2023-02-16 16:31:24 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2023-02-16 16:31:24 <StartupVPerfTest></StartupVPerfTest:Completed>
+2023-02-16 16:31:24 <TipOfDay></TipOfDay:Completed>
+2023-02-16 16:31:30 <Line>Первая точка:7801.0,25588.4,0.0; Следующая точка:26784.5,36961.0,0.0; Следующая точка:56528.2,30749.8,0.0; Следующая точка:56528.2,29787.5,0.0</Line:Completed>
+2023-02-16 16:31:40 <Select>Выберите объект:19086.1,32499.4,0.0; Выберите объект:42093.7,33461.7,0.0; Выберите объект:50229.5,4242.9,0.0</Select:Completed>
+2023-02-16 16:31:43 Closing session.
+2023-02-16 16:31:44 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[8e59738d]
+2023-02-21 13:03:32 <Inspector>'Show'</Inspector:Completed>
+2023-02-21 13:03:35 Document 'Без имени0' activated.
+2023-02-21 13:03:37 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2023-02-21 13:03:37 <StartupVPerfTest></StartupVPerfTest:Completed>
+2023-02-21 13:03:37 <TipOfDay></TipOfDay:Completed>
+2023-02-21 13:04:12 <Line>Первая точка:24160.0,17190.1,0.0; Следующая точка:38157.1,39672.9,0.0; Следующая точка:62564.4,22614.0,0.0; Следующая точка:50579.5,18327.4,0.0</Line:Completed>
+2023-02-21 13:05:12 Closing session.
+2023-02-21 13:05:12 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[638174d8]

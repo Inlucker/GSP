@@ -1,0 +1,14 @@
+#Logger version=1
+#Product 'Платформа nanoCAD x64' version=22
+2022-09-19 17:07:11 <Inspector>'Show'</Inspector:Completed>
+2022-09-19 17:07:15 Document 'Без имени0' activated.
+2022-09-19 17:07:17 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-09-19 17:07:17 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-09-19 17:07:17 <TipOfDay></TipOfDay:Completed>
+2022-09-19 17:07:48 <appload>Load 'C:\NanoCAD практика\QtFileExplorer7 (+Provider)\QtFileExplorer.nrx':True</appload:Completed>
+2022-09-19 17:07:52 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-19 20:01:46 <CloseDocument>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</CloseDocument:Completed>
+2022-09-19 20:01:49 Closing session.
+CRC[1b4a8dca]
+2022-09-19 20:01:50 <Exit></Exit:Completed>
+CRC[380620e7]

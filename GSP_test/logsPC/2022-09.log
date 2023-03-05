@@ -1,0 +1,179 @@
+#Logger version=1
+#Product 'Платформа nanoCAD x64' version=22
+2022-09-05 19:27:43 <Inspector>'Show'</Inspector:Completed>
+2022-09-05 19:27:46 Document 'Без имени0' activated.
+2022-09-05 19:27:48 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-09-05 19:27:48 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-09-05 19:27:48 <TipOfDay></TipOfDay:Completed>
+2022-09-05 19:29:59 <appload></appload:Completed>
+2022-09-05 19:49:37 <appload>Load 'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2022-09-05 19:49:52 <_HELLOQTMODALDLG></_HELLOQTMODALDLG:Completed>
+2022-09-05 19:49:57 <appload>Unload:'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+CRC[29f1a4f8]
+2022-09-05 19:50:19 <appload>Load 'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2022-09-05 19:50:27 <HELLOQTMODALDLG></HELLOQTMODALDLG:Completed>
+2022-09-05 19:50:30 <HELLOQTMODALDLG></HELLOQTMODALDLG:Completed>
+2022-09-05 19:50:35 <HELLOQTMODALDLG></HELLOQTMODALDLG:Completed>
+2022-09-05 19:50:37 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 19:50:45 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 19:50:50 Document 'Без имени0' activated.
+2022-09-05 19:50:53 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 19:50:56 <HELLOQTMODALDLG></HELLOQTMODALDLG:Completed>
+CRC[9b0e7c7e]
+2022-09-05 19:53:33 <Inspector>'Show'</Inspector:Completed>
+2022-09-05 19:53:36 Document 'Без имени0' activated.
+2022-09-05 19:54:54 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-09-05 19:54:54 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-09-05 19:54:54 <TipOfDay></TipOfDay:Completed>
+2022-09-05 19:55:24 Document 'Без имени0' activated.
+2022-09-05 19:55:28 Document 'Без имени0' activated.
+2022-09-05 19:55:32 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 19:55:38 Document 'Без имени0' activated.
+CRC[d9fa58d6]
+2022-09-05 19:55:42 <HELLOQTCopyDialog></HELLOQTCopyDialog:Completed>
+2022-09-05 19:55:49 <HELLOQTMODALDLG></HELLOQTMODALDLG:Completed>
+2022-09-05 19:55:52 <HELLOQTMODALDLG></HELLOQTMODALDLG:Completed>
+2022-09-05 19:55:54 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 19:55:59 <HELLOQTCopyDialog></HELLOQTCopyDialog:Completed>
+2022-09-05 19:56:01 Closing session.
+2022-09-05 19:56:01 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[766ddfa4]
+2022-09-05 19:50:59 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 19:51:01 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':Cancel</Exit:Cancelled>
+2022-09-05 19:51:06 <appload>Unload:'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2022-09-05 20:00:29 <appload></appload:Completed>
+2022-09-05 20:00:40 <appload>Load 'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2022-09-05 20:00:43 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 20:06:42 <appload>Unload:'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2022-09-05 20:06:56 <appload>Load 'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2022-09-05 20:06:58 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+CRC[5780d65a]
+2022-09-05 20:07:04 <HELLOQTMODALDLG></HELLOQTMODALDLG:Completed>
+2022-09-05 20:07:10 <HELLOQTMODALDLG></HELLOQTMODALDLG:Completed>
+2022-09-05 20:07:12 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 20:07:16 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 20:07:19 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 20:25:58 <appload>Unload:'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2022-09-05 20:26:06 <appload>Load 'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2022-09-05 20:26:08 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 20:26:11 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+CRC[5fe4003c]
+2022-09-05 20:31:43 <appload>Unload:'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2022-09-05 20:32:10 <appload>Load 'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2022-09-05 20:32:18 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 20:32:21 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 20:32:27 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 20:33:05 <appload>Unload:'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2022-09-05 20:33:19 <appload>Load 'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2022-09-05 20:33:21 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 20:33:29 <EditUndo></EditUndo:Completed>
+CRC[2365e0c6]
+2022-09-05 20:33:32 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 20:36:06 <appload>Unload:'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2022-09-05 20:37:00 <appload>Load 'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2022-09-05 20:37:02 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 20:37:05 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 20:38:41 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 20:38:48 <appload>Unload:'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2022-09-05 20:40:06 <appload>Load 'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2022-09-05 20:40:08 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+CRC[ef4183ae]
+2022-09-05 20:47:40 <Inspector>'Show'</Inspector:Completed>
+2022-09-05 20:47:44 Document 'Без имени0' activated.
+2022-09-05 20:47:46 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-09-05 20:47:46 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-09-05 20:47:46 <TipOfDay></TipOfDay:Completed>
+2022-09-05 20:48:14 Document 'Без имени0' activated.
+2022-09-05 20:48:18 <HELLOQTMODALDLG></HELLOQTMODALDLG:Completed>
+2022-09-05 20:48:20 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 20:48:23 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+CRC[545d21ed]
+2022-09-05 20:48:44 Closing session.
+2022-09-05 20:48:44 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[5fe4ae68]
+2022-09-05 20:40:10 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 20:41:42 <appload>Unload:'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2022-09-05 20:50:46 Closing session.
+2022-09-05 20:50:46 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[d54d8f8c]
+2022-09-05 20:51:00 <Inspector>'Show'</Inspector:Completed>
+2022-09-05 20:51:02 Document 'Без имени0' activated.
+2022-09-05 20:51:03 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-09-05 20:51:03 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-09-05 20:51:03 <TipOfDay></TipOfDay:Completed>
+2022-09-05 20:51:15 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 20:51:17 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 20:51:24 Closing session.
+2022-09-05 20:51:24 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[aaef4a97]
+2022-09-05 20:58:09 <Inspector>'Show'</Inspector:Completed>
+2022-09-05 20:58:12 Document 'Без имени0' activated.
+2022-09-05 20:58:13 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-09-05 20:58:13 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-09-05 20:58:13 <TipOfDay></TipOfDay:Completed>
+2022-09-05 20:58:16 Document 'Без имени0' activated.
+2022-09-05 20:58:18 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 20:58:25 Closing session.
+2022-09-05 20:58:25 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[84e20cc4]
+2022-09-05 20:59:18 <Inspector>'Show'</Inspector:Completed>
+2022-09-05 20:59:21 Document 'Без имени0' activated.
+2022-09-05 20:59:22 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-09-05 20:59:22 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-09-05 20:59:22 <TipOfDay></TipOfDay:Completed>
+2022-09-05 20:59:36 <HELLOQTMODALDLG></HELLOQTMODALDLG:Completed>
+2022-09-05 20:59:37 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 20:59:48 Closing session.
+2022-09-05 20:59:49 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[269feffe]
+2022-09-05 21:10:18 <Inspector>'Show'</Inspector:Completed>
+2022-09-05 21:10:21 Document 'Без имени0' activated.
+2022-09-05 21:10:23 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-09-05 21:10:23 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-09-05 21:10:23 <TipOfDay></TipOfDay:Completed>
+2022-09-05 21:10:38 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 21:10:43 <HELLOQTMODALDLG></HELLOQTMODALDLG:Completed>
+2022-09-05 21:10:49 Closing session.
+2022-09-05 21:10:49 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[3c3c7292]
+2022-09-05 21:43:31 <Inspector>'Show'</Inspector:Completed>
+2022-09-05 21:43:35 Document 'Без имени0' activated.
+2022-09-05 21:43:38 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-09-05 21:43:38 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-09-05 21:43:38 <TipOfDay></TipOfDay:Completed>
+2022-09-05 21:43:52 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 21:43:57 <HELLOQTMODALDLG></HELLOQTMODALDLG:Completed>
+2022-09-05 21:43:58 Closing session.
+2022-09-05 21:43:58 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[3c3c7292]
+2022-09-05 22:11:21 <Inspector>'Show'</Inspector:Completed>
+2022-09-05 22:11:24 Document 'Без имени0' activated.
+2022-09-05 22:11:27 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-09-05 22:11:27 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-09-05 22:11:27 <TipOfDay></TipOfDay:Completed>
+2022-09-05 22:11:39 <HELLOQTMODALDLG></HELLOQTMODALDLG:Completed>
+2022-09-05 22:11:41 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 22:11:45 Closing session.
+2022-09-05 22:11:45 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[269feffe]
+2022-09-05 22:13:45 <Inspector>'Show'</Inspector:Completed>
+2022-09-05 22:13:47 Document 'Без имени0' activated.
+2022-09-05 22:13:48 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-09-05 22:13:48 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-09-05 22:13:48 <TipOfDay></TipOfDay:Completed>
+2022-09-05 22:13:54 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 22:13:59 <HELLOQTMODALDLG></HELLOQTMODALDLG:Completed>
+2022-09-05 22:14:01 <HELLOQTPALETTE></HELLOQTPALETTE:Completed>
+2022-09-05 22:14:06 <HELLOQTMODALDLG></HELLOQTMODALDLG:Completed>
+CRC[de84a217]
+2022-09-05 22:14:07 Closing session.
+2022-09-05 22:14:08 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[5fe4ae68]
+2022-09-09 15:48:50 <Inspector>'Show'</Inspector:Completed>
+2022-09-09 15:48:53 Document 'Без имени0' activated.
+2022-09-09 15:48:54 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-09-09 15:48:54 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-09-09 15:48:54 <TipOfDay></TipOfDay:Completed>
+2022-09-09 15:56:34 Closing session.
+2022-09-09 15:56:34 <Exit>'Без имени0'</Exit:Completed>
+CRC[6051a82d]

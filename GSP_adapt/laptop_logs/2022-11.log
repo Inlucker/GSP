@@ -1,0 +1,65 @@
+#Logger version=1
+#Product 'Платформа nanoCAD x64' version=22
+2022-11-07 16:06:36 <Inspector>'Show'</Inspector:Completed>
+2022-11-07 16:06:41 Document 'Без имени0' activated.
+2022-11-07 16:06:43 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-11-07 16:06:43 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-11-07 16:06:43 <TipOfDay></TipOfDay:Completed>
+2022-11-07 16:07:14 <appload>Load 'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053_Update2_22.0.6068.3830.6177\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2022-11-07 16:07:27 <_HELLOQTPALETTE></_HELLOQTPALETTE:Completed>
+2022-11-07 16:07:41 <_HELLOQTMODALDLG></_HELLOQTMODALDLG:Completed>
+2022-11-07 16:07:59 <_HELLOQTMODALDLG></_HELLOQTMODALDLG:Completed>
+CRC[5073fe7c]
+2022-11-07 16:08:09 <_HELLOQTPALETTE></_HELLOQTPALETTE:Completed>
+2022-11-07 16:08:17 <_HELLOQTPALETTE></_HELLOQTPALETTE:Completed>
+2022-11-07 16:08:35 Closing session.
+2022-11-07 16:08:36 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[f92ecc4b]
+2022-11-07 16:12:32 <Inspector>'Show'</Inspector:Completed>
+2022-11-07 16:12:34 Document 'Без имени0' activated.
+2022-11-07 16:12:36 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-11-07 16:12:36 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-11-07 16:12:36 <TipOfDay></TipOfDay:Completed>
+2022-11-07 16:12:52 <appload>Load 'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053_Update2_22.0.6068.3830.6177\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2022-11-07 16:12:56 <_HELLOQTPALETTE></_HELLOQTPALETTE:Completed>
+2022-11-07 16:13:12 <appload>Unload:'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053_Update2_22.0.6068.3830.6177\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2022-11-07 16:13:22 <appload>Load 'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053_Update2_22.0.6068.3830.6177\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+CRC[41720a29]
+2022-11-07 16:13:25 <_HELLOQTPALETTE></_HELLOQTPALETTE:Completed>
+2022-11-07 16:13:30 <_HELLOQTPALETTE></_HELLOQTPALETTE:Completed>
+2022-11-07 16:13:33 <_HELLOQTPALETTE></_HELLOQTPALETTE:Completed>
+2022-11-07 16:13:45 <appload>Unload:'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053_Update2_22.0.6068.3830.6177\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2022-11-07 16:13:54 <appload>Load 'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053_Update2_22.0.6068.3830.6177\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2022-11-07 16:13:57 <_HELLOQTPALETTE></_HELLOQTPALETTE:Completed>
+2022-11-07 16:14:02 <_HELLOQTPALETTE></_HELLOQTPALETTE:Completed>
+2022-11-07 16:14:10 <appload></appload:Completed>
+2022-11-07 16:14:28 <appload>Unload:'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053_Update2_22.0.6068.3830.6177\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+CRC[43cf0bf6]
+2022-11-07 16:14:41 <appload>Load 'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053_Update2_22.0.6068.3830.6177\samples\bin-x64\Debug NCAD\HelloQt.nrx':True</appload:Completed>
+2022-11-07 16:14:44 <_HELLOQTPALETTE></_HELLOQTPALETTE:Completed>
+2022-11-07 16:14:48 <_HELLOQTPALETTE></_HELLOQTPALETTE:Completed>
+2022-11-07 16:20:56 Closing session.
+2022-11-07 16:20:56 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[cc033027]
+2022-11-07 16:12:38 <Inspector>'Show'</Inspector:Completed>
+2022-11-07 16:12:41 Document 'Без имени0' activated.
+2022-11-07 16:12:42 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-11-07 16:12:42 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-11-07 16:12:42 <TipOfDay></TipOfDay:Completed>
+2022-11-07 16:27:21 <appload>Load 'C:\Users\arsen\Downloads\NC_SDK_22.0.5944.3726.6053\samples\bin-x64\Debug NCAD\HelloHost.dll':True</appload:Completed>
+2022-11-07 16:27:32 <HelloHost_Example1>Введите строку:Укажите ключевое слово:Второе</HelloHost_Example1:Completed>
+2022-11-07 16:27:53 <HelloHost_Example2>Введите имя нового слоя:</HelloHost_Example2:Completed>
+2022-11-07 16:28:21 <layer></layer:Completed>
+CRC[b22df07a]
+2022-11-07 16:28:24 Closing session.
+2022-11-07 16:28:24 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[5fe4ae68]
+2022-11-14 13:35:22 <Inspector>'Show'</Inspector:Completed>
+2022-11-14 13:35:25 Document 'Без имени0' activated.
+2022-11-14 13:35:27 <NewDocument>'Без имени0' to 'Без имени0'</NewDocument:Completed>
+2022-11-14 13:35:27 <StartupVPerfTest></StartupVPerfTest:Completed>
+2022-11-14 13:35:27 <TipOfDay></TipOfDay:Completed>
+2022-11-14 14:00:50 <Point>Укажите точку:20806.8,36890.0,0.0; Укажите точку:20806.8,36890.0,0.0</Point:Cancelled>
+2022-11-14 15:06:41 Closing session.
+2022-11-14 15:06:41 <Exit>msgBox:'Вы хотите сохранить изменения, произведенные в 'Без имени0' ?':No; 'Без имени0'</Exit:Completed>
+CRC[f3c141dd]
