@@ -28,12 +28,11 @@ void LogReader::readLogs(QString dir_name)
   dir.setNameFilters(name_filters);
   QList<QString> commands;
 
-  QString query_str = "";
   int session_id = 0;
   for (QFileInfo& file_info : dir.entryInfoList())
   {
     QFile file (file_info.absoluteFilePath());
-    qDebug() << "File:" << "\t" << file.fileName();
+    //qDebug() << "File:" << "\t" << file.fileName();
 
     if (!file.open(QIODevice::ReadOnly))
       return; // не получилось открыть файл
@@ -49,7 +48,7 @@ void LogReader::readLogs(QString dir_name)
         if (getCommandFromRecord(line, cmd))
         {
           bool cmd_exists = false;
-          for (QString& c : commands)
+          for (const QString& c : commands)
             if (c == cmd)
             {
               cmd_exists = true;
@@ -63,6 +62,57 @@ void LogReader::readLogs(QString dir_name)
 
           if (cmd == "Exit")
             session_id++;
+        }
+      }
+    }
+
+    file.close();
+  }
+}
+
+void LogReader::readLogsWithoutTime(QString dir_name)
+{
+  QDir dir(dir_name);
+  dir.setFilter(dir_filters);
+  dir.setNameFilters(name_filters);
+  QList<QString> commands;
+
+  int session_id = 0;
+  for (QFileInfo& file_info : dir.entryInfoList())
+  {
+    QFile file (file_info.absoluteFilePath());
+    //qDebug() << "File:" << "\t" << file.fileName();
+
+    if (!file.open(QIODevice::ReadOnly))
+      return; // не получилось открыть файл
+
+    int int_time = 0;
+    while (!file.atEnd())
+    {
+      QString line = QString(file.readLine());
+      if (line[0] == '<')
+      {
+        QString cmd;
+        if (getCommandFromRecord(line, cmd))
+        {
+          bool cmd_exists = false;
+          for (const QString& c : commands)
+            if (c == cmd)
+            {
+              cmd_exists = true;
+              break;
+            }
+          if (!cmd_exists)
+            commands.append(cmd);
+
+          if (DataBase::addCommand(session_id, int_time++, cmd) != OK)
+            qDebug() << DataBase::lastError();
+
+          if (cmd == "Exit")
+          {
+            session_id++;
+            int_time = 0;
+          }
         }
       }
     }

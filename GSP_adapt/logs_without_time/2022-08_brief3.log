@@ -1,0 +1,46 @@
+#Logger version=1
+#Product 'Платформа nanoCAD x64' version=22
+Document 'XXX' activated.
+<OpenDocument></OpenDocument:Completed>
+<Inspector></Inspector:Completed>
+<StartupVPerfTest></StartupVPerfTest:Completed>
+<TipOfDay></TipOfDay:Completed>
+<mdim></mdim:Completed>
+<CopyClip></CopyClip:Completed>
+<Paste></Paste:Completed>
+<grip_stretch></grip_stretch:Completed>
+CRC[7fe710cb]
+<grip_stretch></grip_stretch:Completed>
+<grip_stretch></grip_stretch:Completed>
+<Line></Line:Cancelled>
+<Delete></Delete:Completed>
+<Line></Line:Cancelled>
+<grip_stretch></grip_stretch:Completed>
+<grip_stretch></grip_stretch:Completed>
+<grip_stretch></grip_stretch:Completed>
+<Line></Line:Cancelled>
+CRC[e822d21a]
+<Delete></Delete:Completed>
+<Line></Line:Cancelled>
+<CopyClip></CopyClip:Completed>
+<Paste></Paste:Completed>
+<grip_stretch></grip_stretch:Completed>
+<grip_stretch></grip_stretch:Completed>
+<grip_stretch></grip_stretch:Completed>
+<dimlinear></dimlinear:Completed>
+<redit></redit:Completed>
+CRC[0f7e37ce]
+<Delete></Delete:Completed>
+<dedit></dedit:Completed>
+<dedit></dedit:Completed>
+<grip_stretch></grip_stretch:Completed>
+<grip_stretch></grip_stretch:Completed>
+<grip_stretch></grip_stretch:Completed>
+<grip_stretch></grip_stretch:Completed>
+<dedit></dedit:Completed>
+<grip_stretch></grip_stretch:Completed>
+CRC[db242d33]
+<dedit></dedit:Completed>
+Closing session.
+<Exit></Exit:Completed>
+CRC[79e90965]

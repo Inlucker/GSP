@@ -45,6 +45,22 @@ int Sequence::operator[](int id) const
   return cmds[id];
 }
 
+bool Sequence::operator<(const Sequence &seq2) const
+{
+  if (this->lift != seq2.lift)
+    return this->lift < seq2.lift;
+  else
+    return this->support < seq2.support;
+}
+
+bool Sequence::operator>(const Sequence &seq2) const
+{
+  if (this->lift != seq2.lift)
+    return this->lift > seq2.lift;
+  else
+    return this->support > seq2.support;
+}
+
 int Sequence::size() const
 {
   return cmds.size();

@@ -137,6 +137,17 @@ void GSP::test5()
   printFrequentSequences();
 }
 
+void GSP::test6()
+{
+  log_reader.readLogsWithoutTime(".\\logs_without_time");
+  min_gap = 1;
+  max_gap = 15;
+  min_support = 0.5;
+
+  QList<Sequence> res = getFrequentSequences();
+  printFrequentSequences();
+}
+
 void GSP::prepareGSP()
 {
   if (DataBase::getCmdsMap(cmds_map) != OK)
@@ -397,15 +408,8 @@ int GSP::countSupport(QList<Sequence> &candidates, const QList<Session>& session
   return res;
 }*/
 
-bool sequenceGreaterThan(const Sequence &s1, const Sequence &s2)
-{
-  if (s1.lift != s2.lift)
-    return s1.lift > s2.lift;
-  else
-    return s1.support > s2.support;
-}
-
 void GSP::sortFrequentSequences()
 {
-  sort(freq_seqs.begin(), freq_seqs.end(), sequenceGreaterThan);
+  //sort(freq_seqs.begin(), freq_seqs.end(), sequenceGreaterThan);
+  sort(freq_seqs.begin(), freq_seqs.end(), std::greater<>());
 }

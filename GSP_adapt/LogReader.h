@@ -21,6 +21,7 @@ public:
   LogReader();
 
   void readLogs(QString dir_name = "./");
+  void readLogsWithoutTime(QString dir_name = "./");
 
 private:
   int getTimeFromRecord(QString r);

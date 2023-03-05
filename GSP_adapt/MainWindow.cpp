@@ -32,6 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
   gsp.test1();
   //gsp.test2();
   gsp.test5();
+  //gsp.test6();
 }
 
 MainWindow::~MainWindow()

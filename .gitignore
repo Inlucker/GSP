@@ -456,3 +456,4 @@ target_wrapper.sh
 *.lib
 *.rar
 *.sqlite
+*.sqlite-journal

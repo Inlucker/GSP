@@ -1,6 +1,7 @@
 select *
 from logs
-where command = "Arc";
+where command = "EditUndo"
+group by session_id;
 
 select command, (row_number() over (partition by same))-1 as cmd_id
 from(

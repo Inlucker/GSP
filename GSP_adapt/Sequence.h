@@ -18,6 +18,8 @@ public:
   bool operator==(const Sequence& seq2) const;
   bool operator!=(const Sequence& seq2) const;
   int operator [](int id) const;
+  bool operator<(const Sequence& seq2) const;
+  bool operator>(const Sequence& seq2) const;
 
   int size() const;
 

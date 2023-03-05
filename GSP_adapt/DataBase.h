@@ -22,6 +22,7 @@ public:
 
   static Status createSQLiteDataBase(QString db_name = "db_name");
   static Status addCommand(int session_id, const QString& datetime, const QString &cmd);
+  static Status addCommand(int session_id, int int_time, const QString &cmd);
   static Status getCmdsMap(QMap<int, QString>& cmds_map);
   static Status getSessionsNum(int& sessions_num);
   static Status getAllLogs(int commands_num, QList<Session>& sessions);
