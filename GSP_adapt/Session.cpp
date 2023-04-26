@@ -1,4 +1,5 @@
 #include "Session.h"
+#include <iostream>
 
 Session::Session(int _id)
 {
@@ -8,7 +9,8 @@ Session::Session(int _id)
 void Session::setCommands(QList<Command> _commands, int items_num)
 {
   this->commands = _commands;
-  sort(this->commands.begin(), this->commands.end());
+  //sort(this->commands.begin(), this->commands.end());
+  sort(this->commands.begin(), this->commands.end(), greater<>());
   this->makeRepresintaion(items_num);
 }
 
@@ -28,4 +30,13 @@ void Session::makeRepresintaion(int item_num)
     repr.push_back(forward_list<int>());
   for (const Command& cmd : commands)
     repr[cmd.command_id].push_front(cmd.time);
+
+  /*for (int i = 0; i < item_num; i++)
+  {
+    cout << i << ": ";
+    for (const auto & elem : repr[i])
+      cout << elem << " ";
+    cout << endl;
+  }
+  cout << endl;*/
 }

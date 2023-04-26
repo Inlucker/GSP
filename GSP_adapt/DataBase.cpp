@@ -14,8 +14,14 @@ Status DataBase::createSQLiteDataBase(QString db_name)
     return DATABASE_OPEN_ERROR;
   }
   else
+  {
     m_query = QSqlQuery("", *cur_db);
+    return OK;
+  }
+}
 
+Status DataBase::resetSQLiteDataBase()
+{
   execQuery("DROP TABLE logs;");
 
   return execQuery("CREATE TABLE IF NOT EXISTS logs\

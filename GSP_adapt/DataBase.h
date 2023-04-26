@@ -21,6 +21,7 @@ public:
   DataBase() = delete;
 
   static Status createSQLiteDataBase(QString db_name = "db_name");
+  static Status resetSQLiteDataBase();
   static Status addCommand(int session_id, const QString& datetime, const QString &cmd);
   static Status addCommand(int session_id, int int_time, const QString &cmd);
   static Status getCmdsMap(QMap<int, QString>& cmds_map);

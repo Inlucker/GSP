@@ -1,8 +1,13 @@
 #include "GSP.h"
+#include <chrono>
+
+typedef chrono::high_resolution_clock Clock;
 
 GSP::GSP(QString db_name)
 {
   if (DataBase::createSQLiteDataBase(db_name) != OK) //ToDO где лучше создавть БД?
+    throw DataBase::lastError();
+  if (DataBase::resetSQLiteDataBase() != OK)
     throw DataBase::lastError();
 }
 
@@ -20,10 +25,12 @@ QList<Sequence> GSP::getFrequentSequences()
     while (added_seqs_num > 0)
     {
       candidates = generateCandidates();
+      qDebug() << "generateCandidates() candidates.size() = " << candidates.size();
       if (candidates.size() > 0)
         added_seqs_num = countSupport(candidates, sessions);
       else
         break;
+      qDebug() << "countSupport() added_seqs_num = " << added_seqs_num;
     }
   }
   sortFrequentSequences();
@@ -128,14 +135,26 @@ void GSP::test1()
 
 void GSP::test5()
 {
+  chrono::time_point<Clock> start = Clock::now();
   log_reader.readLogs(".\\logs");
-  //qDebug() << "readlogs end";
-  min_gap = 1;
-  max_gap = 15; // INT_MAX
-  min_support = 0.5; // 0.1
+  chrono::time_point<Clock> end = Clock::now();
+  chrono::nanoseconds diff = chrono::duration_cast<chrono::nanoseconds>(end - start);
+  qDebug() << "readLogs() time: " << diff.count() / 1000000000. << " s";
+  min_gap = 0;
+  max_gap = 15; // 15 INT_MAX
+  min_support = 0.5; // 0.5 0.01
 
+  start = Clock::now();
   QList<Sequence> res = getFrequentSequences();
+  end = Clock::now();
+  diff = chrono::duration_cast<chrono::nanoseconds>(end - start);
+  qDebug() << "getFrequentSequences() time: " << diff.count() / 1000000000. << " s";
+
+  start = Clock::now();
   printFrequentSequences();
+  end = Clock::now();
+  diff = chrono::duration_cast<chrono::nanoseconds>(end - start);
+  qDebug() << "printFrequentSequences() time: " << diff.count() / 1000000000. << " s";
 }
 
 void GSP::test6()
@@ -172,12 +191,13 @@ QList<Sequence> GSP::generateCandidates()
   //Join
   for (const Sequence &seq1 : cur_freq_seqs)
     for (const Sequence &seq2 : cur_freq_seqs)
-        if (seq1 != seq2 && Sequence::isJoinable(seq1, seq2))
-          candidates.push_back(Sequence::join(seq1, seq2)); // <(x),(y)>
+      //if (seq1 != seq2 && Sequence::isJoinable(seq1, seq2)) // excludes <(x),(x)>
+      if (Sequence::isJoinable(seq1, seq2))
+        candidates.push_back(Sequence::join(seq1, seq2)); // <(x),(y)>
   return candidates;
 }
 
-bool GSP::findCommand(int cmd, const Session &session, int min_time, int& time) const
+bool GSP::findCommand(int cmd, const Session &session, int min_time, int counter, int& time) const
 {
   const QList<forward_list<int>> nodes_list = session.getRepresintationNodesList();
   int item_id = cmd;
@@ -187,6 +207,12 @@ bool GSP::findCommand(int cmd, const Session &session, int min_time, int& time) 
   time = -1;
   while (it._M_node != NULL && *it < min_time)
     it++;
+
+  while (it._M_node != NULL && counter > 0)
+  {
+    counter--;
+    it++;
+  }
 
   if (it._M_node == NULL)
     return false;
@@ -204,6 +230,7 @@ bool GSP::sessionSupportsSequence(const Session& session, const Sequence& seq)
   int cur_id = 0;
   int times[seq.size()];
   int new_time;
+  int cmds[seq.size()];
 
   while (phase != 0)
   {
@@ -214,16 +241,28 @@ bool GSP::sessionSupportsSequence(const Session& session, const Sequence& seq)
     }
     if (phase == 1) //Forward phase
     {
-      bool is_founded = findCommand(seq[cur_id], session, cur_id == 0 ? 0 : times[cur_id - 1] + min_gap, new_time);
+      int counter = 0;
+      int min_time = cur_id == 0 ? 0 : times[cur_id - 1] + min_gap; //todo optimize
+
+      //if (cur_id > 0 && min_time == times[cur_id - 1])
+      if (cur_id > 0)
+        for (int i = 0; i < cur_id; i++)
+          if (cmds[i] == seq[cur_id] && times[i] >= min_time)
+            counter++;
+
+      bool is_founded = findCommand(seq[cur_id], session, min_time, counter, new_time);
       if (is_founded)
+      {
         times[cur_id] = new_time;
+        cmds[cur_id] = seq[cur_id];
+      }
       else // no command in session
       {
         res = false;
         phase = 0;
         break;
       }
-      if (cur_id == 0 || new_time - times[cur_id - 1] < max_gap) //ok
+      if (cur_id == 0 || new_time - times[cur_id - 1] <= max_gap) //ok
       {
         cur_id++;
         phase = 1;
@@ -237,18 +276,30 @@ bool GSP::sessionSupportsSequence(const Session& session, const Sequence& seq)
         phase = 1;
       else
       {
-        bool is_founded = findCommand(seq[cur_id - 1], session, times[cur_id] - max_gap, new_time);
+        int counter = 0;
+        int min_time = times[cur_id] - max_gap;
+
+        //if (cur_id > 1 && min_time == times[cur_id - 2])
+        if (cur_id > 0)
+          for (int i = 0; i < cur_id + 1; i++)
+            if (cmds[i] == seq[cur_id - 1] && times[i] >= min_time)
+              counter++;
+
+        bool is_founded = findCommand(seq[cur_id - 1], session, min_time, counter, new_time);
         if (is_founded)
+        {
           times[cur_id - 1] = new_time;
+          cmds[cur_id - 1] = seq[cur_id - 1];
+        }
         else // no command in session
         {
           res = false;
           phase = 0;
           break;
         }
-        if (cur_id - 1 == 0 || new_time - times[cur_id - 2] < max_gap) //ok
+        if (cur_id - 1 == 0 || new_time - times[cur_id - 2] <= max_gap) //ok
         {
-          if (times[cur_id] - new_time > min_gap)
+          if (times[cur_id] - new_time >= min_gap)
             cur_id++;
           phase = 1;
         }
@@ -412,5 +463,5 @@ int GSP::countSupport(QList<Sequence> &candidates, const QList<Session>& session
 void GSP::sortFrequentSequences()
 {
   //sort(freq_seqs.begin(), freq_seqs.end(), sequenceGreaterThan);
-  sort(freq_seqs.begin(), freq_seqs.end(), std::greater<>());
+  sort(freq_seqs.begin(), freq_seqs.end(), greater<>());
 }

@@ -27,7 +27,7 @@ private:
   void prepareGSP();
   QList<Sequence> generateCandidates1();
   QList<Sequence> generateCandidates();
-  bool findCommand(int cmd, const Session& session, int min_time, int &time) const;
+  bool findCommand(int cmd, const Session& session, int min_time, int counter, int &time) const;
   bool sessionSupportsSequence(const Session& session, const Sequence& seq);
   Sequence findFreqSequenceByCommand(int cmd);
   double calcLift(Sequence seq);
