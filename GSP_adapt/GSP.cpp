@@ -129,9 +129,10 @@ void GSP::test1()
 void GSP::test5()
 {
   log_reader.readLogs(".\\logs");
+  //qDebug() << "readlogs end";
   min_gap = 1;
-  max_gap = 15;
-  min_support = 0.5;
+  max_gap = 15; // INT_MAX
+  min_support = 0.5; // 0.1
 
   QList<Sequence> res = getFrequentSequences();
   printFrequentSequences();

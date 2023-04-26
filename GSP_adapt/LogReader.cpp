@@ -3,8 +3,8 @@
 
 LogReader::LogReader()
 {
-  dir_filters = QDir::Files;
-  name_filters << "*.log";
+  dir_filters = QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot;
+  //name_filters << "*.log";
 }
 
 void LogReader::readLogs(QString dir_name)
@@ -25,48 +25,20 @@ void LogReader::readLogs(QString dir_name)
 
   QDir dir(dir_name);
   dir.setFilter(dir_filters);
-  dir.setNameFilters(name_filters);
+  //dir.setNameFilters(name_filters);
   QList<QString> commands;
-
   int session_id = 0;
+
   for (QFileInfo& file_info : dir.entryInfoList())
   {
-    QFile file (file_info.absoluteFilePath());
-    //qDebug() << "File:" << "\t" << file.fileName();
-
-    if (!file.open(QIODevice::ReadOnly))
-      return; // не получилось открыть файл
-
-    while (!file.atEnd())
+    if (file_info.isFile() && file_info.completeSuffix() == "log")
     {
-      QString line = QString(file.readLine());
-      int time = getTimeFromRecord(line);
-      if (time > 0)
-      {
-        QString datetime = line.left(19);
-        QString cmd;
-        if (getCommandFromRecord(line, cmd))
-        {
-          bool cmd_exists = false;
-          for (const QString& c : commands)
-            if (c == cmd)
-            {
-              cmd_exists = true;
-              break;
-            }
-          if (!cmd_exists)
-            commands.append(cmd);
-
-          if (DataBase::addCommand(session_id, datetime, cmd) != OK)
-            qDebug() << DataBase::lastError();
-
-          if (cmd == "Exit")
-            session_id++;
-        }
-      }
+      readFile(file_info, commands, session_id);
     }
-
-    file.close();
+    else if (file_info.isDir())
+    {
+      readDir(file_info.absoluteFilePath(), commands, session_id);
+    }
   }
 }
 
@@ -74,50 +46,140 @@ void LogReader::readLogsWithoutTime(QString dir_name)
 {
   QDir dir(dir_name);
   dir.setFilter(dir_filters);
-  dir.setNameFilters(name_filters);
+  //dir.setNameFilters(name_filters);
   QList<QString> commands;
-
   int session_id = 0;
+
   for (QFileInfo& file_info : dir.entryInfoList())
   {
-    QFile file (file_info.absoluteFilePath());
-    //qDebug() << "File:" << "\t" << file.fileName();
-
-    if (!file.open(QIODevice::ReadOnly))
-      return; // не получилось открыть файл
-
-    int int_time = 0;
-    while (!file.atEnd())
+    if (file_info.isFile() && file_info.completeSuffix() == "log")
     {
-      QString line = QString(file.readLine());
-      if (line[0] == '<')
+      readFileWithoutTime(file_info, commands, session_id);
+    }
+    else if (file_info.isDir())
+    {
+      readDirWithoutTime(file_info.absoluteFilePath(), commands, session_id);
+    }
+  }
+}
+
+void LogReader::readFile(const QFileInfo &file_info, QList<QString> &commands, int &session_id)
+{
+  QFile file (file_info.absoluteFilePath());
+  //qDebug() << "File:" << "\t" << file.fileName();
+
+  if (!file.open(QIODevice::ReadOnly))
+    return; // не получилось открыть файл
+
+  while (!file.atEnd())
+  {
+    QString line = QString(file.readLine());
+    int time = getTimeFromRecord(line);
+    if (time > 0)
+    {
+      QString datetime = line.left(19);
+      QString cmd;
+      if (getCommandFromRecord(line, cmd))
       {
-        QString cmd;
-        if (getCommandFromRecord(line, cmd))
-        {
-          bool cmd_exists = false;
-          for (const QString& c : commands)
-            if (c == cmd)
-            {
-              cmd_exists = true;
-              break;
-            }
-          if (!cmd_exists)
-            commands.append(cmd);
-
-          if (DataBase::addCommand(session_id, int_time++, cmd) != OK)
-            qDebug() << DataBase::lastError();
-
-          if (cmd == "Exit")
+        bool cmd_exists = false;
+        for (const QString& c : commands)
+          if (c == cmd)
           {
-            session_id++;
-            int_time = 0;
+            cmd_exists = true;
+            break;
           }
+        if (!cmd_exists)
+          commands.append(cmd);
+
+        if (DataBase::addCommand(session_id, datetime, cmd) != OK)
+          qDebug() << DataBase::lastError();
+
+        if (cmd == "Exit")
+          session_id++;
+      }
+    }
+  }
+
+  file.close();
+}
+
+void LogReader::readDir(const QString& abs_path, QList<QString> &commands, int &session_id)
+{
+  QDir dir(abs_path);
+  dir.setFilter(dir_filters);
+  //dir.setNameFilters(name_filters);
+
+  for (QFileInfo& file_info : dir.entryInfoList())
+  {
+    if (file_info.isFile() && file_info.completeSuffix() == "log")
+    {
+      readFile(file_info, commands, session_id);
+    }
+    else if (file_info.isDir())
+    {
+      readDir(file_info.absoluteFilePath(), commands, session_id);
+    }
+  }
+}
+
+void LogReader::readFileWithoutTime(const QFileInfo &file_info, QList<QString> &commands, int &session_id)
+{
+  QFile file (file_info.absoluteFilePath());
+  //qDebug() << "File:" << "\t" << file.fileName();
+
+  if (!file.open(QIODevice::ReadOnly))
+    return; // не получилось открыть файл
+
+  int int_time = 0;
+  while (!file.atEnd())
+  {
+    QString line = QString(file.readLine());
+    if (line[0] == '<')
+    {
+      QString cmd;
+      if (getCommandFromRecord(line, cmd))
+      {
+        bool cmd_exists = false;
+        for (const QString& c : commands)
+          if (c == cmd)
+          {
+            cmd_exists = true;
+            break;
+          }
+        if (!cmd_exists)
+          commands.append(cmd);
+
+        if (DataBase::addCommand(session_id, int_time++, cmd) != OK)
+          qDebug() << DataBase::lastError();
+
+        if (cmd == "Exit")
+        {
+          session_id++;
+          int_time = 0;
         }
       }
     }
+  }
 
-    file.close();
+  file.close();
+}
+
+void LogReader::readDirWithoutTime(const QString &abs_path, QList<QString> &commands, int &session_id)
+{
+  QDir dir(abs_path);
+  dir.setFilter(dir_filters);
+  //dir.setNameFilters(name_filters);
+
+  for (QFileInfo& file_info : dir.entryInfoList())
+  {
+    if (file_info.isFile() && file_info.completeSuffix() == "log")
+    {
+      readFileWithoutTime(file_info, commands, session_id);
+    }
+    else if (file_info.isDir())
+    {
+      readDirWithoutTime(file_info.absoluteFilePath(), commands, session_id);
+    }
   }
 }
 

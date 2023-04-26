@@ -24,11 +24,15 @@ public:
   void readLogsWithoutTime(QString dir_name = "./");
 
 private:
+  void readFile(const QFileInfo& file_info, QList<QString> &commands, int &session_id);
+  void readDir(const QString& abs_path, QList<QString> &commands, int &session_id);
+  void readFileWithoutTime(const QFileInfo& file_info, QList<QString> &commands, int &session_id);
+  void readDirWithoutTime(const QString& abs_path, QList<QString> &commands, int &session_id);
   int getTimeFromRecord(QString r);
   int getCommandFromRecord(QString r, QString& res);
 
 private:
-  QStringList name_filters;
+  //QStringList name_filters;
   QDir::Filters dir_filters;
 };
 

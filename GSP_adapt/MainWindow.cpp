@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
   lr.readLogs("logs");*/
 
   //Testing Join
-  Sequence s1 = {1, 2, 3};
+  /*Sequence s1 = {1, 2, 3};
   Sequence s2 = {2, 3, 4};
   Sequence s3 = {2, 3, 5};
 
@@ -26,10 +26,10 @@ MainWindow::MainWindow(QWidget *parent)
     qDebug() << "Joinable(s1, s3) = false";
 
   Sequence s12 = Sequence::join(s1, s2);
-  Sequence s13 = Sequence::join(s1, s3);
+  Sequence s13 = Sequence::join(s1, s3);*/
 
   GSP gsp;
-  gsp.test1();
+  //gsp.test1();
   //gsp.test2();
   gsp.test5();
   //gsp.test6();
