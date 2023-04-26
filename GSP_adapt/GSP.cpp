@@ -140,9 +140,9 @@ void GSP::test5()
   chrono::time_point<Clock> end = Clock::now();
   chrono::nanoseconds diff = chrono::duration_cast<chrono::nanoseconds>(end - start);
   qDebug() << "readLogs() time: " << diff.count() / 1000000000. << " s";
-  min_gap = 0;
-  max_gap = 15; // 15 INT_MAX
-  min_support = 0.5; // 0.5 0.01
+  min_gap = 0; // 0 1
+  max_gap = INT_MAX; // 15 INT_MAX
+  min_support = 0.1; // 0.5 0.01
 
   start = Clock::now();
   QList<Sequence> res = getFrequentSequences();
