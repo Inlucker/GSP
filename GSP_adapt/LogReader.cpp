@@ -5,24 +5,11 @@ LogReader::LogReader()
 {
   dir_filters = QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot;
   //name_filters << "*.log";
+  ignore_commands << "Inspector" << "StartupVPerfTest" << "TipOfDay";
 }
 
 void LogReader::readLogs(QString dir_name)
 {
-  /*QSqlDatabase sdb = QSqlDatabase::addDatabase("QSQLITE");
-  sdb.setDatabaseName(db_name + ".sqlite");
-
-  if (!sdb.open())
-    qDebug() << sdb.lastError().text();*/
-  /*QSqlQuery query("drop table logs;");
-  query.exec("create table if not exists logs\
-             (\
-               id INTEGER PRIMARY KEY AUTOINCREMENT,\
-               session_id INTEGER,\
-               time DATETIME,\
-               command TEXT\
-               );");*/
-
   QDir dir(dir_name);
   dir.setFilter(dir_filters);
   //dir.setNameFilters(name_filters);
@@ -71,6 +58,7 @@ void LogReader::readFile(const QFileInfo &file_info, QList<QString> &commands, i
   if (!file.open(QIODevice::ReadOnly))
     return; // не получилось открыть файл
 
+  bool empty_session = true;
   while (!file.atEnd())
   {
     QString line = QString(file.readLine());
@@ -81,21 +69,27 @@ void LogReader::readFile(const QFileInfo &file_info, QList<QString> &commands, i
       QString cmd;
       if (getCommandFromRecord(line, cmd))
       {
-        bool cmd_exists = false;
-        for (const QString& c : commands)
-          if (c == cmd)
-          {
-            cmd_exists = true;
-            break;
-          }
-        if (!cmd_exists)
-          commands.append(cmd);
-
-        if (DataBase::addCommand(session_id, datetime, cmd) != OK)
-          qDebug() << DataBase::lastError();
-
-        if (cmd == "Exit")
+        if (cmd == "Exit" && !empty_session)
+        {
           session_id++;
+          empty_session = true;
+        }
+        else
+        {
+          empty_session = false;
+          bool cmd_exists = false;
+          for (const QString& c : commands)
+            if (c == cmd)
+            {
+              cmd_exists = true;
+              break;
+            }
+          if (!cmd_exists)
+            commands.append(cmd);
+
+          if (DataBase::addCommand(session_id, datetime, cmd) != OK)
+            qDebug() << DataBase::lastError();
+        }
       }
     }
   }
@@ -219,5 +213,9 @@ int LogReader::getCommandFromRecord(QString r, QString &res)
   if (start == 0 || end == 0)
     return false;
   res = r.mid(start, end - start);
+
+  if (ignore_commands.contains(res))
+    return false;
+
   return true;
 }
