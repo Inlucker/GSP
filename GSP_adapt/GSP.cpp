@@ -197,7 +197,7 @@ QList<Sequence> GSP::generateCandidates()
   return candidates;
 }
 
-bool GSP::findCommand(int cmd, const Session &session, int min_time, int prev_cmd_id, int counter, int& time, int &id) const
+bool GSP::findCommand(int cmd, const Session &session, int min_time, int prev_cmd_id, int& time, int &id) const
 {
   const QList<forward_list<pair<int,int>>> nodes_list = session.getRepresintationNodesList();
   int item_id = cmd;
@@ -208,12 +208,6 @@ bool GSP::findCommand(int cmd, const Session &session, int min_time, int prev_cm
   id = -1;
   while (it._M_node != NULL && it->first < min_time)
     it++;
-
-  while (it._M_node != NULL && counter > 0)
-  {
-    counter--;
-    it++;
-  }
 
   //Если id предыдущей команды больше чем id найденной команды, то идем дальше, т.к. не соблюден порядок, хоть и время одинаковое
   if (prev_cmd_id >= 0)
@@ -250,16 +244,9 @@ bool GSP::sessionSupportsSequence(const Session& session, const Sequence& seq)
     }
     if (phase == 1) //Forward phase
     {
-      int counter = 0;
-      int min_time = cur_id == 0 ? 0 : times[cur_id - 1] + min_gap; //todo optimize
-
-      //if (cur_id > 0 && min_time == times[cur_id - 1])
-      if (cur_id > 0)
-        for (int i = 0; i < cur_id; i++)
-          if (cmds[i] == seq[cur_id] && times[i] >= min_time)
-            counter++;
-
-      bool is_founded = findCommand(seq[cur_id], session, min_time, cur_id == 0 ? -1 : ids[cur_id-1], counter, new_time, new_id);
+      int prev_cmd_id = cur_id == 0 ? -1 : ids[cur_id - 1];
+      int min_time = cur_id == 0 ? 0 : times[cur_id - 1] + min_gap;
+      bool is_founded = findCommand(seq[cur_id], session, min_time, prev_cmd_id, new_time, new_id);
       if (is_founded)
       {
         times[cur_id] = new_time;
@@ -286,17 +273,10 @@ bool GSP::sessionSupportsSequence(const Session& session, const Sequence& seq)
         phase = 1;
       else
       {
-        int counter = 0;
+        int prev_cmd_id = cur_id < 2 ? -1 : ids[cur_id - 2];
         int min_time = times[cur_id] - max_gap;
-
-        //if (cur_id > 1 && min_time == times[cur_id - 2])
-        if (cur_id > 0)
-          for (int i = 0; i < cur_id + 1; i++)
-            if (cmds[i] == seq[cur_id - 1] && times[i] >= min_time)
-              counter++;
-
-        bool is_founded = findCommand(seq[cur_id - 1], session, min_time, cur_id < 2 ? -1 : ids[cur_id - 2], counter, new_time, new_id);
-        if (is_founded)
+        bool is_founded = findCommand(seq[cur_id - 1], session, min_time, prev_cmd_id, new_time, new_id);
+        if (is_founded && new_id < ids[cur_id])
         {
           times[cur_id - 1] = new_time;
           cmds[cur_id - 1] = seq[cur_id - 1];
