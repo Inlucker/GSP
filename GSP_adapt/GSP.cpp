@@ -5,15 +5,16 @@ typedef chrono::high_resolution_clock Clock;
 
 GSP::GSP(QString db_name)
 {
-  if (DataBase::createSQLiteDataBase(db_name) != OK) //ToDO где лучше создавть БД?
+  if (DataBase::createSQLiteDataBase(db_name) != OK) //ToDo где лучше создавть БД? (при нажатии на кнопку в интерфейсе)
     throw DataBase::lastError();
-  /*if (DataBase::resetSQLiteDataBase() != OK)
+  /*if (DataBase::resetSQLiteDataBase() != OK) //ToDo где лучше ресетить БД? (при нажатии на кнопку в интерфейсе)
     throw DataBase::lastError();*/
 }
 
 QList<Sequence> GSP::getFrequentSequences()
 {
   prepareGSP();
+  //ToDo Заменить на постепенную подгрузу сессий по страницам
   QList<Session> sessions;
   DataBase::getAllLogs(cmds_map.size(), sessions);
 
@@ -36,25 +37,6 @@ QList<Sequence> GSP::getFrequentSequences()
   sortFrequentSequences();
   return this->freq_seqs;
 }
-
-/*QList<Sequence> GSP::getFrequentSequences2(const QList<Session>& sessions)
-{
-  this->freq_seqs.clear();
-  QList<Sequence> candidates = generateCandidates1();
-  int added_seqs_num = countSupport2(candidates, sessions);
-  if (freq_seqs.size() > 0)
-  {
-    while (added_seqs_num > 0)
-    {
-      candidates = generateCandidates();
-      if (candidates.size() > 0)
-        added_seqs_num = countSupport2(candidates, sessions);
-      else
-        break;
-    }
-  }
-  return this->freq_seqs;
-}*/
 
 void GSP::printFrequentSequences()
 {
@@ -107,31 +89,6 @@ void GSP::test1()
   for (int i = 0; i < candidates.size(); i++)
     cout << candidates[i];
 }
-
-/*void GSP::test2()
-{
-  Session s1(0);
-  QList<Command> cmds;
-  cmds.push_back(Command(0, 10, 0));
-  cmds.push_back(Command(0, 20, 2));
-  cmds.push_back(Command(0, 26, 1));
-  s1.setCommands(cmds, 3);
-
-  QList<Session> sessions;
-  sessions.push_back(s1);
-  sessions_count = 1;
-
-  cmds_map[1] = "11";
-  cmds_map[2] = "22";
-  cmds_map[3] = "33";
-
-  min_gap = 1;
-  max_gap = 15;
-  min_support = 1;
-
-  QList<Sequence> res = getFrequentSequences2(sessions);
-  printFrequentSequences();
-}*/
 
 void GSP::test5()
 {
@@ -333,9 +290,6 @@ double GSP::calcLift(Sequence seq)
 
 int GSP::countSupport(QList<Sequence> &candidates, const QList<Session>& sessions)
 {
-  //QList<Session> sessions;
-  //DataBase::getAllLogs(cmds_map.size(), sessions);
-
   int res = 0;
   cur_freq_seqs.clear();
   for (Sequence& candidate : candidates)
@@ -356,103 +310,9 @@ int GSP::countSupport(QList<Sequence> &candidates, const QList<Session>& session
     }
   }
   return res;
-
-  /*QList<Session> sessions;
-  int cur_session_id = 0;
-  sessions.push_back(Session(cur_session_id));
-
-  QList<Command> commands;
-
-  int max_n = 1000;
-  QString query_str = "SELECT * FROM logs ORDER BY session_id ASC;";
-  QSqlQuery m_query;
-  if (!m_query.exec(query_str))
-  {
-    qDebug() << m_query.lastError().text();
-    throw m_query.lastError().text();
-  }
-
-  while (m_query.isActive())
-  {
-    int counter = 0;
-    while (counter < max_n && m_query.next())
-    {
-      int session_id = m_query.value(1).toInt();
-      QDateTime time = m_query.value(2).toDateTime();
-      int name = m_query.value(3).toString().toInt();
-
-      if (session_id > cur_session_id)
-      {
-        sessions[cur_session_id].setCommands(commands, cmds_map.size()); //add items_num
-        cur_session_id = session_id;
-        commands.clear();
-      }
-
-      commands.append(Command(session_id, time.toSecsSinceEpoch(), name));
-
-      counter++;
-    }
-    if (!m_query.isActive())
-    {
-      sessions[cur_session_id].setCommands(commands); //add items_num
-      commands.clear();
-    }
-
-    for (Sequence& candidate : candidates)
-    {
-      for (const Session& session : sessions)
-      {
-        if (sessionSupportsSequence(session, candidate))
-          candidate.support++;
-      }
-    }
-
-  }
-
-  int res = 0;
-  cur_freq_seqs.clear();
-  for (Sequence& candidate : candidates)
-  {
-    candidate.support = candidate.support / sessions_count;
-    //candidate.confidence = calcConfidence(candidate);
-    //candidate.lift = calcLift(candidate);
-    if (candidate.support >= this->min_support)
-    {
-      freq_seqs.push_back(candidate);
-      cur_freq_seqs.push_back(candidate);
-      res++;
-    }
-  }
-
-  return res;*/
 }
-
-/*int GSP::countSupport2(QList<Sequence>& candidates, const QList<Session> &sessions)
-{
-  int res = 0;
-  cur_freq_seqs.clear();
-  for (Sequence& candidate : candidates)
-  {
-    for (const Session& session : sessions)
-    {
-      if (sessionSupportsSequence(session, candidate))
-        candidate.support++;
-    }
-    candidate.support = candidate.support / sessions.size();
-    //candidate.confidence = calcConfidence(candidate);
-    //candidate.lift = calcLift(candidate);
-    if (candidate.support >= this->min_support)
-    {
-      freq_seqs.push_back(candidate);
-      cur_freq_seqs.push_back(candidate);
-      res++;
-    }
-  }
-  return res;
-}*/
 
 void GSP::sortFrequentSequences()
 {
-  //sort(freq_seqs.begin(), freq_seqs.end(), sequenceGreaterThan);
   sort(freq_seqs.begin(), freq_seqs.end(), greater<>());
 }

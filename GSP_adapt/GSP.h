@@ -16,10 +16,7 @@ public:
   QList<Sequence> getFrequentSequences();
   void printFrequentSequences();
 
-  //QList<Sequence> getFrequentSequences2(const QList<Session> &sessions);
-
   void test1();
-  //void test2();
   void test5();
   void test6();
 
@@ -32,7 +29,6 @@ private:
   Sequence findFreqSequenceByCommand(int cmd);
   double calcLift(Sequence seq);
   int countSupport(QList<Sequence> &candidates, const QList<Session> &sessions);
-  //int countSupport2(QList<Sequence> &candidates, const QList<Session> &sessions);
   void sortFrequentSequences();
 
 private:

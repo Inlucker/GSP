@@ -116,7 +116,7 @@ Status DataBase::getAllLogs(int commands_num, QList<Session> &sessions)
 
     if (session_id > cur_session_id)
     {
-      sessions[cur_session_id].setCommands(commands, commands_num); //add items_num
+      sessions[cur_session_id].setCommands(commands, commands_num);
       cur_session_id = session_id;
       sessions.push_back(Session(cur_session_id));
       commands.clear();
@@ -125,7 +125,7 @@ Status DataBase::getAllLogs(int commands_num, QList<Session> &sessions)
     //commands.append(Command(session_id, time.toSecsSinceEpoch(), cmd_id));
     commands.append(Command(id, session_id, time, cmd_id));
   }
-  sessions[cur_session_id].setCommands(commands, commands_num); //add items_num
+  sessions[cur_session_id].setCommands(commands, commands_num);
   commands.clear();
 
   return s;
