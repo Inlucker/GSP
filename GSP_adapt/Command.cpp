@@ -10,16 +10,16 @@ Command::Command(int _id, int _session_id, int _time, int _command_id)
 
 bool Command::operator<(const Command &c) const
 {
-  /*if (this->time == c.time)
+  if (this->time == c.time)
     return this->id < c.id;
-  else*/
+  else
     return this->time < c.time;
 }
 
 bool Command::operator>(const Command &c) const
 {
-  /*if (this->time == c.time)
+  if (this->time == c.time)
     return this->id > c.id;
-  else*/
+  else
     return this->time > c.time;
 }

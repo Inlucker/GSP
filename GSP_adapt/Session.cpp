@@ -10,7 +10,7 @@ void Session::setCommands(QList<Command> _commands, int items_num)
 {
   this->commands = _commands;
   //sort(this->commands.begin(), this->commands.end());
-  sort(this->commands.begin(), this->commands.end(), greater<>());
+  sort(this->commands.begin(), this->commands.end(), greater<Command>());
   this->makeRepresintaion(items_num);
 }
 

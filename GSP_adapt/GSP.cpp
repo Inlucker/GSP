@@ -209,15 +209,16 @@ bool GSP::findCommand(int cmd, const Session &session, int min_time, int prev_cm
   while (it._M_node != NULL && it->first < min_time)
     it++;
 
-  if (prev_cmd_id >= 0)
-    while (it._M_node != NULL && prev_cmd_id >= it->second) //Если id предыдущей команды больше чем id найденной команды, то идем дальше, т.к. не соблюден порядок, хоть и время одинаковое
-      it++;
-
   while (it._M_node != NULL && counter > 0)
   {
     counter--;
     it++;
   }
+
+  //Если id предыдущей команды больше чем id найденной команды, то идем дальше, т.к. не соблюден порядок, хоть и время одинаковое
+  if (prev_cmd_id >= 0)
+    while (it._M_node != NULL && prev_cmd_id >= it->second)
+      it++;
 
   if (it._M_node == NULL)
     return false;
