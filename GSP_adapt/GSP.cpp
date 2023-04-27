@@ -7,8 +7,8 @@ GSP::GSP(QString db_name)
 {
   if (DataBase::createSQLiteDataBase(db_name) != OK) //ToDO где лучше создавть БД?
     throw DataBase::lastError();
-  if (DataBase::resetSQLiteDataBase() != OK)
-    throw DataBase::lastError();
+  /*if (DataBase::resetSQLiteDataBase() != OK)
+    throw DataBase::lastError();*/
 }
 
 QList<Sequence> GSP::getFrequentSequences()
@@ -136,12 +136,12 @@ void GSP::test1()
 void GSP::test5()
 {
   chrono::time_point<Clock> start = Clock::now();
-  log_reader.readLogs(".\\logs");
+  //log_reader.readLogs(".\\logs");
   chrono::time_point<Clock> end = Clock::now();
   chrono::nanoseconds diff = chrono::duration_cast<chrono::nanoseconds>(end - start);
   qDebug() << "readLogs() time: " << diff.count() / 1000000000. << " s";
   min_gap = 0; // 0 1
-  max_gap = INT_MAX; // 15 INT_MAX
+  max_gap = 3; // 15 INT_MAX
   min_support = 0.1; // 0.5 0.01
 
   start = Clock::now();
@@ -197,16 +197,21 @@ QList<Sequence> GSP::generateCandidates()
   return candidates;
 }
 
-bool GSP::findCommand(int cmd, const Session &session, int min_time, int counter, int& time) const
+bool GSP::findCommand(int cmd, const Session &session, int min_time, int prev_cmd_id, int counter, int& time, int &id) const
 {
-  const QList<forward_list<int>> nodes_list = session.getRepresintationNodesList();
+  const QList<forward_list<pair<int,int>>> nodes_list = session.getRepresintationNodesList();
   int item_id = cmd;
-  forward_list<int>::const_iterator it = nodes_list[item_id].cbegin();
+  forward_list<pair<int,int>>::const_iterator it = nodes_list[item_id].cbegin();
   if (it._M_node == NULL)
     return false;
   time = -1;
-  while (it._M_node != NULL && *it < min_time)
+  id = -1;
+  while (it._M_node != NULL && it->first < min_time)
     it++;
+
+  if (prev_cmd_id >= 0)
+    while (it._M_node != NULL && prev_cmd_id >= it->second) //Если id предыдущей команды больше чем id найденной команды, то идем дальше, т.к. не соблюден порядок, хоть и время одинаковое
+      it++;
 
   while (it._M_node != NULL && counter > 0)
   {
@@ -218,7 +223,8 @@ bool GSP::findCommand(int cmd, const Session &session, int min_time, int counter
     return false;
   else
   {
-    time = *it;
+    time = it->first;
+    id = it->second;
     return true;
   }
 }
@@ -230,7 +236,9 @@ bool GSP::sessionSupportsSequence(const Session& session, const Sequence& seq)
   int cur_id = 0;
   int times[seq.size()];
   int new_time;
+  int new_id;
   int cmds[seq.size()];
+  int ids[seq.size()];
 
   while (phase != 0)
   {
@@ -250,11 +258,12 @@ bool GSP::sessionSupportsSequence(const Session& session, const Sequence& seq)
           if (cmds[i] == seq[cur_id] && times[i] >= min_time)
             counter++;
 
-      bool is_founded = findCommand(seq[cur_id], session, min_time, counter, new_time);
+      bool is_founded = findCommand(seq[cur_id], session, min_time, cur_id == 0 ? -1 : ids[cur_id-1], counter, new_time, new_id);
       if (is_founded)
       {
         times[cur_id] = new_time;
         cmds[cur_id] = seq[cur_id];
+        ids[cur_id] = new_id;
       }
       else // no command in session
       {
@@ -285,11 +294,12 @@ bool GSP::sessionSupportsSequence(const Session& session, const Sequence& seq)
             if (cmds[i] == seq[cur_id - 1] && times[i] >= min_time)
               counter++;
 
-        bool is_founded = findCommand(seq[cur_id - 1], session, min_time, counter, new_time);
+        bool is_founded = findCommand(seq[cur_id - 1], session, min_time, cur_id < 2 ? -1 : ids[cur_id - 2], counter, new_time, new_id);
         if (is_founded)
         {
           times[cur_id - 1] = new_time;
           cmds[cur_id - 1] = seq[cur_id - 1];
+          ids[cur_id - 1] = new_id;
         }
         else // no command in session
         {

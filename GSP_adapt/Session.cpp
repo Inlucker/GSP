@@ -14,7 +14,7 @@ void Session::setCommands(QList<Command> _commands, int items_num)
   this->makeRepresintaion(items_num);
 }
 
-const QList<forward_list<int> > &Session::getRepresintationNodesList() const
+const QList<forward_list<pair<int, int> > > &Session::getRepresintationNodesList() const
 {
   return repr;
 }
@@ -27,9 +27,9 @@ void Session::makeRepresintaion(int item_num)
         item_num = cmd.command_id;
   //repr = QList<forward_list<int>>(item_num);
   for (int i = 0; i < item_num; i++)
-    repr.push_back(forward_list<int>());
+    repr.push_back(forward_list<pair<int,int>>());
   for (const Command& cmd : commands)
-    repr[cmd.command_id].push_front(cmd.time);
+    repr[cmd.command_id].push_front(make_pair(cmd.time, cmd.id));
 
   /*for (int i = 0; i < item_num; i++)
   {

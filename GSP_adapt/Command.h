@@ -4,12 +4,13 @@
 class Command
 {
 public:
-  Command(int _session_id, int _time, int _command_id);
+  Command(int _id, int _session_id, int _time, int _command_id);
 
   bool operator<(const Command& c) const;
   bool operator>(const Command& c) const;
 
 //private:
+  int id;
   int session_id;
   int time;
   int command_id;

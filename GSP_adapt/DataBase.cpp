@@ -96,7 +96,7 @@ Status DataBase::getAllLogs(int commands_num, QList<Session> &sessions)
                           group by command\
                         )\
                       )\
-                      select session_id, int_time, cmd_id\
+                      select id, session_id, int_time, cmd_id\
                       from cmds_ids join logs on (cmds_ids.command = logs.command);";
 
   Status s = execQuery(query_str);
@@ -109,10 +109,10 @@ Status DataBase::getAllLogs(int commands_num, QList<Session> &sessions)
   QList<Command> commands;
   while (m_query.next())
   {
-    int session_id = m_query.value(0).toInt();
-    //QDateTime time = m_query.value(1).toDateTime();
-    int time = m_query.value(1).toInt();
-    int cmd_id = m_query.value(2).toString().toInt();
+    int id = m_query.value(0).toInt();
+    int session_id = m_query.value(1).toInt();
+    int time = m_query.value(2).toInt();
+    int cmd_id = m_query.value(3).toString().toInt();
 
     if (session_id > cur_session_id)
     {
@@ -123,7 +123,7 @@ Status DataBase::getAllLogs(int commands_num, QList<Session> &sessions)
     }
 
     //commands.append(Command(session_id, time.toSecsSinceEpoch(), cmd_id));
-    commands.append(Command(session_id, time, cmd_id));
+    commands.append(Command(id, session_id, time, cmd_id));
   }
   sessions[cur_session_id].setCommands(commands, commands_num); //add items_num
   commands.clear();
