@@ -3,16 +3,23 @@
 
 typedef chrono::high_resolution_clock Clock;
 
-GSP::GSP(QString db_name)
+GSP::GSP()
 {
-  if (DataBase::createSQLiteDataBase(db_name) != OK) //ToDo где лучше создавть БД? (при нажатии на кнопку в интерфейсе)
-    throw DataBase::lastError();
+  /*if (DataBase::createSQLiteDataBase(db_name) != OK) //ToDo где лучше создавть БД? (при нажатии на кнопку в интерфейсе)
+    throw DataBase::lastError();*/
   /*if (DataBase::resetSQLiteDataBase() != OK) //ToDo где лучше ресетить БД? (при нажатии на кнопку в интерфейсе)
     throw DataBase::lastError();*/
 }
 
-QList<Sequence> GSP::getFrequentSequences()
+QList<Sequence> GSP::getFrequentSequences(double _min_sup, int _min_gap, int _max_gap)
 {
+  if (_min_sup >= 0)
+    min_support = _min_sup;
+  if (_min_gap >= 0)
+    min_gap = _min_gap;
+  if (_max_gap >= 0)
+    max_gap = _max_gap;
+
   prepareGSP();
   //ToDo Заменить на постепенную подгрузу сессий по страницам
   QList<Session> sessions;
@@ -74,6 +81,16 @@ void GSP::printFrequentSequences()
   }
 }
 
+QString GSP::getSeqStr(const Sequence &seq)
+{
+  QString res = "<";
+  for (int j = 0; j < seq.size(); j++)
+    res += cmds_map.value(seq[j]) + ", ";
+  res.remove(res.size() - 2, 2);
+  res += ">";
+  return res;
+}
+
 void GSP::test1()
 {
   cur_freq_seqs.clear();
@@ -92,14 +109,17 @@ void GSP::test1()
 
 void GSP::test5()
 {
+  DataBase::setSQLiteDataBase();
+  DataBase::resetSQLiteDataBase();
   chrono::time_point<Clock> start = Clock::now();
-  //log_reader.readLogs(".\\logs");
+  LogReader::readLogs(".\\logs");
   chrono::time_point<Clock> end = Clock::now();
   chrono::nanoseconds diff = chrono::duration_cast<chrono::nanoseconds>(end - start);
   qDebug() << "readLogs() time: " << diff.count() / 1000000000. << " s";
+
   min_gap = 0; // 0 1
-  max_gap = 3; // 15 INT_MAX
-  min_support = 0.1; // 0.5 0.01
+  max_gap = INT_MAX; // 15 INT_MAX
+  min_support = 0.5; // 0.5 0.01
 
   start = Clock::now();
   QList<Sequence> res = getFrequentSequences();
@@ -116,7 +136,7 @@ void GSP::test5()
 
 void GSP::test6()
 {
-  log_reader.readLogsWithoutTime(".\\logs_without_time");
+  LogReader::readLogsWithoutTime(".\\logs_without_time");
   min_gap = 1;
   max_gap = 15;
   min_support = 0.5;

@@ -11,10 +11,11 @@
 class GSP
 {
 public:
-  GSP(QString db_name = "db_name");
+  GSP();
 
-  QList<Sequence> getFrequentSequences();
+  QList<Sequence> getFrequentSequences(double _min_sup = -1, int _min_gap = -1, int _max_gap = -1);
   void printFrequentSequences();
+  QString getSeqStr(const Sequence &seq);
 
   void test1();
   void test5();
@@ -38,9 +39,9 @@ private:
   int sessions_count = 0;
   QString db_file_path;
 
-  LogReader log_reader;
+  //LogReader log_reader;
 
-  double min_support = 1;
+  double min_support = 0.5;
   int min_gap = 0;
   int max_gap = INT_MAX;
 };

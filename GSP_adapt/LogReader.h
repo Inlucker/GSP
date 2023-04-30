@@ -18,23 +18,23 @@ public:
 class LogReader
 {
 public:
-  LogReader();
+  LogReader() = delete;
 
-  void readLogs(QString dir_name = "./");
-  void readLogsWithoutTime(QString dir_name = "./");
+  static void readLogs(QString dir_name = "./");
+  static void readLogsWithoutTime(QString dir_name = "./");
 
 private:
-  void readFile(const QFileInfo& file_info, QList<QString> &commands, int &session_id);
-  void readDir(const QString& abs_path, QList<QString> &commands, int &session_id);
-  void readFileWithoutTime(const QFileInfo& file_info, QList<QString> &commands, int &session_id);
-  void readDirWithoutTime(const QString& abs_path, QList<QString> &commands, int &session_id);
-  int getTimeFromRecord(QString r);
-  int getCommandFromRecord(QString r, QString& res);
+  static void readFile(const QFileInfo& file_info, QList<QString> &commands, int &session_id);
+  static void readDir(const QString& abs_path, QList<QString> &commands, int &session_id);
+  static void readFileWithoutTime(const QFileInfo& file_info, QList<QString> &commands, int &session_id);
+  static void readDirWithoutTime(const QString& abs_path, QList<QString> &commands, int &session_id);
+  static int getTimeFromRecord(QString r);
+  static int getCommandFromRecord(QString r, QString& res);
 
 private:
   //QStringList name_filters;
-  QDir::Filters dir_filters;
-  QStringList ignore_commands;
+  static QDir::Filters dir_filters;
+  static QStringList ignore_commands;
 };
 
 #endif // LOGREADER_H

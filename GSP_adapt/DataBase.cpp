@@ -1,23 +1,45 @@
 #include "DataBase.h"
-unique_ptr<QSqlDatabase> DataBase::cur_db = NULL;
+//unique_ptr<QSqlDatabase> DataBase::cur_db = NULL;
+QString DataBase::cur_db_name = "db_name";
 QSqlQuery DataBase::m_query = QSqlQuery();
 QString DataBase::m_last_error = "No errors";
 
-Status DataBase::createSQLiteDataBase(QString db_name)
+Status DataBase::setSQLiteDataBase(QString db_name)
 {
-  //ToDo очисить все QSqlDatabase соендинения, если были
-  cur_db = make_unique<QSqlDatabase>(QSqlDatabase::addDatabase("QSQLITE"));
-  cur_db->setDatabaseName(db_name + ".sqlite");
-  if (!cur_db->open())
+  cur_db_name = db_name;
+  //cur_db = make_unique<QSqlDatabase>(QSqlDatabase::addDatabase("QSQLITE"));
+  QSqlDatabase cur_db;// = QSqlDatabase::addDatabase("QSQLITE");
+
+  if (QSqlDatabase::contains())
+    cur_db = QSqlDatabase::database(QLatin1String(QSqlDatabase::defaultConnection), false);
+  else
+    cur_db = QSqlDatabase::addDatabase("QSQLITE");
+
+  cur_db.setDatabaseName(db_name + ".sqlite");
+
+  if (!cur_db.isValid())
   {
-    m_last_error = cur_db->lastError().text().toStdString().c_str();
+    m_last_error = cur_db.lastError().text().toStdString().c_str();
+    return DATABASE_OPEN_ERROR;
+  }
+  else if (!cur_db.open())
+  {
+    m_last_error = cur_db.lastError().text().toStdString().c_str();
     return DATABASE_OPEN_ERROR;
   }
   else
   {
-    m_query = QSqlQuery("", *cur_db);
-    return OK;
+    m_query = QSqlQuery(QSqlDatabase::database(cur_db_name));
   }
+
+  return execQuery("CREATE TABLE IF NOT EXISTS logs\
+                   (\
+                     id INTEGER PRIMARY KEY AUTOINCREMENT,\
+                     session_id INTEGER,\
+                     date_time DATETIME,\
+                     int_time INTEGER,\
+                     command TEXT\
+                     );");
 }
 
 Status DataBase::resetSQLiteDataBase()

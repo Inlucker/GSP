@@ -1,12 +1,13 @@
 #include "LogReader.h"
 #include "DataBase.h"
 
-LogReader::LogReader()
+QDir::Filters LogReader::dir_filters = QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot;
+//name_filters << "*.log";
+QStringList LogReader::ignore_commands = {"Inspector", "StartupVPerfTest", "TipOfDay"};
+
+/*LogReader::LogReader()
 {
-  dir_filters = QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot;
-  //name_filters << "*.log";
-  ignore_commands << "Inspector" << "StartupVPerfTest" << "TipOfDay";
-}
+}*/
 
 void LogReader::readLogs(QString dir_name)
 {
@@ -17,16 +18,10 @@ void LogReader::readLogs(QString dir_name)
   int session_id = 0;
 
   for (QFileInfo& file_info : dir.entryInfoList())
-  {
     if (file_info.isFile() && file_info.completeSuffix() == "log")
-    {
       readFile(file_info, commands, session_id);
-    }
     else if (file_info.isDir())
-    {
       readDir(file_info.absoluteFilePath(), commands, session_id);
-    }
-  }
 }
 
 void LogReader::readLogsWithoutTime(QString dir_name)

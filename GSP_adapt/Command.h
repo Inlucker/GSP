@@ -9,7 +9,6 @@ public:
   bool operator<(const Command& c) const;
   bool operator>(const Command& c) const;
 
-//private:
   int id;
   int session_id;
   int time;

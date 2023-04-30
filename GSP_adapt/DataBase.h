@@ -20,7 +20,7 @@ class DataBase
 public:
   DataBase() = delete;
 
-  static Status createSQLiteDataBase(QString db_name = "db_name");
+  static Status setSQLiteDataBase(QString db_name = "db_name");
   static Status resetSQLiteDataBase();
   static Status addCommand(int session_id, const QString& datetime, const QString &cmd);
   static Status addCommand(int session_id, int int_time, const QString &cmd);
@@ -31,12 +31,13 @@ public:
   static QString lastError();
 
 private:
-    static inline Status execQuery(QString query);
+  static inline Status execQuery(QString query);
 
 private:
-  static unique_ptr<QSqlDatabase> cur_db;
-  static QSqlQuery m_query;
+  //static unique_ptr<QSqlDatabase> cur_db;
   static QString m_last_error;
+  static QString cur_db_name;
+  static QSqlQuery m_query;
 };
 
 #endif // DATABASE_H
