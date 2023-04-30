@@ -183,14 +183,23 @@ void MainWindow::on_set_db_pushButton_clicked()
     ui->db_lineEdit->setText(db_name);
 
     if (!DataBase::databaseExists(db_name))
+    {
       QMessageBox::warning(this, "Ошибка", "Базы данных не существует");
+      return;
+    }
 
     int rows_n = -1;
     if (DataBase::getRowsInLogs(db_name, rows_n) != OK)
+    {
       QMessageBox::warning(this, "Ошибка", DataBase::lastError());
+      return;
+    }
 
     if (DataBase::setSQLiteDataBase(db_name) != OK)
+    {
       QMessageBox::warning(this, "Ошибка", DataBase::lastError());
+      return;
+    }
 
     showLogsTable(db_name, rows_n);
   }
