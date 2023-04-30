@@ -94,15 +94,20 @@ Status DataBase::getRowsInLogs(QString db_name, int &rows_number)
   return OK;
 }
 
-Status DataBase::addCommand(int session_id, const QString &datetime, const QString& cmd)
+Status DataBase::addCommand(int session_id, const QString &datetime, const QString& cmd, int &id)
 {
+  id = -1;
   QString q_str = "insert into logs(session_id, date_time, int_time, command) values(";
   q_str += QString::number(session_id) + ", '";
   q_str += datetime + "', ";
   q_str += QString::number(QDateTime().fromString(datetime,"yyyy-MM-dd hh:mm:ss").toSecsSinceEpoch()) + ", '";
-  q_str += cmd + "');";
+  q_str += cmd + "') RETURNING id;";
 
-  return execQuery(q_str);
+  Status status = execQuery(q_str);
+  if (status == OK)
+    while (m_query.next())
+      id = m_query.value(0).toInt();
+  return status;
 }
 
 Status DataBase::addCommand(int session_id, int int_time, const QString &cmd)

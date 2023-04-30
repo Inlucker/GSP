@@ -36,6 +36,8 @@ private slots:
 
   void on_gsp_pushButton_clicked();
 
+  void on_pushButton_3_clicked();
+
 private:
   Ui::MainWindow *ui;
   unique_ptr<QSqlTableModel> logs_model;
