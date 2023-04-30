@@ -103,8 +103,21 @@ void MainWindow::on_read_logs_pushButton_clicked()
   QString logs_dir = ui->dir_name_lineEdit->text();
   QString db_name = ui->db_lineEdit->text();
 
+  if (DataBase::databaseExists(db_name))
+    if (QMessageBox::question(this, "База данных уже существует",
+                              QString("База данных с именем %1 уже существует\nПерезаписать данные?").arg(db_name)) != QMessageBox::Yes)
+      return;
+
   if (DataBase::setSQLiteDataBase(db_name) != OK)
+  {
     QMessageBox::warning(this, "Ошибка базы данных", DataBase::lastError());
+    return;
+  }
+  if (DataBase::resetSQLiteDataBase() != OK)
+  {
+    QMessageBox::warning(this, "Ошибка базы данных", DataBase::lastError());
+    return;
+  }
 
   chrono::time_point<Clock> start = Clock::now();
   LogReader::readLogs(logs_dir);
@@ -115,13 +128,23 @@ void MainWindow::on_read_logs_pushButton_clicked()
   showLogsTable(db_name);
 }
 
-void MainWindow::on_reset_db_pushButton_clicked()
+/*void MainWindow::on_reset_db_pushButton_clicked()
 {
+  QString db_name = ui->db_groupBox->title();
+
+  if (DataBase::databaseExists(db_name))
+    if (QMessageBox::question(this, "База данных уже существует",
+                              QString("База данных с именем %1 уже существует\nОчистить Базу Данных?").arg(db_name)) != QMessageBox::Yes)
+      return;
+
   if (DataBase::resetSQLiteDataBase() != OK)
+  {
     QMessageBox::warning(this, "Ошибка базы данных", DataBase::lastError());
+    return;
+  }
 
   showLogsTable();
-}
+}*/
 
 void MainWindow::on_set_db_pushButton_clicked()
 {
@@ -138,8 +161,11 @@ void MainWindow::on_set_db_pushButton_clicked()
     db_name = db_name.mid(db_name.lastIndexOf('/') + 1, db_name.lastIndexOf('.') - db_name.lastIndexOf('/') - 1);
     ui->db_lineEdit->setText(db_name);
 
-    if (DataBase::setSQLiteDataBase(db_name) != OK)
-      QMessageBox::warning(this, "Ошибка базы данных", DataBase::lastError());
+    if (!DataBase::databaseExists(db_name))
+      QMessageBox::warning(this, "Ошибка", "Базы данных не существует");
+    Status status = DataBase::setSQLiteDataBase(db_name);
+    if (status != OK)
+      QMessageBox::warning(this, "Ошибка", DataBase::lastError());
 
     showLogsTable(db_name);
   }

@@ -36,6 +36,12 @@
       <layout class="QGridLayout" name="gridLayout">
        <item row="0" column="0">
         <widget class="QLabel" name="label_2">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="text">
           <string>min_sup</string>
          </property>
@@ -43,6 +49,12 @@
        </item>
        <item row="0" column="1">
         <widget class="QDoubleSpinBox" name="min_sup_doubleSpinBox">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="decimals">
           <number>3</number>
          </property>
@@ -56,6 +68,12 @@
        </item>
        <item row="1" column="0">
         <widget class="QLabel" name="label_3">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="text">
           <string>min_gap</string>
          </property>
@@ -63,6 +81,12 @@
        </item>
        <item row="1" column="1">
         <widget class="QSpinBox" name="min_gap_spinBox">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="maximum">
           <number>999999999</number>
          </property>
@@ -70,6 +94,12 @@
        </item>
        <item row="2" column="0">
         <widget class="QLabel" name="label_4">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="text">
           <string>max_gap</string>
          </property>
@@ -77,6 +107,12 @@
        </item>
        <item row="2" column="1">
         <widget class="QSpinBox" name="max_gap_spinBox">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
          <property name="maximum">
           <number>999999999</number>
          </property>
@@ -95,7 +131,7 @@
       <x>10</x>
       <y>10</y>
       <width>201</width>
-      <height>312</height>
+      <height>311</height>
      </rect>
     </property>
     <property name="title">
@@ -104,6 +140,12 @@
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
       <widget class="QLabel" name="dir_name_label">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="text">
         <string>Папка с логами:</string>
        </property>
@@ -111,6 +153,12 @@
      </item>
      <item>
       <widget class="QLineEdit" name="dir_name_lineEdit">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="text">
         <string>./logs</string>
        </property>
@@ -118,6 +166,12 @@
      </item>
      <item>
       <widget class="QPushButton" name="dir_choose_pushButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="text">
         <string>Выбрать папку</string>
        </property>
@@ -125,6 +179,12 @@
      </item>
      <item>
       <widget class="QLabel" name="db_label">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="text">
         <string>Название БД:</string>
        </property>
@@ -132,6 +192,12 @@
      </item>
      <item>
       <widget class="QLineEdit" name="db_lineEdit">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="text">
         <string>db_name</string>
        </property>
@@ -139,6 +205,12 @@
      </item>
      <item>
       <widget class="QPushButton" name="set_db_pushButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="text">
         <string>Выбрать БД</string>
        </property>
@@ -146,15 +218,14 @@
      </item>
      <item>
       <widget class="QPushButton" name="read_logs_pushButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="text">
         <string>Считать логи в БД</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="reset_db_pushButton">
-       <property name="text">
-        <string>Очистить БД</string>
        </property>
       </widget>
      </item>

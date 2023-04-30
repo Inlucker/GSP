@@ -7,6 +7,7 @@ QString DataBase::m_last_error = "No errors";
 Status DataBase::setSQLiteDataBase(QString db_name)
 {
   cur_db_name = db_name;
+
   //cur_db = make_unique<QSqlDatabase>(QSqlDatabase::addDatabase("QSQLITE"));
   QSqlDatabase cur_db;// = QSqlDatabase::addDatabase("QSQLITE");
 
@@ -32,14 +33,15 @@ Status DataBase::setSQLiteDataBase(QString db_name)
     m_query = QSqlQuery(QSqlDatabase::database(cur_db_name));
   }
 
-  return execQuery("CREATE TABLE IF NOT EXISTS logs\
+  return OK;
+  /*return execQuery("CREATE TABLE IF NOT EXISTS logs\
                    (\
                      id INTEGER PRIMARY KEY AUTOINCREMENT,\
                      session_id INTEGER,\
                      date_time DATETIME,\
                      int_time INTEGER,\
                      command TEXT\
-                     );");
+                     );");*/
 }
 
 Status DataBase::resetSQLiteDataBase()
@@ -54,6 +56,11 @@ Status DataBase::resetSQLiteDataBase()
                      int_time INTEGER,\
                      command TEXT\
                      );");
+}
+
+bool DataBase::databaseExists(QString db_name)
+{
+  return QFile::exists(db_name + ".sqlite");
 }
 
 Status DataBase::addCommand(int session_id, const QString &datetime, const QString& cmd)

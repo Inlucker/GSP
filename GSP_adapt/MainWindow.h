@@ -30,7 +30,7 @@ private slots:
 
   void on_read_logs_pushButton_clicked();
 
-  void on_reset_db_pushButton_clicked();
+  //void on_reset_db_pushButton_clicked();
 
   void on_set_db_pushButton_clicked();
 
