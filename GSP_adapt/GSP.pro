@@ -11,7 +11,9 @@ CONFIG += c++17
 SOURCES += \
     Command.cpp \
     DataBase.cpp \
+    DataBaseWindow.cpp \
     GSP.cpp \
+    GSPResWindow.cpp \
     LogReader.cpp \
     Sequence.cpp \
     Session.cpp \
@@ -21,13 +23,17 @@ SOURCES += \
 HEADERS += \
     Command.h \
     DataBase.h \
+    DataBaseWindow.h \
     GSP.h \
+    GSPResWindow.h \
     LogReader.h \
     MainWindow.h \
     Sequence.h \
     Session.h
 
 FORMS += \
+    DataBaseWindow.ui \
+    GSPResWindow.ui \
     MainWindow.ui
 
 # Default rules for deployment.

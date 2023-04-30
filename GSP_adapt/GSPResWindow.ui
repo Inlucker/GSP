@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>GSPResWindow</class>
+ <widget class="QWidget" name="GSPResWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1038</width>
+    <height>598</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>12</pointsize>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QTableWidget" name="res_tableWidget">
+     <column>
+      <property name="text">
+       <string>Частая последовательность</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>support</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>lift</string>
+      </property>
+     </column>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

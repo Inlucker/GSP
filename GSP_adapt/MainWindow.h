@@ -3,10 +3,13 @@
 
 #include "GSP.h"
 #include "LogReader.h"
+#include "DataBaseWindow.h"
+#include "GSPResWindow.h"
 #include <QMainWindow>
 #include <QFileDialog>
 #include <QMessageBox>
 #include <chrono>
+#include <memory>
 
 typedef chrono::high_resolution_clock Clock;
 
@@ -36,11 +39,17 @@ private slots:
 
   void on_gsp_pushButton_clicked();
 
-  void on_pushButton_3_clicked();
+  void on_max_gap_pushButton_clicked();
+
+  void on_open_db_pushButton_clicked();
+
+  void on_open_res_pushButton_clicked();
 
 private:
   Ui::MainWindow *ui;
-  unique_ptr<QSqlTableModel> logs_model;
+  shared_ptr<QSqlTableModel> logs_model;
+  unique_ptr<DataBaseWindow> db_window;
+  unique_ptr<GSPResWindow> gsp_res_window;
   GSP gsp;
 };
 #endif // MAINWINDOW_H

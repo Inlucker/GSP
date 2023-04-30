@@ -127,7 +127,7 @@
       </layout>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="max_gap_pushButton">
        <property name="text">
         <string>Задать макс.</string>
        </property>
@@ -273,7 +273,7 @@
       <widget class="QTableView" name="logs_tableView"/>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="open_db_pushButton">
        <property name="text">
         <string>Открыть в отдельном окне</string>
        </property>
@@ -342,7 +342,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="open_res_pushButton">
        <property name="text">
         <string>Открыть в отдельном окне</string>
        </property>

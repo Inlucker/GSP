@@ -13,6 +13,11 @@ MainWindow::MainWindow(QWidget *parent)
   ui->res_tableWidget->setSelectionMode(QAbstractItemView::SingleSelection);
   ui->res_tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
   ui->res_tableWidget->horizontalHeader()->setStretchLastSection(true);
+
+  db_window = make_unique<DataBaseWindow>();
+  db_window->hide();
+  gsp_res_window = make_unique<GSPResWindow>();
+  gsp_res_window->hide();
   /*LogReader lr;
   lr.readLogs("logs");*/
 
@@ -46,7 +51,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::showLogsTable(const QString &db_name, int rows_n)
 {
-  logs_model = make_unique<QSqlTableModel>(this);
+  logs_model = make_shared<QSqlTableModel>(this);
   logs_model->setTable("logs");
   QStringList headers = QStringList() << "id" << "session_id" << "date_time" << "int_time" << "command";
 
@@ -249,9 +254,22 @@ void MainWindow::on_gsp_pushButton_clicked()
   }
 }
 
-
-void MainWindow::on_pushButton_3_clicked()
+void MainWindow::on_max_gap_pushButton_clicked()
 {
   ui->max_gap_spinBox->setValue(INT_MAX);
+}
+
+
+void MainWindow::on_open_db_pushButton_clicked()
+{
+  db_window->setup(ui->db_groupBox->title(), logs_model);
+  db_window->showMaximized();
+}
+
+
+void MainWindow::on_open_res_pushButton_clicked()
+{
+  gsp_res_window->setup(ui->res_tableWidget);
+  gsp_res_window->showMaximized();
 }
 
