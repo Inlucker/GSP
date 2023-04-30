@@ -101,12 +101,11 @@ Status DataBase::addCommand(int session_id, const QString &datetime, const QStri
   q_str += QString::number(session_id) + ", '";
   q_str += datetime + "', ";
   q_str += QString::number(QDateTime().fromString(datetime,"yyyy-MM-dd hh:mm:ss").toSecsSinceEpoch()) + ", '";
-  q_str += cmd + "') RETURNING id;";
+  q_str += cmd + "');";
 
   Status status = execQuery(q_str);
   if (status == OK)
-    while (m_query.next())
-      id = m_query.value(0).toInt();
+    id = m_query.lastInsertId().toInt();
   return status;
 }
 

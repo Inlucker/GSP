@@ -86,17 +86,17 @@ void MainWindow::on_dir_choose_pushButton_clicked()
   if (fileNames.size() > 0)
   {
     const QString &f = fileNames[0];
-    ui->dir_name_label->setText(f);
+    //ui->dir_name_label->setText(f);
     ui->dir_name_lineEdit->setText(f);
 
-    QFont font = ui->dir_name_label->font();
+    /*QFont font = ui->dir_name_label->font();
     QFontMetrics font_metrics (font);
 
     int width = font_metrics.boundingRect(ui->dir_name_label->text()).width()+1;
     int height = font_metrics.height();
 
     ui->dir_name_label->setFixedWidth(width);
-    ui->dir_name_label->setFixedHeight(height);
+    ui->dir_name_label->setFixedHeight(height);*/
   }
   for (const auto &f : fileNames)
     qDebug() << f;
