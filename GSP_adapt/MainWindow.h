@@ -23,7 +23,7 @@ public:
   ~MainWindow();
 
 private:
-  void showLogsTable(const QString &db_name = "db_name");
+  void showLogsTable(const QString &db_name, int rows_n);
 
 private slots:
   void on_dir_choose_pushButton_clicked();

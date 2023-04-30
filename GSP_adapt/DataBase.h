@@ -12,7 +12,9 @@ enum Status
   OK = 0,
   EXEC_ERROR,
   EMPTY_RES,
-  DATABASE_OPEN_ERROR
+  DATABASE_OPEN_ERROR,
+  DATABASE_DOES_NOT_EXISTS,
+  DATABASE_IS_NOT_VALID
 };
 
 class DataBase
@@ -23,6 +25,7 @@ public:
   static Status setSQLiteDataBase(QString db_name = "db_name");
   static Status resetSQLiteDataBase();
   static bool databaseExists(QString db_name);
+  static Status getRowsInLogs(QString db_name, int &rows_number);
   static Status addCommand(int session_id, const QString& datetime, const QString &cmd);
   static Status addCommand(int session_id, int int_time, const QString &cmd);
   static Status getCmdsMap(QMap<int, QString>& cmds_map);

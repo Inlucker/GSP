@@ -21,7 +21,7 @@ Status DataBase::setSQLiteDataBase(QString db_name)
   if (!cur_db.isValid())
   {
     m_last_error = cur_db.lastError().text().toStdString().c_str();
-    return DATABASE_OPEN_ERROR;
+    return DATABASE_IS_NOT_VALID;
   }
   else if (!cur_db.open())
   {
@@ -34,14 +34,6 @@ Status DataBase::setSQLiteDataBase(QString db_name)
   }
 
   return OK;
-  /*return execQuery("CREATE TABLE IF NOT EXISTS logs\
-                   (\
-                     id INTEGER PRIMARY KEY AUTOINCREMENT,\
-                     session_id INTEGER,\
-                     date_time DATETIME,\
-                     int_time INTEGER,\
-                     command TEXT\
-                     );");*/
 }
 
 Status DataBase::resetSQLiteDataBase()
@@ -61,6 +53,45 @@ Status DataBase::resetSQLiteDataBase()
 bool DataBase::databaseExists(QString db_name)
 {
   return QFile::exists(db_name + ".sqlite");
+}
+
+Status DataBase::getRowsInLogs(QString db_name, int &rows_number)
+{
+  if (!DataBase::databaseExists(db_name))
+    return DATABASE_DOES_NOT_EXISTS;
+  QSqlDatabase db;
+  if (QSqlDatabase::contains())
+    db = QSqlDatabase::database(QLatin1String(QSqlDatabase::defaultConnection), false);
+  else
+    db = QSqlDatabase::addDatabase("QSQLITE");
+
+  db.setDatabaseName(db_name + ".sqlite");
+
+  if (!db.isValid())
+  {
+    m_last_error = db.lastError().text().toStdString().c_str();
+    return DATABASE_IS_NOT_VALID;
+  }
+  else if (!db.open())
+  {
+    m_last_error = db.lastError().text().toStdString().c_str();
+    return DATABASE_OPEN_ERROR;
+  }
+  else
+  {
+    QSqlQuery query = QSqlQuery(db);
+
+    if (!query.exec("SELECT * FROM logs;"))
+    {
+      m_last_error = m_query.lastError().text();
+      return EXEC_ERROR;
+    }
+
+    rows_number = 0;
+    while (query.next())
+      rows_number ++;
+  }
+  return OK;
 }
 
 Status DataBase::addCommand(int session_id, const QString &datetime, const QString& cmd)

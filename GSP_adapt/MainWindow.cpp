@@ -44,7 +44,7 @@ MainWindow::~MainWindow()
   delete ui;
 }
 
-void MainWindow::showLogsTable(const QString &db_name)
+void MainWindow::showLogsTable(const QString &db_name, int rows_n)
 {
   logs_model = make_unique<QSqlTableModel>(this);
   logs_model->setTable("logs");
@@ -62,7 +62,7 @@ void MainWindow::showLogsTable(const QString &db_name)
 
   logs_model->select();
 
-  ui->db_groupBox->setTitle(db_name);
+  ui->db_groupBox->setTitle(QString("%1 (Всего %2 записей)").arg(db_name).arg(rows_n));
 
   ui->logs_tableView->resizeColumnsToContents();
   ui->logs_tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -104,18 +104,32 @@ void MainWindow::on_read_logs_pushButton_clicked()
   QString db_name = ui->db_lineEdit->text();
 
   if (DataBase::databaseExists(db_name))
-    if (QMessageBox::question(this, "База данных уже существует",
-                              QString("База данных с именем %1 уже существует\nПерезаписать данные?").arg(db_name)) != QMessageBox::Yes)
+  {
+    int rows_n = -1;
+    if (DataBase::getRowsInLogs(db_name, rows_n) == OK)
+    {
+      QString rows = rows_n >= 0 ? QString("В таблице logs %1 записей\nПерезаписать данные?").arg(rows_n) :
+                                   QString("В ней нету таблицы logs\nЗаписать данные?");
+      if (QMessageBox::question(this, "База данных уже существует",
+                                QString("База данных с именем %1 уже существует\n"
+                                        "%2").arg(db_name).arg(rows)) != QMessageBox::Yes)
+        return;
+    }
+    else
+    {
+      QMessageBox::warning(this, "Ошибка", DataBase::lastError());
       return;
+    }
+  }
 
   if (DataBase::setSQLiteDataBase(db_name) != OK)
   {
-    QMessageBox::warning(this, "Ошибка базы данных", DataBase::lastError());
+    QMessageBox::warning(this, "Ошибка", DataBase::lastError());
     return;
   }
   if (DataBase::resetSQLiteDataBase() != OK)
   {
-    QMessageBox::warning(this, "Ошибка базы данных", DataBase::lastError());
+    QMessageBox::warning(this, "Ошибка", DataBase::lastError());
     return;
   }
 
@@ -125,7 +139,14 @@ void MainWindow::on_read_logs_pushButton_clicked()
   chrono::nanoseconds diff = chrono::duration_cast<chrono::nanoseconds>(end - start);
   qDebug() << "readLogs() time: " << diff.count() / 1000000000. << " s";
 
-  showLogsTable(db_name);
+  int rows_n = -1;
+  if (DataBase::getRowsInLogs(db_name, rows_n) != OK)
+  {
+    QMessageBox::warning(this, "Ошибка", DataBase::lastError());
+    return;
+  }
+
+  showLogsTable(db_name, rows_n);
 }
 
 /*void MainWindow::on_reset_db_pushButton_clicked()
@@ -163,11 +184,15 @@ void MainWindow::on_set_db_pushButton_clicked()
 
     if (!DataBase::databaseExists(db_name))
       QMessageBox::warning(this, "Ошибка", "Базы данных не существует");
-    Status status = DataBase::setSQLiteDataBase(db_name);
-    if (status != OK)
+
+    int rows_n = -1;
+    if (DataBase::getRowsInLogs(db_name, rows_n) != OK)
       QMessageBox::warning(this, "Ошибка", DataBase::lastError());
 
-    showLogsTable(db_name);
+    if (DataBase::setSQLiteDataBase(db_name) != OK)
+      QMessageBox::warning(this, "Ошибка", DataBase::lastError());
+
+    showLogsTable(db_name, rows_n);
   }
 }
 
