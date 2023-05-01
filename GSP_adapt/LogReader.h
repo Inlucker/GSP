@@ -29,7 +29,9 @@ private:
   static void readFileWithoutTime(const QFileInfo& file_info, QList<QString> &commands, int &session_id);
   static void readDirWithoutTime(const QString& abs_path, QList<QString> &commands, int &session_id);
   static int getTimeFromRecord(QString r);
-  static int getCommandFromRecord(QString r, QString& res);
+  static bool getCommandFromRecord(QString r, QString& res);
+  static QStringList getCommandsFromRecord(QString r);
+  static QStringList getCommandsFromRecord2(QString r);
 
 private:
   //QStringList name_filters;
