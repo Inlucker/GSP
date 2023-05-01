@@ -35,6 +35,7 @@ private:
   //QStringList name_filters;
   static QDir::Filters dir_filters;
   static QStringList ignore_commands;
+  static QStringList new_session_commands;
 };
 
 #endif // LOGREADER_H

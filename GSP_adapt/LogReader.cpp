@@ -4,6 +4,7 @@
 QDir::Filters LogReader::dir_filters = QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot;
 //name_filters << "*.log";
 QStringList LogReader::ignore_commands = {"Inspector", "StartupVPerfTest", "TipOfDay"};
+QStringList LogReader::new_session_commands = {"Exit", "NewDocument", "OpenDocument"};
 
 /*LogReader::LogReader()
 {
@@ -64,10 +65,13 @@ void LogReader::readFile(const QFileInfo &file_info, QList<QString> &commands, i
       QString cmd;
       if (getCommandFromRecord(line, cmd))
       {
-        if (cmd == "Exit" && !empty_session)
+        if (new_session_commands.contains(cmd))
         {
-          session_id++;
-          empty_session = true;
+          if (!empty_session)
+          {
+            session_id++;
+            empty_session = true;
+          }
         }
         else
         {
