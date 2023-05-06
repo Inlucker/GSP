@@ -26,7 +26,7 @@ public:
   ~MainWindow();
 
 private:
-  void showLogsTable(const QString &db_name, int rows_n, int sessions_n);
+  void showLogsTable(const QString &db_name);
 
 private slots:
   void on_dir_choose_pushButton_clicked();

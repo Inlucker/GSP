@@ -50,8 +50,16 @@ MainWindow::~MainWindow()
   delete ui;
 }
 
-void MainWindow::showLogsTable(const QString &db_name, int rows_n, int sessions_n)
+void MainWindow::showLogsTable(const QString &db_name)
 {
+  int rows_n = -1;
+  if (DataBase::getRowsInLogs(db_name, rows_n) != OK)
+    QMessageBox::warning(this, "Ошибка", "Не получилось получить количество записей:\n" + DataBase::lastError());
+
+  int sessions_n = -1;
+  if (DataBase::getSessionsInLogs(sessions_n) != OK)
+    QMessageBox::warning(this, "Ошибка", "Не получилось получить количество сессий:\n" + DataBase::lastError());
+
   logs_model = make_shared<QSqlTableModel>(this);
   logs_model->setTable("logs");
   QStringList headers = QStringList() << "id" << "session_id" << "date_time" << "int_time" << "command";
@@ -150,15 +158,7 @@ void MainWindow::on_read_logs_pushButton_clicked()
   chrono::nanoseconds diff = chrono::duration_cast<chrono::nanoseconds>(end - start);
   qDebug() << "readLogs() time: " << diff.count() / 1000000000. << " s";
 
-  int rows_n = -1;
-  if (DataBase::getRowsInLogs(db_name, rows_n) != OK)
-    QMessageBox::warning(this, "Ошибка", "Не получилось получить количество записей:\n" + DataBase::lastError());
-
-  int sessions_n = -1;
-  if (DataBase::getSessionsInLogs(sessions_n) != OK)
-    QMessageBox::warning(this, "Ошибка", "Не получилось получить количество сессий:\n" + DataBase::lastError());
-
-  showLogsTable(db_name, rows_n, sessions_n);
+  showLogsTable(db_name);
 }
 
 /*void MainWindow::on_reset_db_pushButton_clicked()
@@ -206,15 +206,7 @@ void MainWindow::on_set_db_pushButton_clicked()
       return;
     }
 
-    int rows_n = -1;
-    if (DataBase::getRowsInLogs(db_name, rows_n) != OK)
-      QMessageBox::warning(this, "Ошибка", "Не получилось получить количество записей:\n" + DataBase::lastError());
-
-    int sessions_n = -1;
-    if (DataBase::getSessionsInLogs(sessions_n) != OK)
-      QMessageBox::warning(this, "Ошибка", "Не получилось получить количество сессий:\n" + DataBase::lastError());
-
-    showLogsTable(db_name, rows_n, sessions_n);
+    showLogsTable(db_name);
   }
 }
 
