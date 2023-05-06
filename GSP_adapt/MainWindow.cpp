@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
   ui->res_tableWidget->setSelectionBehavior(QAbstractItemView::SelectRows);
   ui->res_tableWidget->setSelectionMode(QAbstractItemView::SingleSelection);
   ui->res_tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+  ui->res_tableWidget->resizeColumnsToContents();
   ui->res_tableWidget->horizontalHeader()->setStretchLastSection(true);
 
   db_window = make_unique<DataBaseWindow>();
@@ -49,7 +50,7 @@ MainWindow::~MainWindow()
   delete ui;
 }
 
-void MainWindow::showLogsTable(const QString &db_name, int rows_n)
+void MainWindow::showLogsTable(const QString &db_name, int rows_n, int sessions_n)
 {
   logs_model = make_shared<QSqlTableModel>(this);
   logs_model->setTable("logs");
@@ -67,7 +68,7 @@ void MainWindow::showLogsTable(const QString &db_name, int rows_n)
 
   logs_model->select();
 
-  ui->db_groupBox->setTitle(QString("%1 (Всего %2 записей)").arg(db_name).arg(rows_n));
+  ui->db_groupBox->setTitle(QString("%1 (Всего %2 записей и %3 сессий)").arg(db_name).arg(rows_n).arg(sessions_n));
 
   ui->logs_tableView->resizeColumnsToContents();
   ui->logs_tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
@@ -126,6 +127,11 @@ void MainWindow::on_read_logs_pushButton_clicked()
       return;
     }
   }
+  else
+  {
+    QMessageBox::warning(this, "Ошибка", "Базы данных не существует");
+    return;
+  }
 
   if (DataBase::setSQLiteDataBase(db_name) != OK)
   {
@@ -146,12 +152,13 @@ void MainWindow::on_read_logs_pushButton_clicked()
 
   int rows_n = -1;
   if (DataBase::getRowsInLogs(db_name, rows_n) != OK)
-  {
-    QMessageBox::warning(this, "Ошибка", DataBase::lastError());
-    return;
-  }
+    QMessageBox::warning(this, "Ошибка", "Не получилось получить количество записей:\n" + DataBase::lastError());
 
-  showLogsTable(db_name, rows_n);
+  int sessions_n = -1;
+  if (DataBase::getSessionsInLogs(sessions_n) != OK)
+    QMessageBox::warning(this, "Ошибка", "Не получилось получить количество сессий:\n" + DataBase::lastError());
+
+  showLogsTable(db_name, rows_n, sessions_n);
 }
 
 /*void MainWindow::on_reset_db_pushButton_clicked()
@@ -193,20 +200,21 @@ void MainWindow::on_set_db_pushButton_clicked()
       return;
     }
 
-    int rows_n = -1;
-    if (DataBase::getRowsInLogs(db_name, rows_n) != OK)
-    {
-      QMessageBox::warning(this, "Ошибка", DataBase::lastError());
-      return;
-    }
-
     if (DataBase::setSQLiteDataBase(db_name) != OK)
     {
       QMessageBox::warning(this, "Ошибка", DataBase::lastError());
       return;
     }
 
-    showLogsTable(db_name, rows_n);
+    int rows_n = -1;
+    if (DataBase::getRowsInLogs(db_name, rows_n) != OK)
+      QMessageBox::warning(this, "Ошибка", "Не получилось получить количество записей:\n" + DataBase::lastError());
+
+    int sessions_n = -1;
+    if (DataBase::getSessionsInLogs(sessions_n) != OK)
+      QMessageBox::warning(this, "Ошибка", "Не получилось получить количество сессий:\n" + DataBase::lastError());
+
+    showLogsTable(db_name, rows_n, sessions_n);
   }
 }
 
@@ -271,5 +279,17 @@ void MainWindow::on_open_res_pushButton_clicked()
 {
   gsp_res_window->setup(ui->res_tableWidget);
   gsp_res_window->showMaximized();
+}
+
+
+void MainWindow::on_end_cmds_checkBox_stateChanged(int arg1)
+{
+  LogReader::includeEndCmds(arg1);
+}
+
+
+void MainWindow::on_same_cmds_checkBox_stateChanged(int arg1)
+{
+  gsp.setSameCmds(arg1);
 }
 

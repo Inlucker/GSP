@@ -26,7 +26,7 @@ public:
   ~MainWindow();
 
 private:
-  void showLogsTable(const QString &db_name, int rows_n);
+  void showLogsTable(const QString &db_name, int rows_n, int sessions_n);
 
 private slots:
   void on_dir_choose_pushButton_clicked();
@@ -44,6 +44,10 @@ private slots:
   void on_open_db_pushButton_clicked();
 
   void on_open_res_pushButton_clicked();
+
+  void on_end_cmds_checkBox_stateChanged(int arg1);
+
+  void on_same_cmds_checkBox_stateChanged(int arg1);
 
 private:
   Ui::MainWindow *ui;

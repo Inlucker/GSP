@@ -26,6 +26,7 @@ public:
   static Status resetSQLiteDataBase();
   static bool databaseExists(QString db_name);
   static Status getRowsInLogs(QString db_name, int &rows_number);
+  static Status getSessionsInLogs(int &sessions_n);
   static Status addCommand(int session_id, const QString& datetime, const QString &cmd, int &id);
   static Status addCommand(int session_id, int int_time, const QString &cmd);
   static Status getCmdsMap(QMap<int, QString>& cmds_map);

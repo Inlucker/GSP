@@ -89,9 +89,23 @@ Status DataBase::getRowsInLogs(QString db_name, int &rows_number)
 
     rows_number = 0;
     while (query.next())
-      rows_number ++;
+      rows_number++;
   }
   return OK;
+}
+
+Status DataBase::getSessionsInLogs(int &sessions_n)
+{
+  QString q_str = "select max(session_id) from logs;";
+  Status s = execQuery(q_str);
+  if (s != OK)
+    return s;
+
+  sessions_n = -1;
+  if (m_query.next())
+    sessions_n = m_query.value(0).toInt();
+
+  return s;
 }
 
 Status DataBase::addCommand(int session_id, const QString &datetime, const QString& cmd, int &id)

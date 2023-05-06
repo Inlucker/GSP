@@ -16,6 +16,7 @@ public:
   QList<Sequence> getFrequentSequences(double _min_sup = -1, int _min_gap = -1, int _max_gap = -1);
   void printFrequentSequences();
   QString getSeqStr(const Sequence &seq);
+  void setSameCmds(bool val);
 
   void test1();
   void test5();
@@ -44,6 +45,7 @@ private:
   double min_support = 0.5;
   int min_gap = 0;
   int max_gap = INT_MAX;
+  bool same_cmds = true;
 };
 
 #endif // GSP_H

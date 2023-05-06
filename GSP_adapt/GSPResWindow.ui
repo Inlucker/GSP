@@ -16,7 +16,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>GSP res</string>
+   <string>Результат алгоритма</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>

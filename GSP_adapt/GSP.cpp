@@ -91,6 +91,11 @@ QString GSP::getSeqStr(const Sequence &seq)
   return res;
 }
 
+void GSP::setSameCmds(bool val)
+{
+  same_cmds = val;
+}
+
 void GSP::test1()
 {
   cur_freq_seqs.clear();
@@ -168,9 +173,11 @@ QList<Sequence> GSP::generateCandidates()
   //Join
   for (const Sequence &seq1 : cur_freq_seqs)
     for (const Sequence &seq2 : cur_freq_seqs)
+    {
       //if (seq1 != seq2 && Sequence::isJoinable(seq1, seq2)) // excludes <(x),(x)>
-      if (Sequence::isJoinable(seq1, seq2))
+      if (Sequence::isJoinable(seq1, seq2) && (same_cmds || seq1 != seq2))
         candidates.push_back(Sequence::join(seq1, seq2)); // <(x),(y)>
+    }
   return candidates;
 }
 
