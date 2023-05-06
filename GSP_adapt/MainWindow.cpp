@@ -152,8 +152,10 @@ void MainWindow::on_read_logs_pushButton_clicked()
     return;
   }
 
+  shared_ptr<LogReader> log_reader = LogReader::instance();
+
   chrono::time_point<Clock> start = Clock::now();
-  LogReader::readLogs(logs_dir);
+  log_reader->readLogs(logs_dir);
   chrono::time_point<Clock> end = Clock::now();
   chrono::nanoseconds diff = chrono::duration_cast<chrono::nanoseconds>(end - start);
   qDebug() << "readLogs() time: " << diff.count() / 1000000000. << " s";
@@ -276,7 +278,8 @@ void MainWindow::on_open_res_pushButton_clicked()
 
 void MainWindow::on_end_cmds_checkBox_stateChanged(int arg1)
 {
-  LogReader::includeEndCmds(arg1);
+  shared_ptr<LogReader> log_reader = LogReader::instance();
+  log_reader->includeEndCmds(arg1);
 }
 
 

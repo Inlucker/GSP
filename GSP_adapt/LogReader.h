@@ -2,6 +2,9 @@
 #define LOGREADER_H
 
 #include <QDir>
+#include <memory>
+
+using namespace std;
 
 class Action
 {
@@ -18,28 +21,29 @@ public:
 class LogReader
 {
 public:
-  LogReader() = delete;
+  LogReader();
 
-  static void readLogs(QString dir_name = "./");
-  static void readLogsWithoutTime(QString dir_name = "./");
-  static void includeEndCmds(bool val = true);
+  static shared_ptr<LogReader> instance();
 
-private:
-  static void readFile(const QFileInfo& file_info, QList<QString> &commands, int &session_id);
-  static void readDir(const QString& abs_path, QList<QString> &commands, int &session_id);
-  static void readFileWithoutTime(const QFileInfo& file_info, QList<QString> &commands, int &session_id);
-  static void readDirWithoutTime(const QString& abs_path, QList<QString> &commands, int &session_id);
-  static int getTimeFromRecord(QString r);
-  static bool getCommandFromRecord(QString r, QString& res);
-  static QStringList getAllCommandsFromRecord(QString r);
-  static QStringList getTwoCommandsFromRecord(QString r);
+  void readLogs(QString dir_name = "./");
+  void readLogsWithoutTime(QString dir_name = "./");
+  void includeEndCmds(bool val = true);
 
 private:
-  //QStringList name_filters;
-  static QDir::Filters dir_filters;
-  static QStringList ignore_commands;
-  static QStringList new_session_commands;
-  static bool end_cmds;
+  void readFile(const QFileInfo& file_info, QList<QString> &commands, int &session_id);
+  void readDir(const QString& abs_path, QList<QString> &commands, int &session_id);
+  void readFileWithoutTime(const QFileInfo& file_info, QList<QString> &commands, int &session_id);
+  void readDirWithoutTime(const QString& abs_path, QList<QString> &commands, int &session_id);
+  int getTimeFromRecord(QString r);
+  bool getCommandFromRecord(QString r, QString& res);
+  QStringList getAllCommandsFromRecord(QString r);
+  QStringList getTwoCommandsFromRecord(QString r);
+
+private:
+  QDir::Filters dir_filters;
+  QStringList ignore_commands;
+  QStringList new_session_commands;
+  bool end_cmds;
 };
 
 #endif // LOGREADER_H

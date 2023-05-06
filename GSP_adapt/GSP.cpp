@@ -114,10 +114,12 @@ void GSP::test1()
 
 void GSP::test5()
 {
+  shared_ptr<LogReader> log_reader = LogReader::instance();
+
   DataBase::setSQLiteDataBase();
   DataBase::resetSQLiteDataBase();
   chrono::time_point<Clock> start = Clock::now();
-  LogReader::readLogs(".\\logs");
+  log_reader->readLogs(".\\logs");
   chrono::time_point<Clock> end = Clock::now();
   chrono::nanoseconds diff = chrono::duration_cast<chrono::nanoseconds>(end - start);
   qDebug() << "readLogs() time: " << diff.count() / 1000000000. << " s";
@@ -141,7 +143,8 @@ void GSP::test5()
 
 void GSP::test6()
 {
-  LogReader::readLogsWithoutTime(".\\logs_without_time");
+  shared_ptr<LogReader> log_reader = LogReader::instance();
+  log_reader->readLogsWithoutTime(".\\logs_without_time");
   min_gap = 1;
   max_gap = 15;
   min_support = 0.5;

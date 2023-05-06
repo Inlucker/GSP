@@ -1,17 +1,22 @@
 #include "LogReader.h"
 #include "DataBase.h"
 
-QDir::Filters LogReader::dir_filters = QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot;
-//name_filters << "*.log";
-QStringList LogReader::ignore_commands = {"Inspector", "StartupVPerfTest", "TipOfDay",
-                                          "/Inspector", "/StartupVPerfTest", "/TipOfDay",
-                                          "/Exit", "/NewDocument", "/OpenDocument"};
-QStringList LogReader::new_session_commands = {"Exit", "NewDocument", "OpenDocument"};
-bool LogReader::end_cmds = false;
-
-/*LogReader::LogReader()
+LogReader::LogReader()
 {
-}*/
+  dir_filters = QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot;
+  ignore_commands = {"Inspector", "StartupVPerfTest", "TipOfDay",
+                                            "/Inspector", "/StartupVPerfTest", "/TipOfDay",
+                                            "/Exit", "/NewDocument", "/OpenDocument"};
+  new_session_commands = {"Exit", "NewDocument", "OpenDocument"};
+  end_cmds = false;
+}
+
+shared_ptr<LogReader> LogReader::instance()
+{
+  static shared_ptr<LogReader> my_instance(new LogReader());
+
+  return my_instance;
+}
 
 void LogReader::readLogs(QString dir_name)
 {
