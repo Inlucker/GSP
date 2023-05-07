@@ -26,15 +26,12 @@ public:
   MainWindow(QWidget *parent = nullptr);
   ~MainWindow();
 
-private:
+private slots:
   void showLogsTable(const QString &db_name);
 
-private slots:
   void on_dir_choose_pushButton_clicked();
 
   void on_read_logs_pushButton_clicked();
-
-  //void on_reset_db_pushButton_clicked();
 
   void on_set_db_pushButton_clicked();
 

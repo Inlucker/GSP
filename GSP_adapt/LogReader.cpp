@@ -128,7 +128,7 @@ void LogReader::readFile(const QFileInfo &file_info, QList<QString> &commands, i
             int id = -1;
             if (db->addCommand(session_id, datetime, cmd, id) != OK)
               qDebug() << db->lastError(); //Make throw instead qDebug()?
-            if (id % 1000 == 0)
+            if (id % 100 == 0)
               qDebug() << id;
           }
         }

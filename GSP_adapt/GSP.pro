@@ -16,6 +16,7 @@ SOURCES += \
     GSP.cpp \
     GSPResWindow.cpp \
     LogReader.cpp \
+    ReadLogsWorker.cpp \
     Sequence.cpp \
     Session.cpp \
     main.cpp \
@@ -30,6 +31,7 @@ HEADERS += \
     GSPResWindow.h \
     LogReader.h \
     MainWindow.h \
+    ReadLogsWorker.h \
     Sequence.h \
     Session.h
 

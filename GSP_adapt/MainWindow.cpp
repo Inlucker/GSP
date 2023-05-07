@@ -2,6 +2,7 @@
 #include "ui_MainWindow.h"
 
 #include "LogReader.h"
+#include "ReadLogsWorker.h"
 
 MainWindow::MainWindow(QWidget *parent)
   : QMainWindow(parent)
@@ -165,7 +166,17 @@ void MainWindow::on_read_logs_pushButton_clicked()
     return;
   }
 
-  shared_ptr<LogReader> log_reader = LogReader::instance();
+  ReadLogsWorker *worker = new ReadLogsWorker(logs_dir, db_name);
+  QThread *worker_thread = new QThread();
+  worker->moveToThread(worker_thread);
+
+  connect(worker_thread, SIGNAL(finished()), worker, SLOT(deleteLater()));
+  connect(worker_thread, SIGNAL(started()), worker, SLOT(run()));
+  connect(worker, SIGNAL(resultReady(QString)), this, SLOT(showLogsTable(QString)));
+
+  worker_thread->start();
+
+  /*shared_ptr<LogReader> log_reader = LogReader::instance();
 
   chrono::time_point<Clock> start = Clock::now();
   log_reader->readLogs(logs_dir);
@@ -173,7 +184,7 @@ void MainWindow::on_read_logs_pushButton_clicked()
   chrono::nanoseconds diff = chrono::duration_cast<chrono::nanoseconds>(end - start);
   qDebug() << "readLogs() time: " << diff.count() / 1000000000. << " s";
 
-  showLogsTable(db_name);
+  showLogsTable(db_name);*/
 }
 
 void MainWindow::on_set_db_pushButton_clicked()
