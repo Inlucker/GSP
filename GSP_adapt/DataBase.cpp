@@ -105,7 +105,7 @@ Status DataBase::getRowsInLogs(QString db_name, int &rows_number)
 
 Status DataBase::getSessionsInLogs(int &sessions_n)
 {
-  QString q_str = "select max(session_id) from logs;";
+  QString q_str = "select count(session_id) from (select distinct session_id from logs);";
   Status s = execQuery(q_str);
   if (s != OK)
     return s;
