@@ -102,6 +102,7 @@ void CmdListWindow::on_add_ign_cmd_pushButton_clicked()
   QListWidgetItem *item = new QListWidgetItem(new_cmd);
   item->setFlags (item->flags () | Qt::ItemIsEditable);
   ui->ignore_cmds_listWidget->addItem(item);
+  ui->ignore_cmds_listWidget->editItem(item);
 }
 
 
@@ -143,6 +144,7 @@ void CmdListWindow::on_add_new_ses_cmd_pushButton_clicked()
   QListWidgetItem *item = new QListWidgetItem(new_cmd);
   item->setFlags (item->flags () | Qt::ItemIsEditable);
   ui->new_session_cmds_listWidget->addItem(item);
+  ui->new_session_cmds_listWidget->editItem(item);
 }
 
 

@@ -262,6 +262,7 @@ void MainWindow::on_open_db_pushButton_clicked()
 {
   db_window->setup(ui->db_groupBox->title(), logs_model);
   db_window->showMaximized();
+  db_window->raise();
 }
 
 
@@ -269,6 +270,7 @@ void MainWindow::on_open_res_pushButton_clicked()
 {
   gsp_res_window->setup(ui->res_tableWidget);
   gsp_res_window->showMaximized();
+  gsp_res_window->raise();
 }
 
 
@@ -288,5 +290,6 @@ void MainWindow::on_ext_settings_action_triggered(bool checked)
 {
   cmd_list_window->setup();
   cmd_list_window->show();
+  cmd_list_window->raise();
 }
 
