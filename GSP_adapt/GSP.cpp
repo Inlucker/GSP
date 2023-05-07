@@ -5,10 +5,6 @@ typedef chrono::high_resolution_clock Clock;
 
 GSP::GSP()
 {
-  /*if (DataBase::createSQLiteDataBase(db_name) != OK) //ToDo где лучше создавть БД? (при нажатии на кнопку в интерфейсе)
-    throw DataBase::lastError();*/
-  /*if (DataBase::resetSQLiteDataBase() != OK) //ToDo где лучше ресетить БД? (при нажатии на кнопку в интерфейсе)
-    throw DataBase::lastError();*/
 }
 
 QList<Sequence> GSP::getFrequentSequences(double _min_sup, int _min_gap, int _max_gap)
@@ -23,7 +19,8 @@ QList<Sequence> GSP::getFrequentSequences(double _min_sup, int _min_gap, int _ma
   prepareGSP();
   //ToDo Заменить на постепенную подгрузу сессий по страницам
   QList<Session> sessions;
-  DataBase::getAllLogs(cmds_map.size(), sessions);
+  shared_ptr<DataBase> db = DataBase::instance();
+  db->getAllLogs(cmds_map.size(), sessions);
 
   this->freq_seqs.clear();
   QList<Sequence> candidates = generateCandidates1();
@@ -116,8 +113,9 @@ void GSP::test5()
 {
   shared_ptr<LogReader> log_reader = LogReader::instance();
 
-  DataBase::setSQLiteDataBase();
-  DataBase::resetSQLiteDataBase();
+  shared_ptr<DataBase> db = DataBase::instance();
+  db->setSQLiteDataBase();
+  db->resetSQLiteDataBase();
   chrono::time_point<Clock> start = Clock::now();
   log_reader->readLogs(".\\logs");
   chrono::time_point<Clock> end = Clock::now();
@@ -155,11 +153,12 @@ void GSP::test6()
 
 void GSP::prepareGSP()
 {
-  if (DataBase::getCmdsMap(cmds_map) != OK)
-    throw DataBase::lastError();
+  shared_ptr<DataBase> db = DataBase::instance();
+  if (db->getCmdsMap(cmds_map) != OK)
+    throw db->lastError();
 
-  if (DataBase::getSessionsNum(sessions_count) != OK)
-    throw DataBase::lastError();
+  if (db->getSessionsNum(sessions_count) != OK)
+    throw db->lastError();
 }
 
 QList<Sequence> GSP::generateCandidates1()

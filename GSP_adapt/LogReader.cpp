@@ -67,6 +67,7 @@ void LogReader::readFile(const QFileInfo &file_info, QList<QString> &commands, i
   if (!file.open(QIODevice::ReadOnly))
     return; // не получилось открыть файл
 
+  shared_ptr<DataBase> db = DataBase::instance();
   bool empty_session = true;
   while (!file.atEnd())
   {
@@ -105,8 +106,8 @@ void LogReader::readFile(const QFileInfo &file_info, QList<QString> &commands, i
               commands.append(cmd);
 
             int id = -1;
-            if (DataBase::addCommand(session_id, datetime, cmd, id) != OK)
-              qDebug() << DataBase::lastError(); //Make throw instead qDebug()?
+            if (db->addCommand(session_id, datetime, cmd, id) != OK)
+              qDebug() << db->lastError(); //Make throw instead qDebug()?
             if (id % 1000 == 0)
               qDebug() << id;
           }
@@ -139,8 +140,8 @@ void LogReader::readFile(const QFileInfo &file_info, QList<QString> &commands, i
               commands.append(cmd);
 
             int id = -1;
-            if (DataBase::addCommand(session_id, datetime, cmd, id) != OK)
-              qDebug() << DataBase::lastError(); //Make throw instead qDebug()?
+            if (db->addCommand(session_id, datetime, cmd, id) != OK)
+              qDebug() << db->lastError(); //Make throw instead qDebug()?
             if (id % 1000 == 0)
               qDebug() << id;
           }
@@ -179,6 +180,7 @@ void LogReader::readFileWithoutTime(const QFileInfo &file_info, QList<QString> &
   if (!file.open(QIODevice::ReadOnly))
     return; // не получилось открыть файл
 
+  shared_ptr<DataBase> db = DataBase::instance();
   int int_time = 0;
   while (!file.atEnd())
   {
@@ -198,8 +200,8 @@ void LogReader::readFileWithoutTime(const QFileInfo &file_info, QList<QString> &
         if (!cmd_exists)
           commands.append(cmd);
 
-        if (DataBase::addCommand(session_id, int_time++, cmd) != OK)
-          qDebug() << DataBase::lastError(); //Make throw instead qDebug()?
+        if (db->addCommand(session_id, int_time++, cmd) != OK)
+          qDebug() << db->lastError(); //Make throw instead qDebug()?
 
         if (cmd == "Exit")
         {

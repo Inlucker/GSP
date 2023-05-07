@@ -52,13 +52,14 @@ MainWindow::~MainWindow()
 
 void MainWindow::showLogsTable(const QString &db_name)
 {
+  shared_ptr<DataBase> db = DataBase::instance();
   int rows_n = -1;
-  if (DataBase::getRowsInLogs(db_name, rows_n) != OK)
-    QMessageBox::warning(this, "Ошибка", "Не получилось получить количество записей:\n" + DataBase::lastError());
+  if (db->getRowsInLogs(db_name, rows_n) != OK)
+    QMessageBox::warning(this, "Ошибка", "Не получилось получить количество записей:\n" + db->lastError());
 
   int sessions_n = -1;
-  if (DataBase::getSessionsInLogs(sessions_n) != OK)
-    QMessageBox::warning(this, "Ошибка", "Не получилось получить количество сессий:\n" + DataBase::lastError());
+  if (db->getSessionsInLogs(sessions_n) != OK)
+    QMessageBox::warning(this, "Ошибка", "Не получилось получить количество сессий:\n" + db->lastError());
 
   logs_model = make_shared<QSqlTableModel>(this);
   logs_model->setTable("logs");
@@ -116,11 +117,12 @@ void MainWindow::on_read_logs_pushButton_clicked()
 {
   QString logs_dir = ui->dir_name_lineEdit->text();
   QString db_name = ui->db_lineEdit->text();
+  shared_ptr<DataBase> db = DataBase::instance();
 
-  if (DataBase::databaseExists(db_name))
+  if (db->databaseExists(db_name))
   {
     int rows_n = -1;
-    if (DataBase::getRowsInLogs(db_name, rows_n) == OK)
+    if (db->getRowsInLogs(db_name, rows_n) == OK)
     {
       QString rows = rows_n >= 0 ? QString("В таблице logs %1 записей\nПерезаписать данные?").arg(rows_n) :
                                    QString("В ней нету таблицы logs\nЗаписать данные?");
@@ -131,7 +133,7 @@ void MainWindow::on_read_logs_pushButton_clicked()
     }
     else
     {
-      QMessageBox::warning(this, "Ошибка", DataBase::lastError());
+      QMessageBox::warning(this, "Ошибка", db->lastError());
       return;
     }
   }
@@ -141,14 +143,14 @@ void MainWindow::on_read_logs_pushButton_clicked()
     return;
   }
 
-  if (DataBase::setSQLiteDataBase(db_name) != OK)
+  if (db->setSQLiteDataBase(db_name) != OK)
   {
-    QMessageBox::warning(this, "Ошибка", DataBase::lastError());
+    QMessageBox::warning(this, "Ошибка", db->lastError());
     return;
   }
-  if (DataBase::resetSQLiteDataBase() != OK)
+  if (db->resetSQLiteDataBase() != OK)
   {
-    QMessageBox::warning(this, "Ошибка", DataBase::lastError());
+    QMessageBox::warning(this, "Ошибка", db->lastError());
     return;
   }
 
@@ -162,24 +164,6 @@ void MainWindow::on_read_logs_pushButton_clicked()
 
   showLogsTable(db_name);
 }
-
-/*void MainWindow::on_reset_db_pushButton_clicked()
-{
-  QString db_name = ui->db_groupBox->title();
-
-  if (DataBase::databaseExists(db_name))
-    if (QMessageBox::question(this, "База данных уже существует",
-                              QString("База данных с именем %1 уже существует\nОчистить Базу Данных?").arg(db_name)) != QMessageBox::Yes)
-      return;
-
-  if (DataBase::resetSQLiteDataBase() != OK)
-  {
-    QMessageBox::warning(this, "Ошибка базы данных", DataBase::lastError());
-    return;
-  }
-
-  showLogsTable();
-}*/
 
 void MainWindow::on_set_db_pushButton_clicked()
 {
@@ -195,16 +179,17 @@ void MainWindow::on_set_db_pushButton_clicked()
     QString db_name = fileNames[0];
     db_name = db_name.mid(db_name.lastIndexOf('/') + 1, db_name.lastIndexOf('.') - db_name.lastIndexOf('/') - 1);
     ui->db_lineEdit->setText(db_name);
+    shared_ptr<DataBase> db = DataBase::instance();
 
-    if (!DataBase::databaseExists(db_name))
+    if (!db->databaseExists(db_name))
     {
       QMessageBox::warning(this, "Ошибка", "Базы данных не существует");
       return;
     }
 
-    if (DataBase::setSQLiteDataBase(db_name) != OK)
+    if (db->setSQLiteDataBase(db_name) != OK)
     {
-      QMessageBox::warning(this, "Ошибка", DataBase::lastError());
+      QMessageBox::warning(this, "Ошибка", db->lastError());
       return;
     }
 

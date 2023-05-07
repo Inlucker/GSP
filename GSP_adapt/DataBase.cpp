@@ -1,15 +1,24 @@
 #include "DataBase.h"
-//unique_ptr<QSqlDatabase> DataBase::cur_db = NULL;
-QString DataBase::cur_db_name = "db_name";
-QSqlQuery DataBase::m_query = QSqlQuery();
-QString DataBase::m_last_error = "No errors";
+
+DataBase::DataBase()
+{
+  cur_db_name = "db_name";
+  m_query = QSqlQuery();
+  m_last_error = "No errors";
+}
+
+shared_ptr<DataBase> DataBase::instance()
+{
+  static shared_ptr<DataBase> my_instance(new DataBase());
+
+  return my_instance;
+}
 
 Status DataBase::setSQLiteDataBase(QString db_name)
 {
   cur_db_name = db_name;
 
-  //cur_db = make_unique<QSqlDatabase>(QSqlDatabase::addDatabase("QSQLITE"));
-  QSqlDatabase cur_db;// = QSqlDatabase::addDatabase("QSQLITE");
+  QSqlDatabase cur_db;
 
   if (QSqlDatabase::contains())
     cur_db = QSqlDatabase::database(QLatin1String(QSqlDatabase::defaultConnection), false);
