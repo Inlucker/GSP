@@ -29,6 +29,8 @@ public:
 private slots:
   void showLogsTable(const QString &db_name);
 
+  void showResultsTable(QList<Sequence> res);
+
   void on_dir_choose_pushButton_clicked();
 
   void on_read_logs_pushButton_clicked();

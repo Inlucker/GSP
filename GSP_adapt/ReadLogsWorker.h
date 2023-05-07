@@ -1,7 +1,6 @@
 #ifndef READLOGSWORKER_H
 #define READLOGSWORKER_H
 
-#include <QThread>
 #include <QObject>
 #include <chrono>
 

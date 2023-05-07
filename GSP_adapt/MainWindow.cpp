@@ -3,6 +3,7 @@
 
 #include "LogReader.h"
 #include "ReadLogsWorker.h"
+#include "GSPWorker.h"
 
 MainWindow::MainWindow(QWidget *parent)
   : QMainWindow(parent)
@@ -86,6 +87,27 @@ void MainWindow::showLogsTable(const QString &db_name)
   ui->logs_tableView->resizeColumnsToContents();
   ui->logs_tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
   ui->logs_tableView->horizontalHeader()->setStretchLastSection(true);
+
+  ui->read_logs_pushButton->setDisabled(false);
+}
+
+void MainWindow::showResultsTable(QList<Sequence> res)
+{
+  ui->res_tableWidget->clearContents();
+  ui->res_tableWidget->setRowCount(0);
+  for (const Sequence & seq : res)
+  {
+    ui->res_tableWidget->insertRow(ui->res_tableWidget->rowCount());
+    QString seq_str = gsp.getSeqStr(seq);
+    ui->res_tableWidget->setItem(ui->res_tableWidget->rowCount()-1, 0, new QTableWidgetItem(seq_str));
+    ui->res_tableWidget->setItem(ui->res_tableWidget->rowCount()-1, 1, new QTableWidgetItem(QString::number(seq.support, 'f', 3)));
+    ui->res_tableWidget->setItem(ui->res_tableWidget->rowCount()-1, 2, new QTableWidgetItem(seq.lift < 0 ? "null ": QString::number(seq.lift, 'f', 3)));
+  }
+
+  ui->res_tableWidget->resizeColumnsToContents();
+  ui->res_tableWidget->horizontalHeader()->setStretchLastSection(true);
+
+  ui->gsp_pushButton->setDisabled(false);
 }
 
 void MainWindow::on_dir_choose_pushButton_clicked()
@@ -155,6 +177,7 @@ void MainWindow::on_read_logs_pushButton_clicked()
     return;
   }
 
+  ui->read_logs_pushButton->setDisabled(true);
   if (db->setSQLiteDataBase(db_name) != OK)
   {
     QMessageBox::warning(this, "Ошибка", db->lastError());
@@ -221,13 +244,24 @@ void MainWindow::on_set_db_pushButton_clicked()
 
 void MainWindow::on_gsp_pushButton_clicked()
 {
+  ui->gsp_pushButton->setDisabled(true);
   try
   {
     double min_sup = ui->min_sup_doubleSpinBox->value();
     int min_gap = ui->min_gap_spinBox->value();
     int max_gap = ui->max_gap_spinBox->value();
 
-    chrono::time_point<Clock> start = Clock::now();
+    GSPWorker *worker = new GSPWorker(gsp, min_sup, min_gap, max_gap);
+    QThread *worker_thread = new QThread();
+    worker->moveToThread(worker_thread);
+
+    connect(worker_thread, SIGNAL(finished()), worker, SLOT(deleteLater()));
+    connect(worker_thread, SIGNAL(started()), worker, SLOT(run()));
+    connect(worker, SIGNAL(resultReady(QList<Sequence>)), this, SLOT(showResultsTable(QList<Sequence>)));
+
+    worker_thread->start();
+
+    /*chrono::time_point<Clock> start = Clock::now();
     QList<Sequence> res = gsp.getFrequentSequences(min_sup, min_gap, max_gap);
     chrono::time_point<Clock> end = Clock::now();
     chrono::nanoseconds diff = chrono::duration_cast<chrono::nanoseconds>(end - start);
@@ -251,7 +285,7 @@ void MainWindow::on_gsp_pushButton_clicked()
     }
 
     ui->res_tableWidget->resizeColumnsToContents();
-    ui->res_tableWidget->horizontalHeader()->setStretchLastSection(true);
+    ui->res_tableWidget->horizontalHeader()->setStretchLastSection(true);*/
   }
   catch (QString e)
   {
