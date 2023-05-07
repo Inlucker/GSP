@@ -5,8 +5,8 @@ LogReader::LogReader()
 {
   dir_filters = QDir::Files | QDir::Dirs | QDir::NoDotAndDotDot;
   ignore_commands = {"Inspector", "StartupVPerfTest", "TipOfDay",
-                                            "/Inspector", "/StartupVPerfTest", "/TipOfDay",
-                                            "/Exit", "/NewDocument", "/OpenDocument"};
+                     "/Inspector", "/StartupVPerfTest", "/TipOfDay",
+                     "/Exit", "/NewDocument", "/OpenDocument"};
   new_session_commands = {"Exit", "NewDocument", "OpenDocument"};
   end_cmds = false;
 }
@@ -57,6 +57,26 @@ void LogReader::readLogsWithoutTime(QString dir_name)
 void LogReader::includeEndCmds(bool val)
 {
   LogReader::end_cmds = val;
+}
+
+QStringList LogReader::getIgnoreList() const
+{
+  return ignore_commands;
+}
+
+QStringList LogReader::getNewSessionCmdsList() const
+{
+  return new_session_commands;
+}
+
+void LogReader::setIgnoreList(QStringList list)
+{
+  ignore_commands = list;
+}
+
+void LogReader::setNewSessionCmdsList(QStringList list)
+{
+  new_session_commands = list;
 }
 
 void LogReader::readFile(const QFileInfo &file_info, QList<QString> &commands, int &session_id)

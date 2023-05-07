@@ -5,6 +5,7 @@
 #include "LogReader.h"
 #include "DataBaseWindow.h"
 #include "GSPResWindow.h"
+#include "CmdListWindow.h"
 #include <QMainWindow>
 #include <QFileDialog>
 #include <QMessageBox>
@@ -49,11 +50,14 @@ private slots:
 
   void on_same_cmds_checkBox_stateChanged(int arg1);
 
+  void on_ext_settings_action_triggered(bool checked);
+
 private:
   Ui::MainWindow *ui;
   shared_ptr<QSqlTableModel> logs_model;
   unique_ptr<DataBaseWindow> db_window;
   unique_ptr<GSPResWindow> gsp_res_window;
+  unique_ptr<CmdListWindow> cmd_list_window;
   GSP gsp;
 };
 #endif // MAINWINDOW_H

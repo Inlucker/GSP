@@ -28,6 +28,10 @@ public:
   void readLogs(QString dir_name = "./");
   void readLogsWithoutTime(QString dir_name = "./");
   void includeEndCmds(bool val = true);
+  QStringList getIgnoreList() const;
+  QStringList getNewSessionCmdsList() const;
+  void setIgnoreList(QStringList list);
+  void setNewSessionCmdsList(QStringList list);
 
 private:
   void readFile(const QFileInfo& file_info, QList<QString> &commands, int &session_id);

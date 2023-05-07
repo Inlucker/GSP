@@ -9,6 +9,7 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    CmdListWindow.cpp \
     Command.cpp \
     DataBase.cpp \
     DataBaseWindow.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
     MainWindow.cpp
 
 HEADERS += \
+    CmdListWindow.h \
     Command.h \
     DataBase.h \
     DataBaseWindow.h \
@@ -32,6 +34,7 @@ HEADERS += \
     Session.h
 
 FORMS += \
+    CmdListWindow.ui \
     DataBaseWindow.ui \
     GSPResWindow.ui \
     MainWindow.ui

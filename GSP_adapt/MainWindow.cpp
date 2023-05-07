@@ -19,6 +19,9 @@ MainWindow::MainWindow(QWidget *parent)
   db_window->hide();
   gsp_res_window = make_unique<GSPResWindow>();
   gsp_res_window->hide();
+  cmd_list_window = make_unique<CmdListWindow>();
+  gsp_res_window->hide();
+
   /*LogReader lr;
   lr.readLogs("logs");*/
 
@@ -115,6 +118,14 @@ void MainWindow::on_dir_choose_pushButton_clicked()
 
 void MainWindow::on_read_logs_pushButton_clicked()
 {
+  {
+    shared_ptr<LogReader> log_reader = LogReader::instance();
+    QStringList l1 = log_reader->getIgnoreList();
+    QStringList l2 = log_reader->getNewSessionCmdsList();
+    qDebug() << "Ignore list:" << l1;
+    qDebug() << "New session list:" << l2;
+  }
+
   QString logs_dir = ui->dir_name_lineEdit->text();
   QString db_name = ui->db_lineEdit->text();
   shared_ptr<DataBase> db = DataBase::instance();
@@ -271,5 +282,11 @@ void MainWindow::on_end_cmds_checkBox_stateChanged(int arg1)
 void MainWindow::on_same_cmds_checkBox_stateChanged(int arg1)
 {
   gsp.setSameCmds(arg1);
+}
+
+void MainWindow::on_ext_settings_action_triggered(bool checked)
+{
+  cmd_list_window->setup();
+  cmd_list_window->show();
 }
 

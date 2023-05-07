@@ -462,8 +462,20 @@
      <height>27</height>
     </rect>
    </property>
+   <widget class="QMenu" name="ext_settings_menu">
+    <property name="title">
+     <string>Настройки</string>
+    </property>
+    <addaction name="ext_settings_action"/>
+   </widget>
+   <addaction name="ext_settings_menu"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="ext_settings_action">
+   <property name="text">
+    <string>Расширенные настройки</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>
