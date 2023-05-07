@@ -110,6 +110,12 @@ void MainWindow::showResultsTable(QList<Sequence> res)
   ui->gsp_pushButton->setDisabled(false);
 }
 
+void MainWindow::gspError(QString err)
+{
+  ui->gsp_pushButton->setDisabled(false);
+  QMessageBox::warning(this, "Ошибка", err);
+}
+
 void MainWindow::on_dir_choose_pushButton_clicked()
 {
   QFileDialog dialog(this);
@@ -258,6 +264,7 @@ void MainWindow::on_gsp_pushButton_clicked()
     connect(worker_thread, SIGNAL(finished()), worker, SLOT(deleteLater()));
     connect(worker_thread, SIGNAL(started()), worker, SLOT(run()));
     connect(worker, SIGNAL(resultReady(QList<Sequence>)), this, SLOT(showResultsTable(QList<Sequence>)));
+    connect(worker, SIGNAL(error(QString)), this, SLOT(gspError(QString)));
 
     worker_thread->start();
 

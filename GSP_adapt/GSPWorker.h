@@ -18,6 +18,7 @@ public slots:
 
 signals:
   void resultReady(QList<Sequence>);
+  void error(QString);
 
 private:
   GSP &gsp;

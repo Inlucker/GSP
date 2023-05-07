@@ -31,6 +31,8 @@ private slots:
 
   void showResultsTable(QList<Sequence> res);
 
+  void gspError(QString err);
+
   void on_dir_choose_pushButton_clicked();
 
   void on_read_logs_pushButton_clicked();
