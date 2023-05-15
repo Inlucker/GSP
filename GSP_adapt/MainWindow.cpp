@@ -177,11 +177,6 @@ void MainWindow::on_read_logs_pushButton_clicked()
       return;
     }
   }
-  else
-  {
-    QMessageBox::warning(this, "Ошибка", "Базы данных не существует");
-    return;
-  }
 
   ui->read_logs_pushButton->setDisabled(true);
   if (db->setSQLiteDataBase(db_name) != OK)
