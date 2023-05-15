@@ -132,7 +132,7 @@ Status DataBase::addCommand(int session_id, const QString &datetime, const QStri
   return status;
 }
 
-Status DataBase::addCommand(int session_id, int int_time, const QString &cmd)
+Status DataBase::addCommand(int session_id, int int_time, const QString &cmd, int &id)
 {
   QString q_str = "insert into logs(session_id, int_time, command) values(";
   q_str += QString::number(session_id) + ", ";
@@ -140,7 +140,10 @@ Status DataBase::addCommand(int session_id, int int_time, const QString &cmd)
   q_str += QString::number(int_time) + ", '";
   q_str += cmd + "');";
 
-  return execQuery(q_str);
+  Status status = execQuery(q_str);
+  if (status == OK)
+    id = m_query.lastInsertId().toInt();
+  return status;
 }
 
 Status DataBase::getCmdsMap(QMap<int, QString> &cmds_map)

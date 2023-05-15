@@ -99,8 +99,6 @@ void LogReader::readFile(const QFileInfo &file_info, QList<QString> &commands, i
       if (end_cmds)
       {
         QStringList cmds = getTwoCommandsFromRecord(line);
-        if (cmds.size() > 2)
-          qDebug () << "Here: " << cmds;
         for (int i = 0; i < cmds.size(); i++)
         {
           QString cmd = cmds[i];
@@ -201,32 +199,80 @@ void LogReader::readFileWithoutTime(const QFileInfo &file_info, QList<QString> &
     return; // не получилось открыть файл
 
   shared_ptr<DataBase> db = DataBase::instance();
+  bool empty_session = true;
   int int_time = 0;
   while (!file.atEnd())
   {
     QString line = QString(file.readLine());
     if (line[0] == '<')
     {
-      QString cmd;
-      if (getCommandFromRecord(line, cmd))
+      if (end_cmds)
       {
-        bool cmd_exists = false;
-        for (const QString& c : commands)
-          if (c == cmd)
-          {
-            cmd_exists = true;
-            break;
-          }
-        if (!cmd_exists)
-          commands.append(cmd);
-
-        if (db->addCommand(session_id, int_time++, cmd) != OK)
-          qDebug() << db->lastError(); //Make throw instead qDebug()?
-
-        if (cmd == "Exit")
+        QStringList cmds = getTwoCommandsFromRecord(line);
+        for (int i = 0; i < cmds.size(); i++)
         {
-          session_id++;
-          int_time = 0;
+          QString cmd = cmds[i];
+          if (new_session_commands.contains(cmd))
+          {
+            if (!empty_session)
+            {
+              session_id++;
+              empty_session = true;
+            }
+          }
+          else
+          {
+            empty_session = false;
+            bool cmd_exists = false;
+            for (const QString& c : commands)
+              if (c == cmd)
+              {
+                cmd_exists = true;
+                break;
+              }
+            if (!cmd_exists)
+              commands.append(cmd);
+
+            int id = -1;
+            if (db->addCommand(session_id, int_time++, cmd, id) != OK)
+              qDebug() << db->lastError(); //Make throw instead qDebug()?
+            if (id % 100 == 0)
+              qDebug() << id;
+          }
+        }
+      }
+      else
+      {
+        QString cmd = "";
+        if (getCommandFromRecord(line, cmd))
+        {
+          if (new_session_commands.contains(cmd))
+          {
+            if (!empty_session)
+            {
+              session_id++;
+              empty_session = true;
+            }
+          }
+          else
+          {
+            empty_session = false;
+            bool cmd_exists = false;
+            for (const QString& c : commands)
+              if (c == cmd)
+              {
+                cmd_exists = true;
+                break;
+              }
+            if (!cmd_exists)
+              commands.append(cmd);
+
+            int id = -1;
+            if (db->addCommand(session_id, int_time++, cmd, id) != OK)
+              qDebug() << db->lastError(); //Make throw instead qDebug()?
+            if (id % 100 == 0)
+              qDebug() << id;
+          }
         }
       }
     }

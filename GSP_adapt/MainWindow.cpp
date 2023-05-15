@@ -190,7 +190,8 @@ void MainWindow::on_read_logs_pushButton_clicked()
     return;
   }
 
-  ReadLogsWorker *worker = new ReadLogsWorker(logs_dir, db_name);
+  bool lwt = !ui->logs_without_time_checkBox->isChecked();
+  ReadLogsWorker *worker = new ReadLogsWorker(logs_dir, db_name, lwt);
   QThread *worker_thread = new QThread();
   worker->moveToThread(worker_thread);
 

@@ -10,7 +10,7 @@ class ReadLogsWorker : public QObject
 {
   Q_OBJECT
 public:
-  explicit ReadLogsWorker(const QString &_dir = "./", const QString &_db_name = "./");
+  explicit ReadLogsWorker(const QString &_dir = "./", const QString &_db_name = "./", bool _logs_with_time = true);
 
 public slots:
   void run();
@@ -21,6 +21,7 @@ signals:
 private:
   QString dir = "./";
   QString db_name = "./";
+  bool logs_with_time = true;
 };
 
 #endif // READLOGSWORKER_H
