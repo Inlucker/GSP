@@ -262,7 +262,7 @@ bool GSP::sessionSupportsSequence(const Session& session, const Sequence& seq)
         int prev_cmd_id = cur_id < 2 ? -1 : ids[cur_id - 2];
         int min_time = times[cur_id] - max_gap;
         bool is_founded = findCommand(seq[cur_id - 1], session, min_time, prev_cmd_id, new_time, new_id);
-        if (is_founded && new_id < ids[cur_id])
+        if (is_founded)
         {
           times[cur_id - 1] = new_time;
           cmds[cur_id - 1] = seq[cur_id - 1];
@@ -276,7 +276,7 @@ bool GSP::sessionSupportsSequence(const Session& session, const Sequence& seq)
         }
         if (cur_id - 1 == 0 || new_time - times[cur_id - 2] <= max_gap) //ok
         {
-          if (times[cur_id] - new_time >= min_gap)
+          if (times[cur_id] - new_time >= min_gap && new_id < ids[cur_id])
             cur_id++;
           phase = 1;
         }
