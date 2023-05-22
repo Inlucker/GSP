@@ -20,7 +20,12 @@ QList<Sequence> Calculator::getFrequentSequences(double _min_sup, int _min_gap, 
   //ToDo Заменить на постепенную подгрузу сессий по страницам
   QList<Session> sessions;
   shared_ptr<DataBase> db = DataBase::instance();
+
+  chrono::time_point<Clock> start = Clock::now();
   db->getAllLogs(cmds_map.size(), sessions);
+  chrono::time_point<Clock> end = Clock::now();
+  chrono::nanoseconds diff = chrono::duration_cast<chrono::nanoseconds>(end - start);
+  qDebug() << "getAllLogs() time: " << diff.count() / 1000000000. << " s";
 
   this->freq_seqs.clear();
   QList<Sequence> candidates = generateCandidates1();

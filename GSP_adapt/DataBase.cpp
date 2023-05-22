@@ -187,8 +187,8 @@ Status DataBase::getAllLogs(int commands_num, QList<Session> &sessions)
                         )\
                       )\
                       select id, session_id, int_time, cmd_id\
-                      from cmds_ids join logs on (cmds_ids.command = logs.command)\
-                      order by id, session_id, int_time;";
+                      from logs left join cmds_ids on (cmds_ids.command = logs.command)\
+                      order by id;";
 
   Status s = execQuery(query_str);
   if (s != OK)
