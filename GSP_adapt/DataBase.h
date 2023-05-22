@@ -31,6 +31,7 @@ public:
   Status getSessionsInLogs(int &sessions_n);
   Status addCommand(int session_id, const QString& datetime, const QString &cmd, int &id);
   Status addCommand(int session_id, int int_time, const QString &cmd, int &id);
+  Status fillCmdIds();
   Status getCmdsMap(QMap<int, QString>& cmds_map);
   Status getSessionsNum(int& sessions_num);
   Status getAllLogs(int commands_num, QList<Session>& sessions);

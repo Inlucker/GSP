@@ -146,6 +146,47 @@ Status DataBase::addCommand(int session_id, int int_time, const QString &cmd, in
   return status;
 }
 
+Status DataBase::fillCmdIds()
+{
+  QString query_str = "with cmds_ids(command, cmd_id) as\
+                      (\
+                        select command, (row_number() over (partition by same))-1 as cmd_id\
+                        from\
+                        (\
+                          select 1 as same, command\
+                          from logs\
+                          group by command\
+                        )\
+                      )\
+                      select id, cmds_ids.cmd_id\
+                      from logs left join cmds_ids on (cmds_ids.command = logs.command)\
+                      order by id;";
+
+  Status s = execQuery(query_str);
+  if (s != OK)
+    return s;
+
+  QList<pair<int,int>> ids;
+
+  while (m_query.next())
+  {
+    int id = m_query.value(0).toInt();
+    int cmd_id = m_query.value(1).toInt();
+
+    ids.append(make_pair(cmd_id, id));
+  }
+
+  for (int i = 0; i < ids.size(); i++)
+  {
+    query_str = QString("UPDATE logs SET cmd_id=%1 WHERE id=%2;").arg(ids[i].first).arg(ids[i].second);
+    Status s = execQuery(query_str);
+    if (s != OK)
+      return s;
+  }
+
+  return s;
+}
+
 Status DataBase::getCmdsMap(QMap<int, QString> &cmds_map)
 {
   QString q_str = "SELECT command FROM logs GROUP BY command;";

@@ -42,16 +42,10 @@ void LogReader::readLogsWithoutTime(QString dir_name)
   int session_id = 0;
 
   for (QFileInfo& file_info : dir.entryInfoList())
-  {
     if (file_info.isFile() && file_info.completeSuffix() == "log")
-    {
       readFileWithoutTime(file_info, commands, session_id);
-    }
     else if (file_info.isDir())
-    {
       readDirWithoutTime(file_info.absoluteFilePath(), commands, session_id);
-    }
-  }
 }
 
 void LogReader::includeEndCmds(bool val)
