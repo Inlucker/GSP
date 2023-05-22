@@ -70,7 +70,7 @@ void MainWindow::showLogsTable(const QString &db_name)
   logs_model->setTable("logs");
   QStringList headers = QStringList() << "id" << "session_id" << "date_time" << "int_time" << "command";
 
-  for (int i = 0; i < logs_model->columnCount(); i++)
+  for (int i = 0; i < headers.size(); i++)
       logs_model->setHeaderData(i, Qt::Horizontal, headers[i]);
 
   logs_model->setSort(0,Qt::AscendingOrder);
