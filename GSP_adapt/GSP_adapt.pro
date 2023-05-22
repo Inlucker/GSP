@@ -9,11 +9,11 @@ CONFIG += c++17
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Calculator.cpp \
     CmdListWindow.cpp \
     Command.cpp \
     DataBase.cpp \
     DataBaseWindow.cpp \
-    GSP.cpp \
     GSPResWindow.cpp \
     GSPWorker.cpp \
     LogReader.cpp \
@@ -24,11 +24,11 @@ SOURCES += \
     MainWindow.cpp
 
 HEADERS += \
+    Calculator.h \
     CmdListWindow.h \
     Command.h \
     DataBase.h \
     DataBaseWindow.h \
-    GSP.h \
     GSPResWindow.h \
     GSPWorker.h \
     LogReader.h \

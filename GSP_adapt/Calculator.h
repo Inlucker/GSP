@@ -1,5 +1,5 @@
-#ifndef GSP_H
-#define GSP_H
+#ifndef CALCULATOR_H
+#define CALCULATOR_H
 
 #include "LogReader.h"
 #include "Sequence.h"
@@ -8,10 +8,10 @@
 #include <QList>
 #include <QMap>
 
-class GSP
+class Calculator
 {
 public:
-  GSP();
+  Calculator();
 
   QList<Sequence> getFrequentSequences(double _min_sup = -1, int _min_gap = -1, int _max_gap = -1);
   void printFrequentSequences();
@@ -48,4 +48,4 @@ private:
   bool same_cmds = true;
 };
 
-#endif // GSP_H
+#endif // CALCULATOR_H

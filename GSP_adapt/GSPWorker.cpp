@@ -1,6 +1,6 @@
 #include "GSPWorker.h"
 
-GSPWorker::GSPWorker(GSP &_gsp, double _min_sup, int _min_gap, int _max_gap)
+GSPWorker::GSPWorker(Calculator &_gsp, double _min_sup, int _min_gap, int _max_gap)
   : gsp(_gsp),
     min_sup(_min_sup),
     min_gap(_min_gap),

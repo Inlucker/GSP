@@ -1,13 +1,13 @@
-#include "GSP.h"
+#include "Calculator.h"
 #include <chrono>
 
 typedef chrono::high_resolution_clock Clock;
 
-GSP::GSP()
+Calculator::Calculator()
 {
 }
 
-QList<Sequence> GSP::getFrequentSequences(double _min_sup, int _min_gap, int _max_gap)
+QList<Sequence> Calculator::getFrequentSequences(double _min_sup, int _min_gap, int _max_gap)
 {
   if (_min_sup >= 0)
     min_support = _min_sup;
@@ -42,7 +42,7 @@ QList<Sequence> GSP::getFrequentSequences(double _min_sup, int _min_gap, int _ma
   return this->freq_seqs;
 }
 
-void GSP::printFrequentSequences()
+void Calculator::printFrequentSequences()
 {
   /*for (int i = 0; i < freq_seqs.size(); i++)
     cout << freq_seqs[i];*/
@@ -78,7 +78,7 @@ void GSP::printFrequentSequences()
   }
 }
 
-QString GSP::getSeqStr(const Sequence &seq)
+QString Calculator::getSeqStr(const Sequence &seq)
 {
   QString res = "<";
   for (int j = 0; j < seq.size(); j++)
@@ -88,12 +88,12 @@ QString GSP::getSeqStr(const Sequence &seq)
   return res;
 }
 
-void GSP::setSameCmds(bool val)
+void Calculator::setSameCmds(bool val)
 {
   same_cmds = val;
 }
 
-void GSP::test1()
+void Calculator::test1()
 {
   cur_freq_seqs.clear();
   cur_freq_seqs.push_back({1, 2, 3});
@@ -109,7 +109,7 @@ void GSP::test1()
     cout << candidates[i];
 }
 
-void GSP::test5()
+void Calculator::test5()
 {
   shared_ptr<LogReader> log_reader = LogReader::instance();
 
@@ -139,7 +139,7 @@ void GSP::test5()
   qDebug() << "printFrequentSequences() time: " << diff.count() / 1000000000. << " s";
 }
 
-void GSP::test6()
+void Calculator::test6()
 {
   shared_ptr<LogReader> log_reader = LogReader::instance();
   log_reader->readLogsWithoutTime(".\\logs_without_time");
@@ -151,7 +151,7 @@ void GSP::test6()
   printFrequentSequences();
 }
 
-void GSP::prepareGSP()
+void Calculator::prepareGSP()
 {
   shared_ptr<DataBase> db = DataBase::instance();
   if (db->getCmdsMap(cmds_map) != OK)
@@ -161,7 +161,7 @@ void GSP::prepareGSP()
     throw db->lastError();
 }
 
-QList<Sequence> GSP::generateCandidates1()
+QList<Sequence> Calculator::generateCandidates1()
 {
   QList<Sequence> candidates;
   for (int i = 0; i < this->cmds_map.size(); i++)
@@ -169,7 +169,7 @@ QList<Sequence> GSP::generateCandidates1()
   return candidates;
 }
 
-QList<Sequence> GSP::generateCandidates()
+QList<Sequence> Calculator::generateCandidates()
 {
   QList<Sequence> candidates;
   //Join
@@ -183,7 +183,7 @@ QList<Sequence> GSP::generateCandidates()
   return candidates;
 }
 
-bool GSP::findCommand(int cmd, const Session &session, int min_time, int prev_cmd_id, int& time, int &id) const
+bool Calculator::findCommand(int cmd, const Session &session, int min_time, int prev_cmd_id, int& time, int &id) const
 {
   const QList<forward_list<pair<int,int>>> nodes_list = session.getRepresintationNodesList();
   int item_id = cmd;
@@ -210,7 +210,7 @@ bool GSP::findCommand(int cmd, const Session &session, int min_time, int prev_cm
   }
 }
 
-bool GSP::sessionSupportsSequence(const Session& session, const Sequence& seq)
+bool Calculator::sessionSupportsSequence(const Session& session, const Sequence& seq)
 {
   bool res = false;
   int phase = 1;
@@ -294,7 +294,7 @@ bool GSP::sessionSupportsSequence(const Session& session, const Sequence& seq)
   return res;
 }
 
-Sequence GSP::findFreqSequenceByCommand(int cmd)
+Sequence Calculator::findFreqSequenceByCommand(int cmd)
 {
   for (int i = 0; i < freq_seqs.size(); i++)
   {
@@ -304,7 +304,7 @@ Sequence GSP::findFreqSequenceByCommand(int cmd)
   return Sequence();
 }
 
-double GSP::calcLift(Sequence seq)
+double Calculator::calcLift(Sequence seq)
 {
   double res = seq.support;
   for (int i = 0; i < seq.size(); i++)
@@ -317,7 +317,7 @@ double GSP::calcLift(Sequence seq)
   return res;
 }
 
-int GSP::countSupport(QList<Sequence> &candidates, const QList<Session>& sessions)
+int Calculator::countSupport(QList<Sequence> &candidates, const QList<Session>& sessions)
 {
   int res = 0;
   cur_freq_seqs.clear();
@@ -341,7 +341,7 @@ int GSP::countSupport(QList<Sequence> &candidates, const QList<Session>& session
   return res;
 }
 
-void GSP::sortFrequentSequences()
+void Calculator::sortFrequentSequences()
 {
   sort(freq_seqs.begin(), freq_seqs.end(), greater<>());
 }

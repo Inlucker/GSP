@@ -1,7 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "GSP.h"
+#include "Calculator.h"
 #include "LogReader.h"
 #include "DataBaseWindow.h"
 #include "GSPResWindow.h"
@@ -59,6 +59,6 @@ private:
   unique_ptr<DataBaseWindow> db_window;
   unique_ptr<GSPResWindow> gsp_res_window;
   unique_ptr<CmdListWindow> cmd_list_window;
-  GSP gsp;
+  Calculator gsp;
 };
 #endif // MAINWINDOW_H

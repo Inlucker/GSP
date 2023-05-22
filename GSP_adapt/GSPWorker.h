@@ -1,7 +1,7 @@
 #ifndef GSPWORKER_H
 #define GSPWORKER_H
 
-#include "GSP.h"
+#include "Calculator.h"
 #include <QObject>
 #include <chrono>
 
@@ -11,7 +11,7 @@ class GSPWorker : public QObject
 {
   Q_OBJECT
 public:
-  explicit GSPWorker(GSP &_gsp, double _min_sup, int _min_gap, int _max_gap);
+  explicit GSPWorker(Calculator &_gsp, double _min_sup, int _min_gap, int _max_gap);
 
 public slots:
   void run();
@@ -21,7 +21,7 @@ signals:
   void error(QString);
 
 private:
-  GSP &gsp;
+  Calculator &gsp;
   double min_sup = 0.5;
   int min_gap = 0;
   int max_gap = INT_MAX;
