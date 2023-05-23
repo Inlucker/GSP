@@ -21,6 +21,7 @@ public:
   void test1();
   void test5();
   void test6();
+  void test7();
 
 private:
   void prepareGSP();

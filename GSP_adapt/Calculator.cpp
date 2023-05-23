@@ -169,6 +169,67 @@ void Calculator::test6()
   printFrequentSequences();
 }
 
+#define ITERS 100
+
+void Calculator::test7()
+{
+  min_support = 0.1;
+  min_gap = 0;
+  max_gap = INT_MAX;
+
+  prepareGSP();
+  //ToDo Заменить на постепенную подгрузу сессий по страницам
+  QList<Session> sessions;
+  shared_ptr<DataBase> db = DataBase::instance();
+  int records_num = 0;
+
+  db->getAllLogs(cmds_map.size(), sessions, records_num);
+  qDebug() << "DataBase has" << records_num << "records";
+
+  qDebug() << "Parameters: same_cmds =" << same_cmds << "; min_sup =" << min_support << "; min_gap =" << min_gap << "; max_gap =" << max_gap;
+
+  QString res[3];
+
+  for (int i = 0; i < 3; i++)
+    res[i] = "";
+
+  for (int i = 0; i < 10; i++)
+  {
+    gen_time = chrono::nanoseconds::zero();
+    count_time = chrono::nanoseconds::zero();
+
+    for (int j = 0; j < ITERS; j++)
+    {
+      this->freq_seqs.clear();
+      QList<Sequence> candidates = generateCandidates1();
+      int added_seqs_num = countSupport(candidates, sessions);
+      if (freq_seqs.size() > 0)
+      {
+        while (added_seqs_num > 0)
+        {
+          candidates = generateCandidates();
+          if (candidates.size() > 0)
+            added_seqs_num = countSupport(candidates, sessions);
+          else
+            break;
+        }
+      }
+    }
+
+    gen_time /= ITERS;
+    count_time /= ITERS;
+    qDebug() << "Method time: " << (gen_time.count()+count_time.count()) / 1000000000. << " s";
+    qDebug() << "Gen    time: " << gen_time.count() / 1000000000. << " s";
+    qDebug() << "Count  time: " << count_time.count() / 1000000000. << " s";
+    res[0] += "(" + QString::number(min_support) + ", " + QString::number((gen_time.count()+count_time.count()) / 1000000000.) + ")";
+    res[1] += "(" + QString::number(min_support) + ", " + QString::number(gen_time.count() / 1000000000.) + ")";
+    res[2] += "(" + QString::number(min_support) + ", " + QString::number(count_time.count() / 1000000000.) + ")";
+    min_support -= 0.01;
+  }
+  for (int i = 0; i < 3; i++)
+    qDebug() << res[i];
+}
+
 void Calculator::prepareGSP()
 {
   shared_ptr<DataBase> db = DataBase::instance();
