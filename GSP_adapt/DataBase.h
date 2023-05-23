@@ -34,7 +34,7 @@ public:
   Status fillCmdIds();
   Status getCmdsMap(QMap<int, QString>& cmds_map);
   Status getSessionsNum(int& sessions_num);
-  Status getAllLogs(int commands_num, QList<Session>& sessions);
+  Status getAllLogs(int commands_num, QList<Session>& sessions, int &records_num);
 
   QString lastError();
 

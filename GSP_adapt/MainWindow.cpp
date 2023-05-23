@@ -147,13 +147,13 @@ void MainWindow::on_dir_choose_pushButton_clicked()
 
 void MainWindow::on_read_logs_pushButton_clicked()
 {
-  {
+  /*{
     shared_ptr<LogReader> log_reader = LogReader::instance();
     QStringList l1 = log_reader->getIgnoreList();
     QStringList l2 = log_reader->getNewSessionCmdsList();
     qDebug() << "Ignore list:" << l1;
     qDebug() << "New session list:" << l2;
-  }
+  }*/
 
   QString logs_dir = ui->dir_name_lineEdit->text();
   QString db_name = ui->db_lineEdit->text();

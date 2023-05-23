@@ -228,8 +228,10 @@ void LogReader::readFileWithoutTime(const QFileInfo &file_info, QList<QString> &
               commands.append(cmd);
 
             int id = -1;
-            if (db->addCommand(session_id, int_time++, cmd, id) != OK)
+            if (db->addCommand(session_id, int_time, cmd, id) != OK)
               qDebug() << db->lastError(); //Make throw instead qDebug()?
+            if (i + 1 >= cmds.size())
+              int_time++;
             if (id % 100 == 0)
               qDebug() << id;
           }

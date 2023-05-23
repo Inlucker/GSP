@@ -20,12 +20,20 @@ QList<Sequence> Calculator::getFrequentSequences(double _min_sup, int _min_gap, 
   //ToDo Заменить на постепенную подгрузу сессий по страницам
   QList<Session> sessions;
   shared_ptr<DataBase> db = DataBase::instance();
+  int records_num = 0;
 
   chrono::time_point<Clock> start = Clock::now();
-  db->getAllLogs(cmds_map.size(), sessions);
+  db->getAllLogs(cmds_map.size(), sessions, records_num);
   chrono::time_point<Clock> end = Clock::now();
   chrono::nanoseconds diff = chrono::duration_cast<chrono::nanoseconds>(end - start);
   qDebug() << "getAllLogs() time: " << diff.count() / 1000000000. << " s";
+
+  qDebug() << "DataBase has" << records_num << "records";
+
+  qDebug() << "Parameters: same_cmds =" << same_cmds << "; min_sup =" << min_support << "; min_gap =" << min_gap << "; max_gap =" << max_gap;
+
+  gen_time = std::chrono::nanoseconds::zero();
+  count_time = std::chrono::nanoseconds::zero();
 
   this->freq_seqs.clear();
   QList<Sequence> candidates = generateCandidates1();
@@ -35,14 +43,19 @@ QList<Sequence> Calculator::getFrequentSequences(double _min_sup, int _min_gap, 
     while (added_seqs_num > 0)
     {
       candidates = generateCandidates();
-      qDebug() << "generateCandidates() candidates.size() = " << candidates.size();
+      //qDebug() << "generateCandidates() candidates.size() = " << candidates.size();
       if (candidates.size() > 0)
         added_seqs_num = countSupport(candidates, sessions);
       else
         break;
-      qDebug() << "countSupport() added_seqs_num = " << added_seqs_num;
+      //qDebug() << "countSupport() added_seqs_num = " << added_seqs_num;
     }
   }
+  qDebug() << "Method time: " << (gen_time.count()+count_time.count()) / 1000000000. << " s";
+  qDebug() << "Gen    time: " << gen_time.count() / 1000000000. << " s";
+  qDebug() << "Count  time: " << count_time.count() / 1000000000. << " s";
+  qDebug();
+
   sortFrequentSequences();
   return this->freq_seqs;
 }
@@ -168,23 +181,40 @@ void Calculator::prepareGSP()
 
 QList<Sequence> Calculator::generateCandidates1()
 {
+  chrono::time_point<Clock> start = Clock::now();
+
+  //method
   QList<Sequence> candidates;
   for (int i = 0; i < this->cmds_map.size(); i++)
     candidates.push_back(Sequence(i));
+
+  chrono::time_point<Clock> end = Clock::now();
+  chrono::nanoseconds diff = chrono::duration_cast<chrono::nanoseconds>(end - start);
+  gen_time += diff;
+  //qDebug() << "generateCandidates1() time: " << diff.count() / 1000000000. << " s";
+  //qDebug() << "gen-d" << candidates.size() << "candidates";
+
   return candidates;
 }
 
 QList<Sequence> Calculator::generateCandidates()
 {
+  chrono::time_point<Clock> start = Clock::now();
+
+  //method
   QList<Sequence> candidates;
   //Join
   for (const Sequence &seq1 : cur_freq_seqs)
     for (const Sequence &seq2 : cur_freq_seqs)
-    {
-      //if (seq1 != seq2 && Sequence::isJoinable(seq1, seq2)) // excludes <(x),(x)>
       if (Sequence::isJoinable(seq1, seq2) && (same_cmds || seq1 != seq2))
         candidates.push_back(Sequence::join(seq1, seq2)); // <(x),(y)>
-    }
+
+  chrono::time_point<Clock> end = Clock::now();
+  chrono::nanoseconds diff = chrono::duration_cast<chrono::nanoseconds>(end - start);
+  gen_time += diff;
+  //qDebug() << "generateCandidates() time: " << diff.count() / 1000000000. << " s";
+  //qDebug() << "gen-d" << candidates.size() << "candidates";
+
   return candidates;
 }
 
@@ -324,6 +354,9 @@ double Calculator::calcLift(Sequence seq)
 
 int Calculator::countSupport(QList<Sequence> &candidates, const QList<Session>& sessions)
 {
+  chrono::time_point<Clock> start = Clock::now();
+
+  //method
   int res = 0;
   cur_freq_seqs.clear();
   for (Sequence& candidate : candidates)
@@ -343,6 +376,13 @@ int Calculator::countSupport(QList<Sequence> &candidates, const QList<Session>& 
       res++;
     }
   }
+
+  chrono::time_point<Clock> end = Clock::now();
+  chrono::nanoseconds diff = chrono::duration_cast<chrono::nanoseconds>(end - start);
+  count_time += diff;
+  //qDebug() << "countSupport() time: " << diff.count() / 1000000000. << " s";
+  //qDebug() << "added" << res << "sequences";
+
   return res;
 }
 

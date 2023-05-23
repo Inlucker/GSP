@@ -215,7 +215,7 @@ Status DataBase::getSessionsNum(int &sessions_num)
   return s;
 }
 
-Status DataBase::getAllLogs(int commands_num, QList<Session> &sessions)
+Status DataBase::getAllLogs(int commands_num, QList<Session> &sessions, int &records_num)
 {
   QString query_str = "with cmds_ids(command, cmd_id) as\
                       (\
@@ -256,8 +256,9 @@ Status DataBase::getAllLogs(int commands_num, QList<Session> &sessions)
 
     //commands.append(Command(session_id, time.toSecsSinceEpoch(), cmd_id));
     commands.append(Command(id, session_id, time, cmd_id));
-    if (id % 10000 == 0)
-      qDebug() << "read" << id << "cmds;";
+    /*if (id % 10000 == 0)
+      qDebug() << "read" << id << "cmds;";*/
+    records_num = id;
   }
   sessions[cur_session_id].setCommands(commands, commands_num);
   commands.clear();

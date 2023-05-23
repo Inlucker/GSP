@@ -46,6 +46,9 @@ private:
   int min_gap = 0;
   int max_gap = INT_MAX;
   bool same_cmds = true;
+
+  chrono::nanoseconds gen_time = std::chrono::nanoseconds::zero();;
+  chrono::nanoseconds count_time = std::chrono::nanoseconds::zero();;
 };
 
 #endif // CALCULATOR_H
