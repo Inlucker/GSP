@@ -6,18 +6,6 @@
 
 using namespace std;
 
-class Action
-{
-public:
-  Action(int _time, QString _command)
-  {
-    this->time = _time;
-    this->command = _command;
-  }
-  int time;
-  QString command;
-};
-
 class LogReader
 {
 public:
