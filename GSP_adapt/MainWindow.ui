@@ -21,7 +21,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,4,4">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout_5" stretch="10,9,1">
+     <layout class="QVBoxLayout" name="verticalLayout_5" stretch="10,9,1,0">
       <item>
        <widget class="QGroupBox" name="groupBox_2">
         <property name="sizePolicy">
@@ -341,6 +341,13 @@
         </property>
         <property name="text">
          <string>Вычислить ЧВП</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton">
+        <property name="text">
+         <string>PushButton</string>
         </property>
        </widget>
       </item>

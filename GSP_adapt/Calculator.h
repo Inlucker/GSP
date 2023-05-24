@@ -21,7 +21,9 @@ public:
   void test1();
   void test5();
   void test6();
-  void test7();
+  void testMinSup();
+  void testMinGap();
+  void testMaxGap();
 
 private:
   void prepareGSP();

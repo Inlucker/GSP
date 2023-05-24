@@ -53,6 +53,8 @@ private slots:
 
   void on_ext_settings_action_triggered(bool checked);
 
+  void on_pushButton_clicked();
+
 private:
   Ui::MainWindow *ui;
   shared_ptr<QSqlTableModel> logs_model;

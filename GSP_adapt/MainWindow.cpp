@@ -341,3 +341,11 @@ void MainWindow::on_ext_settings_action_triggered(bool checked)
   cmd_list_window->raise();
 }
 
+
+void MainWindow::on_pushButton_clicked()
+{
+  //gsp.testMinSup();
+  gsp.testMinGap();
+  gsp.testMaxGap();
+}
+
