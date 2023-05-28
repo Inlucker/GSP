@@ -89,6 +89,7 @@ void MainWindow::showLogsTable(const QString &db_name)
   ui->logs_tableView->horizontalHeader()->setStretchLastSection(true);
 
   ui->read_logs_pushButton->setDisabled(false);
+  gsp.prepareGSP();
 }
 
 void MainWindow::showResultsTable(QList<Sequence> res)

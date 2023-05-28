@@ -7,6 +7,27 @@ Calculator::Calculator()
 {
 }
 
+int Calculator::prepareGSP()
+{
+  shared_ptr<DataBase> db = DataBase::instance();
+  if (db->getCmdsMap(cmds_map) != OK)
+    throw db->lastError();
+
+  if (db->getSessionsNum(sessions_count) != OK)
+    throw db->lastError();
+
+  records_num = 0;
+  sessions.clear();
+  chrono::time_point<Clock> start = Clock::now();
+  if (db->getAllLogs(cmds_map.size(), sessions, records_num) != OK)
+    throw db->lastError();
+  chrono::time_point<Clock> end = Clock::now();
+  chrono::nanoseconds diff = chrono::duration_cast<chrono::nanoseconds>(end - start);
+  qDebug() << "getAllLogs() time: " << diff.count() / 1000000000. << " s";
+
+  return records_num;
+}
+
 QList<Sequence> Calculator::getFrequentSequences(double _min_sup, int _min_gap, int _max_gap)
 {
   if (_min_sup >= 0)
@@ -16,9 +37,9 @@ QList<Sequence> Calculator::getFrequentSequences(double _min_sup, int _min_gap, 
   if (_max_gap >= 0)
     max_gap = _max_gap;
 
-  prepareGSP();
+  //prepareGSP();
   //ToDo Заменить на постепенную подгрузу сессий по страницам
-  QList<Session> sessions;
+  /*QList<Session> sessions;
   shared_ptr<DataBase> db = DataBase::instance();
   int records_num = 0;
 
@@ -26,7 +47,7 @@ QList<Sequence> Calculator::getFrequentSequences(double _min_sup, int _min_gap, 
   db->getAllLogs(cmds_map.size(), sessions, records_num);
   chrono::time_point<Clock> end = Clock::now();
   chrono::nanoseconds diff = chrono::duration_cast<chrono::nanoseconds>(end - start);
-  qDebug() << "getAllLogs() time: " << diff.count() / 1000000000. << " s";
+  qDebug() << "getAllLogs() time: " << diff.count() / 1000000000. << " s";*/
 
   qDebug() << "DataBase has" << records_num << "records";
 
@@ -228,16 +249,6 @@ void Calculator::test7()
   }
   for (int i = 0; i < 3; i++)
     qDebug() << res[i];
-}
-
-void Calculator::prepareGSP()
-{
-  shared_ptr<DataBase> db = DataBase::instance();
-  if (db->getCmdsMap(cmds_map) != OK)
-    throw db->lastError();
-
-  if (db->getSessionsNum(sessions_count) != OK)
-    throw db->lastError();
 }
 
 QList<Sequence> Calculator::generateCandidates1()

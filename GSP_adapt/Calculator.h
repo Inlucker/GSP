@@ -13,6 +13,7 @@ class Calculator
 public:
   Calculator();
 
+  int prepareGSP();
   QList<Sequence> getFrequentSequences(double _min_sup = -1, int _min_gap = -1, int _max_gap = -1);
   void printFrequentSequences();
   QString getSeqStr(const Sequence &seq);
@@ -24,7 +25,6 @@ public:
   void test7();
 
 private:
-  void prepareGSP();
   QList<Sequence> generateCandidates1();
   QList<Sequence> generateCandidates();
   bool findCommand(int cmd, const Session& session, int min_time, int prev_cmd_id, int &time, int &id) const;
@@ -40,6 +40,8 @@ private:
   QMap<int, QString> cmds_map;
   int sessions_count = 0;
   QString db_file_path;
+  QList<Session> sessions;
+  int records_num = 0;
 
   //LogReader log_reader;
 
