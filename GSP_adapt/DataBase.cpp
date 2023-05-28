@@ -237,6 +237,7 @@ Status DataBase::getAllLogs(int commands_num, QList<Session> &sessions, int &rec
 
   sessions.clear();
   int cur_session_id = 0;
+  int check_session_id = 0;
   sessions.push_back(Session(cur_session_id));
   QList<Command> commands;
   while (m_query.next())
@@ -246,19 +247,21 @@ Status DataBase::getAllLogs(int commands_num, QList<Session> &sessions, int &rec
     int time = m_query.value(2).toInt();
     int cmd_id = m_query.value(3).toString().toInt();
 
-    if (session_id > cur_session_id)
+    if (session_id > check_session_id)
     {
       sessions[cur_session_id].setCommands(commands, commands_num);
-      cur_session_id = session_id;
+      //cur_session_id = session_id;
+      check_session_id = session_id;
+      cur_session_id++;
       sessions.push_back(Session(cur_session_id));
       commands.clear();
     }
 
     //commands.append(Command(session_id, time.toSecsSinceEpoch(), cmd_id));
-    commands.append(Command(id, session_id, time, cmd_id));
+    commands.append(Command(id, cur_session_id, time, cmd_id));
     /*if (id % 10000 == 0)
       qDebug() << "read" << id << "cmds;";*/
-    records_num = id;
+    records_num++;
   }
   sessions[cur_session_id].setCommands(commands, commands_num);
   commands.clear();

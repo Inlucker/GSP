@@ -16,7 +16,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Результат алгоритма</string>
+   <string>Результат работы программы</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -28,12 +28,12 @@
      </column>
      <column>
       <property name="text">
-       <string>support</string>
+       <string>Поддержка</string>
       </property>
      </column>
      <column>
       <property name="text">
-       <string>lift</string>
+       <string>Коэффициент зависимости</string>
       </property>
      </column>
     </widget>
